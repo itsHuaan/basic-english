@@ -266,7 +266,7 @@
             opacity: 1;
         }
 
-        .panel > * {
+        .panel>* {
             position: relative;
             z-index: 1;
         }
@@ -1180,4 +1180,204 @@
             color: var(--ink-dim);
             font-size: 0.83rem;
             line-height: 1.5;
+        }
+
+        /* ============================================================
+           NEUMORPHISM OVERRIDES
+           ============================================================ */
+
+        :root {
+            --neu-surface: #262930;
+            --neu-shadow-dark: #1b1d22;
+            --neu-shadow-light: #31353e;
+            --neu-shadow-inset: inset 6px 6px 12px var(--neu-shadow-dark), inset -6px -6px 12px var(--neu-shadow-light);
+            --neu-shadow-outset: 6px 6px 12px var(--neu-shadow-dark), -6px -6px 12px var(--neu-shadow-light);
+            --neu-shadow-hover: 9px 9px 18px var(--neu-shadow-dark), -9px -9px 18px var(--neu-shadow-light);
+            --neu-shadow-sm: 4px 4px 8px var(--neu-shadow-dark), -4px -4px 8px var(--neu-shadow-light);
+        }
+
+        body {
+            background-color: var(--neu-surface) !important;
+            background-image: none !important;
+        }
+
+        .ambient-glow {
+            display: none !important;
+        }
+
+        .sidebar {
+            background: var(--neu-surface) !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            border-right: none !important;
+            box-shadow: 10px 0 20px rgba(0, 0, 0, 0.3) !important;
+            overflow-x: hidden !important;
+        }
+
+        .sidebar::after {
+            display: none !important;
+        }
+
+        .sheet-item {
+            margin: 4px 12px !important;
+            width: calc(100% - 24px) !important;
+            border-radius: 12px !important;
+            border-left: none !important;
+            background: transparent !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .sheet-item::before {
+            display: none !important;
+        }
+
+        .sheet-item:hover {
+            background: var(--neu-surface) !important;
+            box-shadow: var(--neu-shadow-outset) !important;
+            padding-left: 1.5rem !important;
+        }
+
+        .sheet-item.active {
+            background: var(--neu-surface) !important;
+            box-shadow: var(--neu-shadow-inset) !important;
+            border-left: none !important;
+        }
+
+        .panel {
+            background: var(--neu-surface) !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            border: none !important;
+            border-radius: 16px !important;
+            box-shadow: var(--neu-shadow-outset) !important;
+        }
+
+        .panel::before {
+            display: none !important;
+        }
+
+        .panel:hover {
+            box-shadow: var(--neu-shadow-hover) !important;
+            transform: translateY(-2px) !important;
+            background: var(--neu-surface) !important;
+        }
+
+        .title-block {
+            background: var(--neu-surface) !important;
+            border: none !important;
+            border-radius: 12px !important;
+            box-shadow: var(--neu-shadow-inset) !important;
+        }
+
+        .title-block:hover {
+            box-shadow: var(--neu-shadow-outset) !important;
+        }
+
+        #sentence-container {
+            background: var(--neu-surface) !important;
+            border: none !important;
+            border-radius: 16px !important;
+            box-shadow: var(--neu-shadow-inset) !important;
+        }
+
+        .word-token {
+            border-radius: 8px !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .word-token:hover {
+            background: var(--neu-surface) !important;
+            box-shadow: var(--neu-shadow-outset) !important;
+        }
+
+        .rc-formula,
+        .rc-formula-group,
+        .rc-example,
+        .rc-alert,
+        .rc-table-wrap,
+        .glossary-item {
+            background: var(--neu-surface) !important;
+            border: none !important;
+            border-radius: 12px !important;
+            box-shadow: var(--neu-shadow-outset) !important;
+        }
+
+        .rc-table-wrap {
+            box-shadow: var(--neu-shadow-inset) !important;
+        }
+
+        table.rc-table thead th {
+            background: var(--neu-surface) !important;
+            border-bottom: none !important;
+        }
+
+        .tense-tab {
+            background: var(--neu-surface) !important;
+            border: none !important;
+            box-shadow: var(--neu-shadow-outset) !important;
+            color: var(--ink-dim) !important;
+        }
+
+        .tense-tab.active {
+            background: var(--neu-surface) !important;
+            box-shadow: var(--neu-shadow-inset) !important;
+            color: var(--ink) !important;
+        }
+
+        .tense-tab:hover:not(.active) {
+            box-shadow: var(--neu-shadow-hover) !important;
+        }
+
+        .code-box {
+            border: none !important;
+            box-shadow: var(--neu-shadow-outset) !important;
+            background: var(--neu-surface) !important;
+        }
+
+        #analyzer-note {
+            background: var(--neu-surface) !important;
+            border: none !important;
+            box-shadow: var(--neu-shadow-inset) !important;
+            border-radius: 12px !important;
+        }
+
+        .dim-line::before,
+        .dim-line::after {
+            background-image: none !important;
+            border-top: 2px dashed var(--neu-shadow-dark) !important;
+        }
+
+        .spec-chip {
+            border: none !important;
+            box-shadow: var(--neu-shadow-inset) !important;
+        }
+
+        .timeline-rule {
+            background-image: none !important;
+            border: none !important;
+            box-shadow: var(--neu-shadow-inset) !important;
+            border-radius: 10px !important;
+        }
+
+        /* Neumorphic main scrollbar (right side bar) */
+        ::-webkit-scrollbar {
+            width: 14px;
+            background: var(--neu-surface);
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--neu-surface);
+            box-shadow: var(--neu-shadow-inset);
+            border-radius: 0;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--neu-surface);
+            box-shadow: var(--neu-shadow-outset);
+            border-radius: 10px;
+            border: 3px solid var(--neu-surface);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            box-shadow: var(--neu-shadow-hover);
         }
