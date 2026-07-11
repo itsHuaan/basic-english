@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+    --paper: #0B2338;
+    --paper-2: #102D46;
+    --line: rgba(148, 196, 224, 0.14);
+    --line-soft: rgba(148, 196, 224, 0.07);
+    --ink: #EAF3FB;
+    --ink-dim: #8FAFC7;
+    --ink-faint: #5E7A90;
+    --pen: #E2604F;
+    --stamp: #E0A94A;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--paper);
+    background-image:
+        linear-gradient(var(--line-soft) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line-soft) 1px, transparent 1px),
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 22px 22px, 22px 22px, 110px 110px, 110px 110px;
+    background-position: -1px -1px;
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+*:focus-visible {
+    outline: 2px solid #5EC8E8;
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Sidebar */
+.sidebar {
+    background: rgba(9, 27, 43, 0.88);
+    border-right: 1px solid var(--line);
+}
+
+.sheet-item {
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    position: relative;
+    cursor: pointer;
+    color: var(--ink-dim);
+    border-left: 2px solid transparent;
+}
+
+.sheet-item:hover {
+    background: rgba(148, 196, 224, 0.05);
+    color: var(--ink);
+}
+
+.sheet-item.active {
+    background: rgba(94, 200, 232, 0.08);
+    color: #5EC8E8;
+    border-left: 2px solid #5EC8E8;
+    font-weight: 600;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.25);
+    border-radius: 10px;
+}
+
+/* View transitions */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 0.25s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-old(root) {
+    animation-name: fade-out;
+}
+
+::view-transition-new(root) {
+    animation-name: fade-in;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+/* Panels — the basic drafting-sheet card */
+.panel {
+    background: rgba(148, 196, 224, 0.03);
+    border: 1px solid var(--line);
+    transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.panel:hover {
+    border-color: rgba(148, 196, 224, 0.3);
+    background: rgba(148, 196, 224, 0.045);
+}
+
+/* Corner registration marks — used sparingly on hero panels only */
+.reg-marks {
+    position: relative;
+}
+
+.reg-marks::before,
+.reg-marks::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+}
+
+.reg-marks::before {
+    top: -1px;
+    left: -1px;
+    border-top: 2px solid #5EC8E8;
+    border-left: 2px solid #5EC8E8;
+}
+
+.reg-marks::after {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 2px solid #5EC8E8;
+    border-right: 2px solid #5EC8E8;
+}
+
+/* Dimension-line section divider */
+.dim-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 3.5rem 0 2rem;
+}
+
+.dim-line::before,
+.dim-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-image: repeating-linear-gradient(90deg, rgba(148, 196, 224, 0.4) 0, rgba(148, 196, 224, 0.4) 5px, transparent 5px, transparent 9px);
+}
+
+.dim-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    white-space: nowrap;
+}
+
+/* Title block, like a drawing's stamp box */
+.title-block {
+    border: 1px solid var(--line);
+    background: rgba(148, 196, 224, 0.03);
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.title-block dt {
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+}
+
+.title-block dd {
+    font-size: 0.8rem;
+    color: var(--ink);
+    margin: 0.1rem 0 0.65rem;
+}
+
+/* Word parsing tokens in the sentence analyzer */
+.word-token {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0.4rem 1.5rem;
+    cursor: pointer;
+}
+
+.word-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-bottom: 3px;
+    border-bottom: 2px solid var(--tag-color);
+    color: var(--ink);
+    transition: transform 0.2s ease;
+}
+
+.word-token:hover .word-text {
+    transform: translateY(-2px);
+}
+
+.word-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    margin-top: 0.4rem;
+    color: var(--tag-color);
+    opacity: 0.9;
+    position: relative;
+}
+
+.word-tag::before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 6px;
+    background: var(--tag-color);
+    margin: 0 auto 3px;
+    opacity: 0.7;
+}
+
+.hl-n {
+    --tag-color: #5EC8E8;
+}
+
+.hl-v {
+    --tag-color: #E2604F;
+}
+
+.hl-adj {
+    --tag-color: #B98CE0;
+}
+
+.hl-adv {
+    --tag-color: #6FD9A8;
+}
+
+.hl-det {
+    --tag-color: #E0A94A;
+}
+
+.hl-prep {
+    --tag-color: #F28FA8;
+}
+
+.spec-chip {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+}
+
+.code-box {
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.timeline-rule {
+    background-image: repeating-linear-gradient(90deg, rgba(148, 196, 224, 0.35) 0, rgba(148, 196, 224, 0.35) 1px, transparent 1px, transparent 8.33%);
+}
