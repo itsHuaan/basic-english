@@ -39,13 +39,15 @@
             position: relative;
         }
 
-        /* Ambient drafting-lamp glow — soft, fixed light pools behind the sheet */
+        /* Ambient drafting-lamp glow — dynamic light pools behind the sheet */
         .ambient-glow {
             position: fixed;
             inset: 0;
             z-index: 0;
             pointer-events: none;
             overflow: hidden;
+            background: radial-gradient(circle 800px at var(--mouse-x, 50vw) var(--mouse-y, 50vh), rgba(94, 200, 232, 0.12), transparent 70%);
+            transition: background 0.3s ease-out;
         }
 
         .ambient-glow::before,
@@ -54,7 +56,7 @@
             position: absolute;
             border-radius: 50%;
             filter: blur(90px);
-            opacity: 0.55;
+            opacity: 0.4;
             animation: drift 22s ease-in-out infinite alternate;
         }
 
@@ -89,7 +91,7 @@
 
             .ambient-glow::before,
             .ambient-glow::after {
-                opacity: 0.3;
+                opacity: 0.2;
             }
         }
 
@@ -239,18 +241,41 @@
         /* Panels — the basic drafting-sheet card, now with glass depth */
         .panel {
             background: linear-gradient(160deg, rgba(148, 196, 224, 0.055), rgba(148, 196, 224, 0.015));
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(16px) saturate(140%);
+            -webkit-backdrop-filter: blur(16px) saturate(140%);
             border: 1px solid var(--line);
             box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.02) inset, 0 12px 28px -18px rgba(3, 12, 22, 0.6);
             transition: border-color 0.35s var(--ease-out), background 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), transform 0.35s var(--ease-out);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .panel::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle 500px at var(--mouse-x, 50vw) var(--mouse-y, 50vh), rgba(255, 255, 255, 0.06), transparent 70%);
+            background-attachment: fixed;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .panel:hover::before {
+            opacity: 1;
+        }
+
+        .panel > * {
+            position: relative;
+            z-index: 1;
         }
 
         .panel:hover {
-            border-color: rgba(148, 196, 224, 0.32);
-            background: linear-gradient(160deg, rgba(148, 196, 224, 0.075), rgba(148, 196, 224, 0.02));
-            box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.03) inset, 0 18px 40px -18px rgba(3, 12, 22, 0.75), 0 0 32px -14px var(--glow-sky);
-            transform: translateY(-2px);
+            border-color: rgba(148, 196, 224, 0.4);
+            background: linear-gradient(160deg, rgba(148, 196, 224, 0.08), rgba(148, 196, 224, 0.02));
+            box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.04) inset, 0 18px 40px -18px rgba(3, 12, 22, 0.8), 0 0 40px -14px var(--glow-sky);
+            transform: translateY(-3px);
         }
 
         /* Corner registration marks — used sparingly on hero panels only */
@@ -462,12 +487,12 @@
 
         /* Gradient headline accent */
         .gradient-ink {
-            background: linear-gradient(100deg, #5EC8E8 10%, #8FE0D8 50%, #5EC8E8 90%);
+            background: linear-gradient(100deg, #5EC8E8 10%, #B98CE0 40%, #8FE0D8 70%, #5EC8E8 90%);
             background-size: 200% auto;
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            animation: shine 7s linear infinite;
+            animation: shine 6s linear infinite;
         }
 
         @keyframes shine {
@@ -517,7 +542,15 @@
         /* Staggered reveal for JS-rendered grids */
         .stagger-item {
             opacity: 0;
-            animation: rise-in 0.5s var(--ease-out) both;
+            animation: rise-in 0.6s var(--ease-out) both;
+        }
+
+        @supports (animation-timeline: view()) and (animation-range: entry) {
+            .stagger-item {
+                animation: rise-in 0.6s var(--ease-out) both;
+                animation-timeline: view();
+                animation-range: entry 5% cover 20%;
+            }
         }
 
         /* ============================================================

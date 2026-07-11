@@ -106,7 +106,7 @@ Vị trí của động từ khá cố định để đảm bảo cấu trúc ng
 
 **Nội động từ (Intransitive) và Ngoại động từ (Transitive)**
 
-Trong các dạng bài tập điền từ vào đoạn văn, việc phân biệt hai loại này là một kỹ năng cực kỳ hữu ích giúp bạn loại trừ đáp án nhanh chóng:
+Trong các dạng bài tập điền từ vào đoạn văn, việc phân biệt hai loại này là một kỹ năng cực kỳ hữu ích giúp loại trừ đáp án nhanh chóng:
 
 * **Ngoại động từ (Transitive Verbs):** Là động từ BẮT BUỘC phải có một Tân ngữ (thường là danh từ) theo sau để hoàn thiện nghĩa.
   + *Ví dụ:* I **bought** a new car. (Không thể nói "I bought" rồi dừng lại).
@@ -1323,3 +1323,9 @@ window.onload = () => {
   renderTenses();
   switchView('dashboard');
 };
+
+// Add mouse tracking for ambient glow and spotlight effect
+document.addEventListener('mousemove', (e) => {
+  document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+  document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+});
