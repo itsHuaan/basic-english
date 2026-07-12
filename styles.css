@@ -12,7 +12,7 @@
   --radius-s: 3px;
   --radius-m: 6px;
   --sidebar-w: 292px;
-  --content-max: 860px;
+  --content-max: none;
 
   --shadow-soft: 0 1px 2px rgba(20,30,40,.06), 0 8px 24px -12px rgba(20,30,40,.12);
 }
@@ -85,6 +85,30 @@ strong{ font-weight: 600; }
     linear-gradient(var(--line-soft) 1px, transparent 1px),
     linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
   background-size: 34px 34px;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+@media (min-width: 901px) {
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--line);
+    border: 3px solid var(--bg);
+    border-radius: 6px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--ink-faint);
+  }
+  .sidebar::-webkit-scrollbar-thumb {
+    border: 3px solid var(--bg-2);
+  }
 }
 
 /* =========================================================
@@ -229,7 +253,8 @@ strong{ font-weight: 600; }
 .hero__inner{ position:relative; max-width: var(--content-max); }
 
 .title-block{
-  display:inline-flex;
+  display:flex;
+  width: fit-content;
   flex-wrap:wrap;
   border: 1px solid var(--line);
   border-radius: var(--radius-m);
