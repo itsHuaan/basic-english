@@ -59,6 +59,17 @@
   });
 
   /* ---------------------------------------------------------
+     DESKTOP SIDEBAR TOGGLE
+     --------------------------------------------------------- */
+  var sidebarToggle = document.getElementById('sidebarToggle');
+  var appShell = document.querySelector('.app-shell');
+  if (sidebarToggle && appShell) {
+    sidebarToggle.addEventListener('click', function () {
+      appShell.classList.toggle('is-collapsed');
+    });
+  }
+
+  /* ---------------------------------------------------------
      ACCORDION
      --------------------------------------------------------- */
   document.querySelectorAll('[data-accordion]').forEach(function (accordion) {

@@ -60,23 +60,8 @@
           <span class="brand-title">GRAMMAR&nbsp;WORKS</span>
           <span class="brand-sub">Bản vẽ ngữ pháp Anh–Việt</span>
         </div>
-        <button class="icon-btn theme-toggle desktop-only" id="themeToggleDesktop" aria-label="Đổi giao diện sáng/tối">
-          <svg class="icon-sun" viewBox="0 0 24 24" width="17" height="17">
-            <circle cx="12" cy="12" r="4" />
-            <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-              <line x1="12" y1="1.5" x2="12" y2="4" />
-              <line x1="12" y1="20" x2="12" y2="22.5" />
-              <line x1="1.5" y1="12" x2="4" y2="12" />
-              <line x1="20" y1="12" x2="22.5" y2="12" />
-              <line x1="4.2" y1="4.2" x2="6" y2="6" />
-              <line x1="18" y1="18" x2="19.8" y2="19.8" />
-              <line x1="4.2" y1="19.8" x2="6" y2="18" />
-              <line x1="18" y1="6" x2="19.8" y2="4.2" />
-            </g>
-          </svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" width="17" height="17">
-            <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z" />
-          </svg>
+        <button class="icon-btn desktop-only" id="sidebarToggle" aria-label="Thu gọn mục lục">
+          <span class="burger"><span></span><span></span><span></span></span>
         </button>
       </div>
 
@@ -114,9 +99,27 @@
       </nav>
 
       <div class="sidebar__foot">
-        <div class="progress-track">
-          <div class="progress-fill" style="width:100%"></div>
-        </div>
+        <button class="theme-toggle-btn desktop-only" id="themeToggleDesktop" aria-label="Đổi giao diện sáng/tối">
+          <span class="theme-toggle-icon">
+            <svg class="icon-sun" viewBox="0 0 24 24" width="17" height="17">
+              <circle cx="12" cy="12" r="4" />
+              <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                <line x1="12" y1="1.5" x2="12" y2="4" />
+                <line x1="12" y1="20" x2="12" y2="22.5" />
+                <line x1="1.5" y1="12" x2="4" y2="12" />
+                <line x1="20" y1="12" x2="22.5" y2="12" />
+                <line x1="4.2" y1="4.2" x2="6" y2="6" />
+                <line x1="18" y1="18" x2="19.8" y2="19.8" />
+                <line x1="4.2" y1="19.8" x2="6" y2="18" />
+                <line x1="18" y1="6" x2="19.8" y2="4.2" />
+              </g>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" width="17" height="17">
+              <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z" />
+            </svg>
+          </span>
+          <span class="theme-toggle-text">Giao diện sáng / tối</span>
+        </button>
       </div>
     </aside>
 

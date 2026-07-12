@@ -106,8 +106,16 @@ strong{ font-weight: 600; }
   ::-webkit-scrollbar-thumb:hover {
     background: var(--ink-faint);
   }
-  .sidebar::-webkit-scrollbar-thumb {
+  .toc::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .toc:hover::-webkit-scrollbar-thumb {
+    background-color: var(--line);
     border: 3px solid var(--bg-2);
+  }
+  .toc:hover::-webkit-scrollbar-thumb:hover {
+    background-color: var(--ink-faint);
   }
 }
 
@@ -118,6 +126,56 @@ strong{ font-weight: 600; }
   display: grid;
   grid-template-columns: var(--sidebar-w) 1fr;
   min-height: 100vh;
+  transition: grid-template-columns 0.3s ease;
+}
+.app-shell.is-collapsed {
+  grid-template-columns: 70px 1fr;
+}
+.app-shell.is-collapsed .brand-text,
+.app-shell.is-collapsed .toc__group-label,
+.app-shell.is-collapsed .theme-toggle-text {
+  display: none;
+}
+.app-shell.is-collapsed .toc__list a {
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 34px;
+  height: 34px;
+  margin: 0 auto;
+  border-radius: 50%;
+  font-size: 0;
+  color: transparent;
+  gap: 0;
+}
+.app-shell.is-collapsed .toc__list a em {
+  display: none;
+}
+.app-shell.is-collapsed .toc__list a::before {
+  min-width: auto;
+  font-size: .82rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+.app-shell.is-collapsed .toc__list a.is-active::before {
+  color: var(--accent-strong);
+}
+.app-shell.is-collapsed .toc::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+.app-shell.is-collapsed .toc {
+  scrollbar-width: none;
+  padding-right: 0;
+}
+.app-shell.is-collapsed .theme-toggle-btn {
+  justify-content: center;
+  padding: 8px 0;
+}
+.app-shell.is-collapsed .sidebar__brand {
+  flex-direction: column;
+  gap: 14px;
 }
 
 .main{ min-width:0; }
@@ -129,7 +187,6 @@ strong{ font-weight: 600; }
   position: sticky;
   top:0;
   height: 100vh;
-  overflow-y: auto;
   border-right: 1px solid var(--line);
   background: var(--bg-2);
   padding: 22px 18px 18px;
@@ -144,13 +201,23 @@ strong{ font-weight: 600; }
   gap:10px;
   padding-bottom: 14px;
   border-bottom: 1px dashed var(--line);
+  flex-shrink: 0;
 }
 .brand-mark{ color: var(--accent); flex-shrink:0; }
 .brand-text{ display:flex; flex-direction:column; line-height:1.25; flex:1; min-width:0; }
 .brand-title{ font-family: var(--font-display); font-weight:700; font-size:.86rem; letter-spacing:.06em; }
 .brand-sub{ font-size:.7rem; color: var(--ink-faint); }
 
-.toc{ flex:1; }
+.toc{ 
+  flex:1; 
+  overflow-y: auto;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.3s;
+  padding-right: 4px;
+}
+.toc:hover, .toc:focus-within {
+  scrollbar-color: var(--line) transparent;
+}
 .toc__group-label{
   font-family: var(--font-mono);
   font-size: .66rem;
@@ -187,7 +254,7 @@ strong{ font-weight: 600; }
 .toc__list a.is-pending{ opacity:.5; }
 .toc__list a.is-pending:hover{ background:none; opacity:.75; }
 
-.sidebar__foot{ border-top:1px dashed var(--line); padding-top:14px; }
+.sidebar__foot{ border-top:1px dashed var(--line); padding-top:14px; margin-top: auto; flex-shrink: 0; }
 .progress-label{ font-family: var(--font-mono); font-size:.66rem; color: var(--ink-faint); letter-spacing:.04em; }
 .progress-track{ margin-top:7px; height:4px; border-radius:2px; background: var(--line-soft); overflow:hidden; }
 .progress-fill{ height:100%; background: var(--accent); }
@@ -207,12 +274,42 @@ strong{ font-weight: 600; }
   color: var(--ink);
   flex-shrink:0;
 }
-.theme-toggle .icon-sun{ opacity: var(--sun-op); position:absolute; }
-.theme-toggle .icon-moon{ opacity: var(--moon-op); position:absolute; }
-.theme-toggle{ position:relative; }
-.theme-toggle svg{ transition: opacity .25s ease; fill:none; stroke:none; }
-.theme-toggle .icon-sun circle{ fill: currentColor; }
-.theme-toggle .icon-moon path{ fill: currentColor; }
+
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--ink-soft);
+  font-family: var(--font-body);
+  font-size: .86rem;
+  padding: 8px 10px;
+  border-radius: var(--radius-s);
+  width: 100%;
+  text-align: left;
+}
+.theme-toggle-btn:hover {
+  background: var(--accent-tint);
+  color: var(--ink);
+}
+.theme-toggle-icon {
+  position: relative;
+  width: 17px;
+  height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.theme-toggle .icon-sun, .theme-toggle-btn .icon-sun { opacity: var(--sun-op); position:absolute; }
+.theme-toggle .icon-moon, .theme-toggle-btn .icon-moon { opacity: var(--moon-op); position:absolute; }
+.theme-toggle { position:relative; }
+.theme-toggle svg, .theme-toggle-btn svg { transition: opacity .25s ease; fill:none; stroke:none; }
+.theme-toggle .icon-sun circle, .theme-toggle-btn .icon-sun circle { fill: currentColor; }
+.theme-toggle .icon-moon path, .theme-toggle-btn .icon-moon path { fill: currentColor; }
 
 /* =========================================================
    MOBILE TOP BAR + DRAWER
