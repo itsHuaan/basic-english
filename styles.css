@@ -896,6 +896,56 @@ html[data-theme="dark"] .btn--primary{ color: #06222F; }
   font-size: 0.85rem;
   color: var(--ink-soft);
 }
+
+/* Timeline Animations based on .in-view from script.js */
+.sheet .timeline-line {
+  transform-origin: left;
+  transform: scaleX(0);
+}
+.sheet.in-view .timeline-line {
+  animation: timeline-draw 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.sheet .timeline-dot {
+  transform: scale(0);
+}
+.sheet.in-view .past .timeline-dot {
+  animation: timeline-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards;
+}
+.sheet.in-view .present .timeline-dot {
+  animation: timeline-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s forwards;
+}
+.sheet.in-view .future .timeline-dot {
+  animation: timeline-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.9s forwards;
+}
+
+.sheet .timeline-label {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.sheet.in-view .past .timeline-label {
+  animation: timeline-fade 0.5s ease 0.4s forwards;
+}
+.sheet.in-view .present .timeline-label {
+  animation: timeline-fade 0.5s ease 0.7s forwards;
+}
+.sheet.in-view .future .timeline-label {
+  animation: timeline-fade 0.5s ease 1.0s forwards;
+}
+
+@keyframes timeline-draw {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes timeline-pop {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+@keyframes timeline-fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @media (max-width: 620px) {
   .timeline-strip { padding: 30px 10px 10px; }
   .timeline-line { top: 36px; }
