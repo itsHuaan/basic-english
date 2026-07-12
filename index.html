@@ -1,191 +1,1750 @@
 <!DOCTYPE html>
-<html lang="vi">
-
+<html lang="vi" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cẩm Nang Từ Loại Tiếng Anh — Bản Vẽ Ngữ Pháp</title>
-    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                        mono: ['"IBM Plex Mono"', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NGỮ PHÁP // Bản vẽ kỹ thuật tiếng Anh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
+<body>
 
-<body class="p-0 m-0 antialiased selection:bg-sky-500/30">
+<!-- ============ MOBILE TOP BAR ============ -->
+<header class="mobile-bar">
+  <button class="icon-btn" id="drawerToggle" aria-label="Mở mục lục" aria-expanded="false" aria-controls="sidebar">
+    <span class="burger"><span></span><span></span><span></span></span>
+  </button>
+  <span class="mobile-bar__title">EN&nbsp;/&nbsp;DWG</span>
+  <button class="icon-btn theme-toggle" id="themeToggleMobile" aria-label="Đổi giao diện sáng/tối">
+    <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="4"/><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="12" y1="1.5" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22.5" y2="12"/><line x1="4.2" y1="4.2" x2="6" y2="6"/><line x1="18" y1="18" x2="19.8" y2="19.8"/><line x1="4.2" y1="19.8" x2="6" y2="18"/><line x1="18" y1="6" x2="19.8" y2="4.2"/></g></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z"/></svg>
+  </button>
+</header>
 
-    <div class="ambient-glow" aria-hidden="true"></div>
+<div class="drawer-scrim" id="drawerScrim"></div>
 
-    <div class="flex flex-col md:flex-row min-h-screen relative z-10">
-        <!-- Sidebar Navigation -->
-        <aside class="w-full md:w-72 sidebar flex-shrink-0 z-20 md:sticky md:top-0 md:h-screen overflow-y-auto custom-scrollbar">
-            <div class="p-7 border-b border-[var(--line)]">
-                <div class="flex items-center gap-3 mb-4">
-                    <svg class="w-9 h-9 text-sky-400 flex-shrink-0 drop-shadow-[0_0_10px_rgba(94,200,232,0.45)]" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="20" cy="12" r="2.4" fill="currentColor"/>
-                        <path d="M20 12 L9 34 M20 12 L31 34" stroke="currentColor" stroke-width="1.6"/>
-                        <path d="M13.5 27 H26.5" stroke="currentColor" stroke-width="1.6"/>
-                        <circle cx="20" cy="12" r="9" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                    </svg>
-                    <div>
-                        <h1 class="text-lg font-bold text-white tracking-tight font-display leading-none">Grammar Blueprint</h1>
-                        <p class="text-[10px] text-sky-400 mt-1.5 uppercase tracking-[0.2em] font-mono">EN — Bản vẽ ngữ pháp</p>
-                    </div>
-                </div>
-            </div>
-            <nav class="mt-2 flex flex-col pb-8">
-                <button onclick="switchView('dashboard')" id="nav-dashboard"
-                    class="sheet-item py-3 px-6 text-left flex items-center gap-3">
-                    <span class="code-box text-[10px] w-7 h-7 flex items-center justify-center border border-[var(--line)] rounded">DB</span>
-                    <span class="text-sm">Tổng quan</span>
-                </button>
-                <div class="px-8 py-4 text-[10px] font-mono text-[var(--ink-faint)] uppercase tracking-widest mt-4">Danh mục — Từ loại</div>
-                <div id="pos-menu" class="flex flex-col"></div>
-                <div class="mt-6 border-t border-[var(--line)] pt-6">
-                    <button onclick="switchView('tenses')" id="nav-tenses"
-                        class="sheet-item py-3 px-6 text-left flex items-center gap-3">
-                        <span class="code-box text-[10px] w-7 h-7 flex items-center justify-center border border-[var(--line)] rounded">T</span>
-                        <span class="text-sm">Công thức các thì</span>
-                    </button>
-                </div>
-            </nav>
-        </aside>
+<div class="app-shell">
 
-        <!-- Main Content Area -->
-        <main class="flex-1 p-6 md:p-12 max-w-7xl mx-auto w-full relative z-10">
-
-            <!-- VIEW: DASHBOARD -->
-            <section id="view-dashboard" class="space-y-10 pb-20">
-                <header class="grid md:grid-cols-[1fr_auto] gap-8 items-start rise-in">
-                    <div>
-                        <div class="inline-flex items-center gap-2 mb-5 code-box text-[11px] text-sky-400 uppercase tracking-[0.18em]">
-                            <span class="w-1.5 h-1.5 rounded-full bg-sky-400 pulse-dot"></span> Bản vẽ ngữ pháp — Sheet 01
-                        </div>
-                        <h2 class="text-4xl md:text-6xl font-bold text-white tracking-tight leading-[1.1] font-display">
-                            Làm chủ<br/>
-                            <span class="gradient-ink relative inline-block">
-                                Từ loại Tiếng Anh
-                                <svg class="absolute left-0 -bottom-3 w-full" height="10" viewBox="0 0 300 10" preserveAspectRatio="none">
-                                    <line x1="0" y1="5" x2="300" y2="5" stroke="#5EC8E8" stroke-width="1" opacity="0.5"/>
-                                    <line x1="0" y1="0" x2="0" y2="10" stroke="#5EC8E8" stroke-width="1" opacity="0.5"/>
-                                    <line x1="300" y1="0" x2="300" y2="10" stroke="#5EC8E8" stroke-width="1" opacity="0.5"/>
-                                </svg>
-                            </span>
-                        </h2>
-                        <p class="text-[var(--ink-dim)] mt-8 max-w-xl text-base leading-relaxed">
-                            Mỗi từ trong một câu đều giữ một vai trò cụ thể. Bản đồ bên dưới tách một câu mẫu ra từng
-                            thành phần, gắn nhãn kỹ thuật cho từng từ — giống cách một bản vẽ chú thích từng chi tiết.
-                        </p>
-                    </div>
-                    <dl class="title-block px-5 py-4 min-w-[220px] hidden md:block">
-                        <dt>Học phần</dt><dd>Từ loại tiếng Anh</dd>
-                        <dt>Đối tượng</dt><dd>Người học tiếng Việt</dd>
-                        <dt>Phiên bản</dt><dd class="mb-0">A.03 — 2026</dd>
-                    </dl>
-                </header>
-
-                <!-- Interactive Sentence Analyzer -->
-                <div class="panel reg-marks p-8 md:p-10 rounded-sm mt-4 rise-in" style="animation-delay: 0.1s;">
-                    <div class="flex items-center justify-between mb-8 flex-wrap gap-3">
-                        <div>
-                            <h3 class="text-xl font-bold text-white font-display">Phân tích câu — Sơ đồ thành phần</h3>
-                            <p class="text-[var(--ink-dim)] text-sm mt-1">Di chuột hoặc chạm vào từng từ để xem chú thích đầy đủ.</p>
-                        </div>
-                        <span class="spec-chip text-[var(--ink-faint)] border border-[var(--line)] px-2.5 py-1 rounded">REF. EX-01</span>
-                    </div>
-
-                    <div class="bg-[rgba(6,20,33,0.6)] border border-[var(--line)] p-8 rounded-sm text-center" id="sentence-container">
-                        <span class="word-token hl-det" data-word="The" data-pos="Hạn định từ (Determiner) — xác định danh từ fox">
-                            <span class="word-text">The</span><span class="word-tag">DET</span>
-                        </span>
-                        <span class="word-token hl-adj" data-word="quick" data-pos="Tính từ (Adjective) — miêu tả đặc điểm của fox">
-                            <span class="word-text">quick</span><span class="word-tag">ADJ</span>
-                        </span>
-                        <span class="word-token hl-adj" data-word="brown" data-pos="Tính từ (Adjective) — miêu tả màu sắc của fox">
-                            <span class="word-text">brown</span><span class="word-tag">ADJ</span>
-                        </span>
-                        <span class="word-token hl-n" data-word="fox" data-pos="Danh từ (Noun) — chủ ngữ của câu">
-                            <span class="word-text">fox</span><span class="word-tag">N</span>
-                        </span>
-                        <span class="word-token hl-v" data-word="jumps" data-pos="Động từ (Verb) — hành động chính">
-                            <span class="word-text">jumps</span><span class="word-tag">V</span>
-                        </span>
-                        <span class="word-token hl-prep" data-word="over" data-pos="Giới từ (Preposition) — chỉ hướng hành động">
-                            <span class="word-text">over</span><span class="word-tag">PREP</span>
-                        </span>
-                        <span class="word-token hl-det" data-word="the" data-pos="Hạn định từ (Determiner) — xác định danh từ dog">
-                            <span class="word-text">the</span><span class="word-tag">DET</span>
-                        </span>
-                        <span class="word-token hl-adj" data-word="lazy" data-pos="Tính từ (Adjective) — miêu tả đặc điểm của dog">
-                            <span class="word-text">lazy</span><span class="word-tag">ADJ</span>
-                        </span>
-                        <span class="word-token hl-n" data-word="dog" data-pos="Danh từ (Noun) — tân ngữ của giới từ over">
-                            <span class="word-text">dog</span><span class="word-tag">N</span>
-                        </span>
-                    </div>
-
-                    <div class="mt-5 px-5 py-4 border-l-2 border-sky-400 bg-[rgba(94,200,232,0.04)] rounded-r-sm flex items-start gap-3 transition-all duration-300" id="analyzer-note">
-                        <span class="code-box text-[10px] text-sky-400 border border-sky-400/40 rounded px-1.5 py-0.5 mt-0.5">NOTE</span>
-                        <div id="analyzer-feedback" class="text-sm text-[var(--ink-dim)] leading-relaxed">
-                            Di chuột qua các từ bên trên để xem giải thích chi tiết.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="dim-line"><span class="dim-label">Danh mục thành phần</span></div>
-
-                <!-- Quick Reference Grid -->
-                <div id="quick-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
-
-            </section>
-
-            <!-- VIEW: TENSES -->
-            <section id="view-tenses" class="hidden space-y-8 pb-20">
-                <header class="rise-in">
-                    <div class="inline-flex items-center gap-2 mb-5 code-box text-[11px] text-emerald-400 uppercase tracking-[0.18em]">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot"></span> Bản vẽ ngữ pháp — Sheet 02
-                    </div>
-                    <h2 class="text-4xl md:text-6xl font-bold text-white tracking-tight leading-[1.1] font-display">
-                        Công thức <span class="text-emerald-400">13 Thì</span>
-                    </h2>
-                    <p class="text-[var(--ink-dim)] mt-6 max-w-xl text-base leading-relaxed">
-                        Toàn bộ 13 thì được xếp trên một trục thời gian duy nhất — từ quá khứ đến tương lai —
-                        cùng công thức, cách dùng và dấu hiệu nhận biết của từng thì.
-                    </p>
-
-                    <div class="mt-10 hidden md:block">
-                        <div class="relative h-8 timeline-rule border-t border-b border-[var(--line)]">
-                            <span class="absolute left-0 -top-6 code-box text-[10px] text-[var(--ink-faint)] uppercase tracking-widest">Quá khứ</span>
-                            <span class="absolute left-1/2 -translate-x-1/2 -top-6 code-box text-[10px] text-sky-400 uppercase tracking-widest">Hiện tại</span>
-                            <span class="absolute right-0 -top-6 code-box text-[10px] text-amber-400 uppercase tracking-widest">Tương lai</span>
-                            <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-sky-400"></span>
-                        </div>
-                    </div>
-                </header>
-
-                <div id="tenses-content" class="mt-10"></div>
-            </section>
-
-            <!-- VIEW: DETAIL POS -->
-            <section id="view-detail" class="hidden space-y-8 pb-20">
-                <div id="detail-content" class="space-y-10"></div>
-            </section>
-        </main>
+  <!-- ============ SIDEBAR / DRAWING INDEX ============ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__brand">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="30" height="30">
+          <rect x="3" y="3" width="34" height="34" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+          <line x1="3" y1="12" x2="37" y2="12" stroke="currentColor" stroke-width="1.4"/>
+          <line x1="12" y1="12" x2="12" y2="37" stroke="currentColor" stroke-width="1.4"/>
+          <circle cx="24.5" cy="24.5" r="6" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-title">GRAMMAR&nbsp;WORKS</span>
+        <span class="brand-sub">Bản vẽ ngữ pháp Anh–Việt</span>
+      </div>
+      <button class="icon-btn theme-toggle desktop-only" id="themeToggleDesktop" aria-label="Đổi giao diện sáng/tối">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="12" r="4"/><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="12" y1="1.5" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22.5" y2="12"/><line x1="4.2" y1="4.2" x2="6" y2="6"/><line x1="18" y1="18" x2="19.8" y2="19.8"/><line x1="4.2" y1="19.8" x2="6" y2="18"/><line x1="18" y1="6" x2="19.8" y2="4.2"/></g></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="17" height="17"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z"/></svg>
+      </button>
     </div>
 
+    <nav class="toc" aria-label="Mục lục các chuyên đề">
+      <p class="toc__group-label">Phần A — Từ loại</p>
+      <ol class="toc__list" start="1">
+        <li><a href="#sec-01" data-num="01">Danh từ <em>Noun</em></a></li>
+        <li><a href="#sec-02" data-num="02">Động từ <em>Verb</em></a></li>
+        <li><a href="#sec-03" data-num="03">Tính từ <em>Adjective</em></a></li>
+        <li><a href="#sec-04" data-num="04">Trạng từ <em>Adverb</em></a></li>
+        <li><a href="#sec-05" data-num="05">Đại từ <em>Pronoun</em></a></li>
+        <li><a href="#sec-06" data-num="06">Giới từ <em>Preposition</em></a></li>
+        <li><a href="#sec-07" data-num="07">Liên từ <em>Conjunction</em></a></li>
+        <li><a href="#sec-08" data-num="08">Thán từ <em>Interjection</em></a></li>
+        <li><a href="#sec-09" data-num="09">Hạn định từ <em>Determiner</em></a></li>
+      </ol>
+      <p class="toc__group-label">Phần B — Các thì</p>
+      <ol class="toc__list" start="10">
+        <li><a href="#sec-10" data-num="10">Hiện tại đơn</a></li>
+        <li><a href="#sec-11" data-num="11">Hiện tại tiếp diễn</a></li>
+        <li><a href="#sec-12" data-num="12">Hiện tại hoàn thành</a></li>
+        <li><a href="#sec-13" data-num="13">HT hoàn thành TD</a></li>
+        <li><a href="#sec-14" data-num="14">Quá khứ đơn</a></li>
+        <li><a href="#sec-15" data-num="15">Quá khứ tiếp diễn</a></li>
+        <li><a href="#sec-16" data-num="16">Quá khứ hoàn thành</a></li>
+        <li><a href="#sec-17" data-num="17">QK hoàn thành TD</a></li>
+        <li><a href="#sec-18" data-num="18">Tương lai đơn</a></li>
+        <li><a href="#sec-19" data-num="19">Tương lai gần</a></li>
+        <li><a href="#sec-20" data-num="20">Tương lai tiếp diễn</a></li>
+        <li><a href="#sec-21" data-num="21">TL hoàn thành</a></li>
+        <li><a href="#sec-22" data-num="22">TL hoàn thành TD</a></li>
+      </ol>
+    </nav>
 
-    <script src="script.js"></script>
+    <div class="sidebar__foot">
+      <span class="progress-label">22 / 22 sheets phát hành</span>
+      <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main" id="main">
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero__gridlines" aria-hidden="true"></div>
+      <div class="hero__inner">
+        <div class="title-block">
+          <div class="title-block__row">
+            <span>DỰ ÁN</span><strong>English Grammar Systems</strong>
+          </div>
+          <div class="title-block__row">
+            <span>TỶ LỆ</span><strong>1&nbsp;:&nbsp;1 — không rút gọn</strong>
+          </div>
+          <div class="title-block__row">
+            <span>SỐ SHEET</span><strong>22 chuyên đề</strong>
+          </div>
+          <div class="title-block__row">
+            <span>PHIÊN BẢN</span><strong>REV. 2026.07</strong>
+          </div>
+        </div>
+
+        <h1 class="hero__headline">Mastering<br>English&nbsp;Grammar<span class="hero__underline" aria-hidden="true"></span></h1>
+        <p class="hero__sub">Toàn bộ hệ thống ngữ pháp tiếng Anh được vẽ lại như một <strong>bản vẽ kỹ thuật</strong> — mỗi cấu trúc là một sơ đồ, mỗi cái bẫy đề thi là một cảnh báo được đóng dấu sẵn. Tối ưu cho luyện đọc hiểu &amp; điền từ (Part&nbsp;6).</p>
+        <div class="hero__cta-row">
+          <a href="#sec-01" class="btn btn--primary">
+            <span>Bắt đầu học</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#sec-02" class="btn btn--ghost">Xem mục lục đầy đủ</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- SHEET 01 — DANH TỪ (NOUN)                          -->
+    <!-- ================================================= -->
+    <section class="sheet" id="sec-01" data-num="01">
+      <header class="sheet__head">
+        <span class="sheet__tag">DWG-01</span>
+        <h2>Danh từ <span class="sheet__eng">Noun</span></h2>
+      </header>
+
+      <p class="sheet__intro">Danh từ (<span class="sig">Noun</span> — ký hiệu <strong>N</strong>) là nền tảng của mọi câu trong tiếng Anh. Chúng được dùng để gọi tên con người, sự vật, hiện tượng, địa điểm hoặc các khái niệm trừu tượng.</p>
+
+      <!-- 1. Position -->
+      <h3 class="block-title"><span class="block-num">1</span>Chức năng và vị trí trong câu</h3>
+      <div class="role-grid">
+        <div class="role-card">
+          <p class="role-card__name">Chủ ngữ <em>(Subject)</em></p>
+          <p class="role-card__desc">Đứng đầu câu, trước động từ.</p>
+          <p class="role-card__ex"><span class="term">The cat</span> <em>is sleeping.</em></p>
+        </div>
+        <div class="role-card">
+          <p class="role-card__name">Tân ngữ <em>(Object)</em></p>
+          <p class="role-card__desc">Đứng sau động từ hành động.</p>
+          <p class="role-card__ex">She bought <span class="term">a book</span>.</p>
+        </div>
+        <div class="role-card">
+          <p class="role-card__name">Bổ ngữ <em>(Complement)</em></p>
+          <p class="role-card__desc">Đứng sau to be / linking verbs (become, seem, feel…).</p>
+          <p class="role-card__ex">He is <span class="term">a teacher</span>.</p>
+        </div>
+        <div class="role-card">
+          <p class="role-card__name">Tân ngữ của giới từ</p>
+          <p class="role-card__desc">Đứng ngay sau giới từ (in, on, at, about…).</p>
+          <p class="role-card__ex">I am interested in <span class="term">music</span>.</p>
+        </div>
+      </div>
+
+      <!-- 2. Classification -->
+      <h3 class="block-title"><span class="block-num">2</span>Phân loại danh từ</h3>
+      <p class="block-note">Việc phân loại giúp bạn biết cách dùng mạo từ (a/an/the) và chia động từ cho chính xác.</p>
+      <div class="table-wrap">
+        <table class="parts-table">
+          <thead><tr><th>Loại danh từ</th><th>Đặc điểm</th><th>Ví dụ</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Danh từ chung</strong></td><td>Chỉ sự vật, hiện tượng chung chung</td><td><em>dog, city, table</em></td></tr>
+            <tr><td><strong>Danh từ riêng</strong></td><td>Tên riêng cụ thể (luôn viết hoa)</td><td><em>London, Mary, Google</em></td></tr>
+            <tr><td><strong>Đếm được</strong></td><td>Có thể đếm bằng số (số ít/nhiều)</td><td><em>one apple, two cars</em></td></tr>
+            <tr><td><strong>Không đếm được</strong></td><td>Không đếm trực tiếp bằng số</td><td><em>water, money, information</em></td></tr>
+            <tr><td><strong>Cụ thể</strong></td><td>Có thể cầm, nắm, nhìn, sờ thấy</td><td><em>house, tree, phone</em></td></tr>
+            <tr><td><strong>Trừu tượng</strong></td><td>Khái niệm, cảm xúc, trạng thái</td><td><em>love, happiness, time</em></td></tr>
+            <tr><td><strong>Tập hợp</strong></td><td>Chỉ một nhóm người, vật</td><td><em>family, team, army</em></td></tr>
+            <tr><td><strong>Danh từ ghép</strong></td><td>Cấu tạo từ 2+ từ ghép lại</td><td><em>toothbrush, blackboard</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 3. Suffixes -->
+      <h3 class="block-title"><span class="block-num">3</span>Dấu hiệu nhận biết — hậu tố phổ biến</h3>
+      <div class="tag-grid">
+        <div class="signal-tag"><span class="signal-tag__suffix">-tion / -sion</span><span class="signal-tag__mean">Sự việc, hành động</span><span class="signal-tag__ex">information, decision</span></div>
+        <div class="signal-tag"><span class="signal-tag__suffix">-ment</span><span class="signal-tag__mean">Sự việc, trạng thái</span><span class="signal-tag__ex">development, agreement</span></div>
+        <div class="signal-tag"><span class="signal-tag__suffix">-ness</span><span class="signal-tag__mean">Trạng thái, tính chất</span><span class="signal-tag__ex">happiness, sadness</span></div>
+        <div class="signal-tag"><span class="signal-tag__suffix">-ity / -ty</span><span class="signal-tag__mean">Tính chất, tình trạng</span><span class="signal-tag__ex">ability, activity</span></div>
+        <div class="signal-tag"><span class="signal-tag__suffix">-er / -or</span><span class="signal-tag__mean">Người làm nghề / thiết bị</span><span class="signal-tag__ex">teacher, doctor, actor</span></div>
+        <div class="signal-tag"><span class="signal-tag__suffix">-ist</span><span class="signal-tag__mean">Người chuyên môn</span><span class="signal-tag__ex">scientist, artist</span></div>
+        <div class="signal-tag"><span class="signal-tag__suffix">-ance / -ence</span><span class="signal-tag__mean">Trạng thái, mức độ</span><span class="signal-tag__ex">importance, difference</span></div>
+        <div class="signal-tag"><span class="signal-tag__suffix">-ship</span><span class="signal-tag__mean">Mối quan hệ, tình trạng</span><span class="signal-tag__ex">friendship, leadership</span></div>
+      </div>
+
+      <!-- 4. Plural rules accordion -->
+      <h3 class="block-title"><span class="block-num">4</span>Quy tắc chuyển sang số nhiều</h3>
+      <div class="accordion" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-item__btn" aria-expanded="true">
+            <span>1. Thêm "s" vào hầu hết danh từ</span><span class="accordion-item__icon"></span>
+          </button>
+          <div class="accordion-item__panel" style="max-height:200px">
+            <p>car → cars, book → books.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-item__btn" aria-expanded="false">
+            <span>2. Thêm "es" (đuôi -ch, -sh, -s, -x, -z, -o)</span><span class="accordion-item__icon"></span>
+          </button>
+          <div class="accordion-item__panel">
+            <p>watch → watches, box → boxes, tomato → tomatoes.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-item__btn" aria-expanded="false">
+            <span>3. Đuôi "y"</span><span class="accordion-item__icon"></span>
+          </button>
+          <div class="accordion-item__panel">
+            <p>Trước "y" là phụ âm → đổi "y" thành "i" + "es": <em>baby → babies</em>.<br>Trước "y" là nguyên âm (u,e,o,a,i) → chỉ thêm "s": <em>boy → boys</em>.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-item__btn" aria-expanded="false">
+            <span>4. Đuôi "f" / "fe"</span><span class="accordion-item__icon"></span>
+          </button>
+          <div class="accordion-item__panel">
+            <p>Thường đổi thành "ves": <em>leaf → leaves, knife → knives</em>.</p>
+            <p class="callout callout--warn">Ngoại lệ: <em>roof → roofs, chef → chefs</em>.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="block-title"><span class="block-num">5</span>Bất quy tắc — phải học thuộc</h3>
+      <p class="block-note">Lật từng thẻ để xem dạng số nhiều.</p>
+      <div class="flip-grid flip-grid--compact">
+        <button class="flip-card" data-flip><div class="flip-card__inner"><div class="flip-card__face flip-card__front"><span>man</span></div><div class="flip-card__face flip-card__back"><span>men</span></div></div></button>
+        <button class="flip-card" data-flip><div class="flip-card__inner"><div class="flip-card__face flip-card__front"><span>woman</span></div><div class="flip-card__face flip-card__back"><span>women</span></div></div></button>
+        <button class="flip-card" data-flip><div class="flip-card__inner"><div class="flip-card__face flip-card__front"><span>child</span></div><div class="flip-card__face flip-card__back"><span>children</span></div></div></button>
+        <button class="flip-card" data-flip><div class="flip-card__inner"><div class="flip-card__face flip-card__front"><span>person</span></div><div class="flip-card__face flip-card__back"><span>people</span></div></div></button>
+        <button class="flip-card" data-flip><div class="flip-card__inner"><div class="flip-card__face flip-card__front"><span>foot</span></div><div class="flip-card__face flip-card__back"><span>feet</span></div></div></button>
+        <button class="flip-card" data-flip><div class="flip-card__inner"><div class="flip-card__face flip-card__front"><span>tooth</span></div><div class="flip-card__face flip-card__back"><span>teeth</span></div></div></button>
+        <button class="flip-card" data-flip><div class="flip-card__inner"><div class="flip-card__face flip-card__front"><span>mouse</span></div><div class="flip-card__face flip-card__back"><span>mice</span></div></div></button>
+        <button class="flip-card" data-flip><div class="flip-card__inner"><div class="flip-card__face flip-card__front"><span>sheep</span></div><div class="flip-card__face flip-card__back"><span>sheep <em>(không đổi)</em></span></div></div></button>
+      </div>
+
+      <p class="callout callout--note"><strong>Lưu ý:</strong> Danh từ không đếm được (furniture, advice, news, luggage…) luôn ở dạng số ít, không bao giờ thêm "s" hay dùng với mạo từ "a/an".</p>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- SHEET 02 — ĐỘNG TỪ (VERB)                          -->
+    <!-- ================================================= -->
+    <section class="sheet" id="sec-02" data-num="02">
+      <header class="sheet__head">
+        <span class="sheet__tag">DWG-02</span>
+        <h2>Động từ <span class="sheet__eng">Verb</span></h2>
+      </header>
+
+      <p class="sheet__intro">Động từ (<span class="sig">Verb</span> — ký hiệu <strong>V</strong>) được ví như "trái tim" của câu. Không có động từ, một chuỗi từ vựng sẽ không thể tạo thành một câu hoàn chỉnh mang ý nghĩa.</p>
+
+      <h3 class="block-title"><span class="block-num">1</span>Vị trí trong câu</h3>
+      <div class="role-grid role-grid--3">
+        <div class="role-card">
+          <p class="role-card__name">S + V</p>
+          <p class="role-card__desc">Đứng ngay sau chủ ngữ — vị trí phổ biến nhất.</p>
+          <p class="role-card__ex">He <span class="term">runs</span> every morning.</p>
+        </div>
+        <div class="role-card">
+          <p class="role-card__name">V + O</p>
+          <p class="role-card__desc">Đứng trước tân ngữ nếu tác động lên đối tượng khác.</p>
+          <p class="role-card__ex">She <span class="term">drinks</span> coffee.</p>
+        </div>
+        <div class="role-card">
+          <p class="role-card__name">Linking V + Adj</p>
+          <p class="role-card__desc">Đứng trước tính từ đối với động từ nối.</p>
+          <p class="role-card__ex">The soup <span class="term">tastes</span> delicious.</p>
+        </div>
+      </div>
+
+      <h3 class="block-title"><span class="block-num">2</span>Phân loại động từ</h3>
+      <div class="table-wrap">
+        <table class="parts-table">
+          <thead><tr><th>Loại động từ</th><th>Chức năng &amp; đặc điểm</th><th>Ví dụ</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Action / Dynamic Verbs</strong></td><td>Diễn tả hành động vật lý hoặc nhận thức có thể thấy/cảm nhận</td><td><em>run, eat, think, write</em></td></tr>
+            <tr><td><strong>Linking Verbs</strong></td><td>Nối chủ ngữ với từ mô tả (tính từ/danh từ)</td><td><em>be, seem, become, feel, look, taste</em></td></tr>
+            <tr><td><strong>Auxiliary Verbs</strong></td><td>Hỗ trợ động từ chính để tạo thì, câu phủ định/nghi vấn</td><td><em>be, do/does, have/has</em></td></tr>
+            <tr><td><strong>Modal Verbs</strong></td><td>Diễn tả khả năng, sự cho phép, nghĩa vụ — luôn đi kèm V-nguyên thể</td><td><em>can, could, will, would, should, must, may</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="block-title"><span class="block-num">3</span>Nội động từ &amp; ngoại động từ</h3>
+      <p class="block-note">Cặp khái niệm dễ nhầm nhất khi làm bài điền từ đoạn văn — bấm vào thẻ để xem giải thích.</p>
+      <div class="flip-grid flip-grid--wide">
+        <button class="flip-card flip-card--wide" data-flip>
+          <div class="flip-card__inner">
+            <div class="flip-card__face flip-card__front">
+              <span class="flip-card__label">Ngoại động từ</span>
+              <span class="flip-card__title">Transitive Verbs</span>
+              <span class="flip-card__hint">bấm để xem quy tắc →</span>
+            </div>
+            <div class="flip-card__face flip-card__back">
+              <p>BẮT BUỘC phải có một tân ngữ theo sau để hoàn thiện nghĩa.</p>
+              <p class="flip-card__ex">I <span class="term">bought</span> a new car. <em>(Không thể dừng ở "I bought")</em></p>
+            </div>
+          </div>
+        </button>
+        <button class="flip-card flip-card--wide" data-flip>
+          <div class="flip-card__inner">
+            <div class="flip-card__face flip-card__front">
+              <span class="flip-card__label">Nội động từ</span>
+              <span class="flip-card__title">Intransitive Verbs</span>
+              <span class="flip-card__hint">bấm để xem quy tắc →</span>
+            </div>
+            <div class="flip-card__face flip-card__back">
+              <p>KHÔNG CẦN tân ngữ theo sau — bản thân nó đã đủ nghĩa.</p>
+              <p class="flip-card__ex">The baby <span class="term">is sleeping</span>. <em>(Không có vật gì bị tác động)</em></p>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <h3 class="block-title"><span class="block-num">4</span>5 dạng của động từ</h3>
+      <p class="block-note">Một động từ luôn "chạy qua" 5 trạng thái tùy theo thì và cấu trúc câu:</p>
+      <div class="pipeline" role="list">
+        <div class="pipeline-step" role="listitem"><span class="pipeline-step__tag">V-inf</span><span class="pipeline-step__desc">nguyên thể không "to"</span><span class="pipeline-step__ex">go, work</span></div>
+        <div class="pipeline-arrow" aria-hidden="true"></div>
+        <div class="pipeline-step" role="listitem"><span class="pipeline-step__tag">To-V</span><span class="pipeline-step__desc">nguyên thể có "to"</span><span class="pipeline-step__ex">to go, to work</span></div>
+        <div class="pipeline-arrow" aria-hidden="true"></div>
+        <div class="pipeline-step" role="listitem"><span class="pipeline-step__tag">V-s/es</span><span class="pipeline-step__desc">HT đơn, ngôi 3 số ít</span><span class="pipeline-step__ex">goes, works</span></div>
+        <div class="pipeline-arrow" aria-hidden="true"></div>
+        <div class="pipeline-step" role="listitem"><span class="pipeline-step__tag">V-ing</span><span class="pipeline-step__desc">tiếp diễn / danh động từ</span><span class="pipeline-step__ex">going, working</span></div>
+        <div class="pipeline-arrow" aria-hidden="true"></div>
+        <div class="pipeline-step" role="listitem"><span class="pipeline-step__tag">V-ed / V2 / V3</span><span class="pipeline-step__desc">QK, hoàn thành, bị động</span><span class="pipeline-step__ex">worked · went, gone</span></div>
+      </div>
+
+      <h3 class="block-title"><span class="block-num">5</span>Dấu hiệu nhận biết — hậu tố phổ biến</h3>
+      <div class="tag-grid">
+        <div class="signal-tag"><span class="signal-tag__suffix">-ize / -ise</span><span class="signal-tag__mean">Tổ chức, nhận ra</span><span class="signal-tag__ex">organize, realize</span></div>
+        <div class="signal-tag"><span class="signal-tag__suffix">-ate</span><span class="signal-tag__mean">Tạo ra, đánh giá</span><span class="signal-tag__ex">create, evaluate</span></div>
+        <div class="signal-tag"><span class="signal-tag__suffix">-en</span><span class="signal-tag__mean">Làm rộng ra, củng cố</span><span class="signal-tag__ex">widen, strengthen</span></div>
+        <div class="signal-tag"><span class="signal-tag__suffix">-ify</span><span class="signal-tag__mean">Đơn giản hóa, nhận dạng</span><span class="signal-tag__ex">simplify, identify</span></div>
+      </div>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- SHEET 03 — TÍNH TỪ (ADJECTIVE)                     -->
+    <!-- ================================================= -->
+    <section class="sheet" id="sec-03" data-num="03">
+      <header class="sheet__head">
+        <span class="sheet__tag">DWG-03</span>
+        <h2>Tính từ <span class="sheet__eng">Adjective</span></h2>
+      </header>
+
+      <p class="sheet__intro">Tính từ (<span class="sig">Adjective</span> — ký hiệu <strong>Adj</strong>) đóng vai trò "tô màu" cho câu: cung cấp thêm thông tin, miêu tả tính chất, đặc điểm hoặc trạng thái cho danh từ / đại từ.</p>
+
+      <h3 class="block-title"><span class="block-num">1</span>Vị trí trong câu — điểm mấu chốt để điền từ</h3>
+      <div class="role-grid">
+        <div class="role-card">
+          <p class="role-card__name">Attributive</p>
+          <p class="role-card__desc">Đứng trước danh từ, bổ nghĩa trực tiếp.</p>
+          <p class="role-card__ex">a <span class="term">compact</span> keyboard, a <span class="term">scalable</span> system</p>
+        </div>
+        <div class="role-card">
+          <p class="role-card__name">Sau Linking Verb</p>
+          <p class="role-card__desc">be, seem, look, remain, become, feel…</p>
+          <p class="role-card__ex">The server remains <span class="term">stable</span>.</p>
+        </div>
+        <div class="role-card">
+          <p class="role-card__name">Sau đại từ bất định</p>
+          <p class="role-card__desc">something, someone, nothing, anything, everything…</p>
+          <p class="role-card__ex">Let's build something <span class="term">innovative</span>.</p>
+        </div>
+        <div class="role-card">
+          <p class="role-card__name">make / keep / find / leave + O</p>
+          <p class="role-card__desc">Cấu trúc tân ngữ đặc biệt.</p>
+          <p class="role-card__ex">The script makes the process <span class="term">efficient</span>.</p>
+        </div>
+      </div>
+
+      <h3 class="block-title"><span class="block-num">2</span>Bẫy kinh điển: "-ing" vs "-ed"</h3>
+      <p class="block-note">Bẫy xuất hiện dày đặc trong các bài kiểm tra ngôn ngữ — so sánh trực tiếp hai dạng:</p>
+      <div class="tabs" data-tabs>
+        <div class="tabs__list" role="tablist">
+          <button class="tabs__btn is-active" role="tab" aria-selected="true" data-tab="ing">-ing <em>(chủ động)</em></button>
+          <button class="tabs__btn" role="tab" aria-selected="false" data-tab="ed">-ed <em>(bị động)</em></button>
+        </div>
+        <div class="tabs__panel is-active" data-panel="ing">
+          <p>Miêu tả <strong>bản chất, đặc điểm</strong> của sự vật/sự việc — thứ <strong>GÂY RA</strong> cảm giác cho người/vật khác.</p>
+          <p class="tabs__ex">The error logs are <span class="term">confusing</span>. <em>(Những bản ghi lỗi này thật rắc rối)</em></p>
+        </div>
+        <div class="tabs__panel" data-panel="ed">
+          <p>Miêu tả <strong>cảm xúc, trạng thái</strong> của một người khi <strong>BỊ TÁC ĐỘNG</strong> bởi sự vật/sự việc.</p>
+          <p class="tabs__ex">The engineer was <span class="term">confused</span> by the error logs. <em>(Kỹ sư cảm thấy bối rối)</em></p>
+        </div>
+      </div>
+
+      <h3 class="block-title"><span class="block-num">3</span>Trật tự tính từ trước danh từ — quy tắc OSASCOMP</h3>
+      <p class="block-note">Khi nhiều tính từ cùng đứng trước một danh từ, thứ tự ưu tiên là cố định:</p>
+      <div class="order-chain" role="list">
+        <div class="order-slot" role="listitem"><span class="order-slot__letter">O</span><span class="order-slot__label">Opinion</span><span class="order-slot__ex">beautiful</span></div>
+        <div class="order-slot" role="listitem"><span class="order-slot__letter">S</span><span class="order-slot__label">Size</span><span class="order-slot__ex">big</span></div>
+        <div class="order-slot" role="listitem"><span class="order-slot__letter">A</span><span class="order-slot__label">Age</span><span class="order-slot__ex">old</span></div>
+        <div class="order-slot" role="listitem"><span class="order-slot__letter">S</span><span class="order-slot__label">Shape</span><span class="order-slot__ex">round</span></div>
+        <div class="order-slot" role="listitem"><span class="order-slot__letter">C</span><span class="order-slot__label">Color</span><span class="order-slot__ex">white</span></div>
+        <div class="order-slot" role="listitem"><span class="order-slot__letter">O</span><span class="order-slot__label">Origin</span><span class="order-slot__ex">Japanese</span></div>
+        <div class="order-slot" role="listitem"><span class="order-slot__letter">M</span><span class="order-slot__label">Material</span><span class="order-slot__ex">plastic</span></div>
+        <div class="order-slot" role="listitem"><span class="order-slot__letter">P</span><span class="order-slot__label">Purpose</span><span class="order-slot__ex">running (shoes)</span></div>
+      </div>
+      <p class="order-example">Ví dụ: một chiếc bàn phím cơ bằng nhựa, màu trắng, nhỏ gọn, tuyệt đẹp →<br>
+      <span class="term">A beautiful compact white plastic mechanical</span> keyboard.
+      <em>(Opinion → Size → Color → Material → Purpose)</em></p>
+
+      <h3 class="block-title"><span class="block-num">4</span>Dấu hiệu nhận biết — hậu tố cấu tạo tính từ</h3>
+      <div class="tag-grid">
+        <div class="signal-tag"><span class="signal-tag__suffix">-ful</span><span class="signal-tag__mean">Đầy tính chất gì đó</span><span class="signal-tag__ex">useful, successful</span></div>
+        <div class="signal-tag"><span class="signal-tag__suffix">-less</span><span class="signal-tag__mean">Không có (ngược -ful)</span><span class="signal-tag__ex">useless, wireless</span></div>
+        <div class="signal-tag"><span class="signal-tag__suffix">-able / -ible</span><span class="signal-tag__mean">Có khả năng làm gì</span><span class="signal-tag__ex">flexible, accessible</span></div>
+        <div class="signal-tag"><span class="signal-tag__suffix">-ous / -ious</span><span class="signal-tag__mean">Có tính chất</span><span class="signal-tag__ex">continuous, dangerous</span></div>
+        <div class="signal-tag"><span class="signal-tag__suffix">-ive</span><span class="signal-tag__mean">Bản chất, xu hướng</span><span class="signal-tag__ex">active, effective</span></div>
+        <div class="signal-tag"><span class="signal-tag__suffix">-al</span><span class="signal-tag__mean">Thuộc về cái gì đó</span><span class="signal-tag__ex">logical, technical</span></div>
+        <div class="signal-tag"><span class="signal-tag__suffix">-ic</span><span class="signal-tag__mean">Liên quan đến</span><span class="signal-tag__ex">specific, economic</span></div>
+        <div class="signal-tag"><span class="signal-tag__suffix">-y</span><span class="signal-tag__mean">Chứa nhiều (N → Adj)</span><span class="signal-tag__ex">risky, rainy</span></div>
+      </div>
+
+      <h3 class="block-title"><span class="block-num">5</span>Các cấp độ so sánh</h3>
+      <div class="accordion" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-item__btn" aria-expanded="true">
+            <span>So sánh bằng</span><span class="accordion-item__icon"></span>
+          </button>
+          <div class="accordion-item__panel" style="max-height:200px">
+            <p><span class="mono-formula">as + Adj + as</span> — <em>Java is as popular as C++.</em></p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-item__btn" aria-expanded="false">
+            <span>So sánh hơn</span><span class="accordion-item__icon"></span>
+          </button>
+          <div class="accordion-item__panel">
+            <p>Tính từ ngắn (1 âm tiết): thêm <strong>-er</strong> — <em>faster, harder</em>.</p>
+            <p>Tính từ dài (2+ âm tiết): thêm <strong>more</strong> phía trước — <em>more reliable, more complex</em>.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-item__btn" aria-expanded="false">
+            <span>So sánh nhất</span><span class="accordion-item__icon"></span>
+          </button>
+          <div class="accordion-item__panel">
+            <p>Tính từ ngắn: <strong>the</strong> + đuôi <strong>-est</strong> — <em>the fastest</em>.</p>
+            <p>Tính từ dài: <strong>the most</strong> phía trước — <em>the most efficient</em>.</p>
+          </div>
+        </div>
+      </div>
+      <p class="callout callout--note"><strong>Lưu ý:</strong> bất quy tắc bắt buộc phải nhớ: <em>good → better → the best</em>; <em>bad → worse → the worst</em>.</p>
+    </section>
+
+    <!-- ================================================= -->
+<!-- SHEET 04 — TRẠNG TỪ (ADVERB)                       -->
+<!-- ================================================= -->
+<section class="sheet" id="sec-04" data-num="04">
+  <header class="sheet__head">
+    <span class="sheet__tag">DWG-04</span>
+    <h2>Trạng từ <span class="sheet__eng">Adverb</span></h2>
+  </header>
+
+  <p class="sheet__intro">Trạng từ (<span class="sig">Adverb</span> — ký hiệu <strong>Adv</strong>) dùng để bổ nghĩa, cung cấp thêm thông tin về cách thức, thời gian, địa điểm hoặc mức độ. Nếu tính từ miêu tả cho danh từ, thì trạng từ làm rõ nghĩa cho <strong>Động từ, Tính từ, một Trạng từ khác, hoặc cả một câu trọn vẹn</strong>.</p>
+
+  <h3 class="block-title"><span class="block-num">1</span>Vị trí và chức năng bổ nghĩa</h3>
+  <div class="role-grid">
+    <div class="role-card">
+      <p class="role-card__name">Bổ nghĩa cho Động từ</p>
+      <p class="role-card__desc">Đứng ngay sau động từ thường, hoặc sau tân ngữ (nếu có).</p>
+      <p class="role-card__ex">He drives <span class="term">carefully</span>.</p>
+    </div>
+    <div class="role-card">
+      <p class="role-card__name">Bổ nghĩa cho Tính từ</p>
+      <p class="role-card__desc">Luôn đứng ngay trước tính từ để nhấn mạnh mức độ.</p>
+      <p class="role-card__ex">The task is <span class="term">extremely</span> difficult.</p>
+    </div>
+    <div class="role-card">
+      <p class="role-card__name">Bổ nghĩa cho Trạng từ khác</p>
+      <p class="role-card__desc">Đứng trước trạng từ mà nó muốn bổ nghĩa.</p>
+      <p class="role-card__ex">He completed the work <span class="term">very</span> quickly.</p>
+    </div>
+    <div class="role-card">
+      <p class="role-card__name">Bổ nghĩa cho cả câu</p>
+      <p class="role-card__desc">Đứng đầu câu, ngăn cách bằng dấu phẩy.</p>
+      <p class="role-card__ex"><span class="term">Fortunately</span>, we finished on time.</p>
+    </div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">2</span>Phân loại trạng từ</h3>
+  <div class="table-wrap">
+    <table class="parts-table">
+      <thead><tr><th>Loại trạng từ</th><th>Chức năng</th><th>Ví dụ phổ biến</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Thể cách (Manner)</strong></td><td>Diễn tả cách hành động diễn ra — How?</td><td><em>quickly, carefully, well, easily</em></td></tr>
+        <tr><td><strong>Thời gian (Time)</strong></td><td>Diễn tả thời điểm hành động xảy ra — When?</td><td><em>yesterday, today, now, recently</em></td></tr>
+        <tr><td><strong>Nơi chốn (Place)</strong></td><td>Diễn tả không gian hành động — Where?</td><td><em>here, there, everywhere, outside</em></td></tr>
+        <tr><td><strong>Tần suất (Frequency)</strong></td><td>Mức độ lặp lại của hành động — How often?</td><td><em>always, usually, often, rarely, never</em></td></tr>
+        <tr><td><strong>Mức độ (Degree)</strong></td><td>Nhấn mạnh tính chất hoặc mức độ</td><td><em>very, quite, extremely, completely</em></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="callout callout--note"><strong>Lưu ý vị trí trạng từ tần suất:</strong> đứng trước động từ thường (He <strong>always</strong> goes to work early) nhưng đứng sau động từ to be (He is <strong>always</strong> early).</p>
+
+  <h3 class="block-title"><span class="block-num">3</span>Cách cấu tạo &amp; các ngoại lệ quan trọng</h3>
+  <p class="block-note">Công thức chung: <span class="mono-formula">Adj + "ly" = Adv</span> — quick→quick<strong>ly</strong>, clear→clear<strong>ly</strong>, successful→successful<strong>ly</strong>. Nhưng đề thi hay đánh vào 3 ngoại lệ sau:</p>
+  <div class="accordion" data-accordion>
+    <div class="accordion-item">
+      <button class="accordion-item__btn" aria-expanded="false">
+        <span>1. Tính từ = Trạng từ (không thêm "-ly")</span><span class="accordion-item__icon"></span>
+      </button>
+      <div class="accordion-item__panel">
+        <p><em>fast, hard, late, early, high</em> — giữ nguyên hình thức ở cả hai từ loại (không có "fastly").</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-item__btn" aria-expanded="false">
+        <span>2. Trạng từ bất quy tắc</span><span class="accordion-item__icon"></span>
+      </button>
+      <div class="accordion-item__panel">
+        <p><em>good</em> (tốt) → <strong>well</strong>.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-item__btn" aria-expanded="false">
+        <span>3. Bẫy đuôi "-ly" nhưng lại là TÍNH TỪ</span><span class="accordion-item__icon"></span>
+      </button>
+      <div class="accordion-item__panel">
+        <p>Một số từ đuôi "-ly" bản chất là tính từ, KHÔNG dùng để bổ nghĩa cho động từ: <em>friendly, lovely, lonely, daily/weekly/monthly</em>.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">4</span>Trật tự trạng từ trong câu — quy tắc MPT</h3>
+  <p class="block-note">Khi nhiều trạng từ cùng bổ nghĩa một động từ: <strong>Cách thức → Nơi chốn → Thời gian</strong>.</p>
+  <div class="order-chain" role="list">
+    <div class="order-slot" role="listitem"><span class="order-slot__letter">M</span><span class="order-slot__label">Manner</span><span class="order-slot__ex">hard</span></div>
+    <div class="order-slot" role="listitem"><span class="order-slot__letter">P</span><span class="order-slot__label">Place</span><span class="order-slot__ex">at the office</span></div>
+    <div class="order-slot" role="listitem"><span class="order-slot__letter">T</span><span class="order-slot__label">Time</span><span class="order-slot__ex">yesterday</span></div>
+  </div>
+  <p class="order-example">He worked <span class="term">hard</span> (Manner) <span class="term">at the office</span> (Place) <span class="term">yesterday</span> (Time).</p>
+</section>
+
+<!-- ================================================= -->
+<!-- SHEET 05 — ĐẠI TỪ (PRONOUN)                        -->
+<!-- ================================================= -->
+<section class="sheet" id="sec-05" data-num="05">
+  <header class="sheet__head">
+    <span class="sheet__tag">DWG-05</span>
+    <h2>Đại từ <span class="sheet__eng">Pronoun</span></h2>
+  </header>
+
+  <p class="sheet__intro">Đại từ (<span class="sig">Pronoun</span> — ký hiệu <strong>Pron</strong>) thay thế cho một danh từ hoặc cụm danh từ đã nhắc đến trước đó, giúp câu văn bớt lặp từ và trôi chảy hơn.</p>
+
+  <h3 class="block-title"><span class="block-num">1</span>Bảng phân loại đại từ cốt lõi</h3>
+  <div class="table-wrap">
+    <table class="parts-table">
+      <thead><tr><th>Ngôi</th><th>Chủ ngữ</th><th>Tân ngữ</th><th>Tính từ sở hữu</th><th>Đại từ sở hữu</th><th>Phản thân</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1 số ít</strong></td><td>I</td><td>me</td><td>my</td><td>mine</td><td>myself</td></tr>
+        <tr><td><strong>1 số nhiều</strong></td><td>we</td><td>us</td><td>our</td><td>ours</td><td>ourselves</td></tr>
+        <tr><td><strong>2 (ít/nhiều)</strong></td><td>you</td><td>you</td><td>your</td><td>yours</td><td>yourself / yourselves</td></tr>
+        <tr><td><strong>3 (nam)</strong></td><td>he</td><td>him</td><td>his</td><td>his</td><td>himself</td></tr>
+        <tr><td><strong>3 (nữ)</strong></td><td>she</td><td>her</td><td>her</td><td>hers</td><td>herself</td></tr>
+        <tr><td><strong>3 (vật)</strong></td><td>it</td><td>it</td><td>its</td><td><em>hiếm dùng</em></td><td>itself</td></tr>
+        <tr><td><strong>3 số nhiều</strong></td><td>they</td><td>them</td><td>their</td><td>theirs</td><td>themselves</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">2</span>Chủ ngữ &amp; tân ngữ</h3>
+  <div class="role-grid role-grid--3">
+    <div class="role-card">
+      <p class="role-card__name">Chủ ngữ</p>
+      <p class="role-card__desc">Luôn đứng đầu câu/mệnh đề, trước động từ.</p>
+      <p class="role-card__ex"><span class="term">They</span> upgraded the database last night.</p>
+    </div>
+    <div class="role-card">
+      <p class="role-card__name">Tân ngữ (sau động từ)</p>
+      <p class="role-card__desc">Đứng ngay sau động từ.</p>
+      <p class="role-card__ex">The manager gave <span class="term">them</span> a new project.</p>
+    </div>
+    <div class="role-card">
+      <p class="role-card__name">Tân ngữ (sau giới từ)</p>
+      <p class="role-card__desc">Đứng ngay sau giới từ (in, on, at, for, with…).</p>
+      <p class="role-card__ex">This documentation is for <span class="term">him</span>.</p>
+    </div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">3</span>Bẫy kinh điển: tính từ sở hữu vs. đại từ sở hữu</h3>
+  <div class="tabs" data-tabs>
+    <div class="tabs__list" role="tablist">
+      <button class="tabs__btn is-active" role="tab" aria-selected="true" data-tab="padj">Tính từ sở hữu</button>
+      <button class="tabs__btn" role="tab" aria-selected="false" data-tab="ppron">Đại từ sở hữu</button>
+    </div>
+    <div class="tabs__panel is-active" data-panel="padj">
+      <p><em>my, your, his, her, their…</em> — BẮT BUỘC phải có một danh từ đứng ngay phía sau.</p>
+      <p class="tabs__ex">This is <span class="term">my laptop</span>.</p>
+    </div>
+    <div class="tabs__panel" data-panel="ppron">
+      <p><em>mine, yours, his, hers, theirs…</em> — đứng MỘT MÌNH, không bao giờ có danh từ theo sau (đã bao gồm sở hữu + danh từ).</p>
+      <p class="tabs__ex">Your laptop is new. <span class="term">Mine</span> is old. <em>(Mine = my laptop)</em></p>
+    </div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">4</span>Đại từ phản thân (Reflexive)</h3>
+  <div class="role-grid">
+    <div class="role-card">
+      <p class="role-card__name">Chủ ngữ = Tân ngữ</p>
+      <p class="role-card__desc">Chủ ngữ và tân ngữ là cùng một người/vật.</p>
+      <p class="role-card__ex">The script will execute <span class="term">itself</span>.</p>
+    </div>
+    <div class="role-card">
+      <p class="role-card__name">Nhấn mạnh sự tự lực</p>
+      <p class="role-card__desc">Thường đi với "by".</p>
+      <p class="role-card__ex">I wrote this code <span class="term">by myself</span>.</p>
+    </div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">5</span>Đại từ quan hệ (Relative Pronouns)</h3>
+  <div class="tag-grid">
+    <div class="signal-tag"><span class="signal-tag__suffix">Who</span><span class="signal-tag__mean">Thay thế NGƯỜI, làm chủ ngữ (sau "who" là động từ)</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">Whom</span><span class="signal-tag__mean">Thay thế NGƯỜI, làm tân ngữ (sau "whom" là S + V)</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">Which</span><span class="signal-tag__mean">Thay thế VẬT, làm chủ/tân ngữ</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">That</span><span class="signal-tag__mean">Thay cho cả người và vật — không dùng sau dấu phẩy hoặc sau giới từ</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">Whose</span><span class="signal-tag__mean">Chỉ sự sở hữu — theo sau là danh từ không mạo từ</span></div>
+  </div>
+  <p class="callout callout--note"><strong>Mẹo phòng thi:</strong> nếu khoảng trống nằm giữa 2 danh từ (<em>The engineer ___ code is excellent</em>), đáp án chắc chắn 100% là <strong>whose</strong>.</p>
+
+  <h3 class="block-title"><span class="block-num">6</span>Đại từ bất định (Indefinite Pronouns)</h3>
+  <p class="block-note"><em>everyone, someone, anybody, nobody, everything, nothing…</em></p>
+  <p class="callout callout--warn"><strong>Quy tắc vàng:</strong> động từ theo sau một đại từ bất định LUÔN chia ở ngôi thứ 3 số ít. <span class="term">Everyone is</span> waiting for the update <em>(không dùng "are")</em>. <span class="term">Nothing works</span> perfectly on the first try.</p>
+</section>
+
+<!-- ================================================= -->
+<!-- SHEET 06 — GIỚI TỪ (PREPOSITION)                   -->
+<!-- ================================================= -->
+<section class="sheet" id="sec-06" data-num="06">
+  <header class="sheet__head">
+    <span class="sheet__tag">DWG-06</span>
+    <h2>Giới từ <span class="sheet__eng">Preposition</span></h2>
+  </header>
+
+  <p class="sheet__intro">Giới từ (<span class="sig">Preposition</span> — ký hiệu <strong>Prep</strong>) là "cây cầu nối", luôn phải đi kèm một từ khác để chỉ ra mối quan hệ về thời gian, không gian, phương hướng hoặc nguyên nhân/mục đích.</p>
+
+  <h3 class="block-title"><span class="block-num">1</span>Quy tắc cốt lõi: theo sau giới từ LUÔN LUÔN là…</h3>
+  <div class="role-grid role-grid--3">
+    <div class="role-card">
+      <p class="role-card__name">Danh từ / cụm danh từ</p>
+      <p class="role-card__ex">in <span class="term">the morning</span>, at <span class="term">the office</span></p>
+    </div>
+    <div class="role-card">
+      <p class="role-card__name">Đại từ tân ngữ</p>
+      <p class="role-card__ex">with <span class="term">him</span>, for <span class="term">them</span></p>
+    </div>
+    <div class="role-card">
+      <p class="role-card__name">V-ing (danh động từ)</p>
+      <p class="role-card__ex">Thank you for <span class="term">helping</span> me.</p>
+    </div>
+  </div>
+  <p class="callout callout--warn">Tuyệt đối không dùng V-nguyên thể sau giới từ, ngoại trừ "to" trong cấu trúc To-V.</p>
+
+  <h3 class="block-title"><span class="block-num">2</span>Bộ ba "IN – ON – AT"</h3>
+  <p class="block-note">Nguyên tắc "phễu ngược": từ rộng lớn, chung chung thu hẹp dần đến cụ thể, chi tiết. Bấm vào từng thẻ:</p>
+  <div class="flip-grid flip-grid--wide" style="grid-template-columns:repeat(3,1fr);">
+    <button class="flip-card flip-card--wide" data-flip>
+      <div class="flip-card__inner">
+        <div class="flip-card__face flip-card__front">
+          <span class="flip-card__label">Rộng lớn</span>
+          <span class="flip-card__title">IN</span>
+          <span class="flip-card__hint">bấm để xem →</span>
+        </div>
+        <div class="flip-card__face flip-card__back">
+          <p><strong>Time:</strong> tháng, năm, mùa, thế kỷ, buổi trong ngày — <em>in 2026, in July, in the morning</em>.</p>
+          <p><strong>Place:</strong> quốc gia, thành phố, không gian bao kín — <em>in Vietnam, in the room</em>.</p>
+        </div>
+      </div>
+    </button>
+    <button class="flip-card flip-card--wide" data-flip>
+      <div class="flip-card__inner">
+        <div class="flip-card__face flip-card__front">
+          <span class="flip-card__label">Cụ thể hơn</span>
+          <span class="flip-card__title">ON</span>
+          <span class="flip-card__hint">bấm để xem →</span>
+        </div>
+        <div class="flip-card__face flip-card__back">
+          <p><strong>Time:</strong> ngày trong tuần, ngày tháng cụ thể — <em>on Monday, on July 11th</em>.</p>
+          <p><strong>Place:</strong> trên bề mặt, tên đường, phương tiện công cộng — <em>on the table, on the bus</em>.</p>
+        </div>
+      </div>
+    </button>
+    <button class="flip-card flip-card--wide" data-flip>
+      <div class="flip-card__inner">
+        <div class="flip-card__face flip-card__front">
+          <span class="flip-card__label">Chi tiết nhất</span>
+          <span class="flip-card__title">AT</span>
+          <span class="flip-card__hint">bấm để xem →</span>
+        </div>
+        <div class="flip-card__face flip-card__back">
+          <p><strong>Time:</strong> giờ giấc cụ thể, thời điểm ngắn — <em>at 2:54 PM, at night</em>.</p>
+          <p><strong>Place:</strong> điểm đến cụ thể, địa chỉ có số nhà — <em>at home, at 123 Baker St.</em></p>
+        </div>
+      </div>
+    </button>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">3</span>Giới từ chỉ sự di chuyển &amp; phương hướng</h3>
+  <div class="tag-grid">
+    <div class="signal-tag"><span class="signal-tag__suffix">To</span><span class="signal-tag__mean">Đi ĐẾN một điểm đích</span><span class="signal-tag__ex">go to the office</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">Into / Out of</span><span class="signal-tag__mean">Đi VÀO / Ra KHỎI không gian kín</span><span class="signal-tag__ex">walk into the server room</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">Through</span><span class="signal-tag__mean">XUYÊN QUA một không gian có chiều sâu</span><span class="signal-tag__ex">drive through the tunnel</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">Across</span><span class="signal-tag__mean">BĂNG QUA một bề mặt phẳng</span><span class="signal-tag__ex">walk across the street</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">Along</span><span class="signal-tag__mean">DỌC THEO, song song với một đường dài</span><span class="signal-tag__ex">walk along the river</span></div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">4</span>Các cụm cố định (Collocations)</h3>
+  <div class="accordion" data-accordion>
+    <div class="accordion-item">
+      <button class="accordion-item__btn" aria-expanded="false"><span>Động từ + Giới từ</span><span class="accordion-item__icon"></span></button>
+      <div class="accordion-item__panel">
+        <p><strong>depend ON / rely ON</strong> — phụ thuộc vào · <strong>apologize FOR</strong> — xin lỗi vì · <strong>consist OF</strong> — bao gồm · <strong>participate IN</strong> (= take part in) — tham gia vào · <strong>look AT / look FOR / look AFTER</strong> — nhìn vào / tìm kiếm / chăm sóc · <strong>listen TO</strong> — lắng nghe.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-item__btn" aria-expanded="false"><span>Tính từ + Giới từ</span><span class="accordion-item__icon"></span></button>
+      <div class="accordion-item__panel">
+        <p><strong>interested IN</strong> — quan tâm đến · <strong>responsible FOR</strong> — chịu trách nhiệm về · <strong>familiar WITH</strong> — quen thuộc với · <strong>capable OF</strong> — có khả năng làm gì · <strong>similar TO</strong> — tương tự với · <strong>aware OF</strong> — nhận thức được.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">5</span>Những "bẫy" giới từ thường gặp</h3>
+  <p class="block-note">Người Việt hay thêm nhầm giới từ vào các động từ sau do dịch word-by-word:</p>
+  <p class="callout callout--warn"><strong>Discuss</strong> something <em>(KHÔNG "discuss about")</em> · <strong>Contact</strong> someone <em>(KHÔNG "contact with")</em> · <strong>Access</strong> something <em>(KHÔNG "access into/to")</em> · <strong>Emphasize</strong> something <em>(KHÔNG "emphasize on")</em>.</p>
+</section>
+
+<!-- ================================================= -->
+<!-- SHEET 07 — LIÊN TỪ (CONJUNCTION)                   -->
+<!-- ================================================= -->
+<section class="sheet" id="sec-07" data-num="07">
+  <header class="sheet__head">
+    <span class="sheet__tag">DWG-07</span>
+    <h2>Liên từ <span class="sheet__eng">Conjunction</span></h2>
+  </header>
+
+  <p class="sheet__intro">Liên từ (<span class="sig">Conjunction</span> — ký hiệu <strong>Conj</strong>) là "chất keo dính", liên kết từ, cụm từ hoặc mệnh đề để thể hiện rõ mối quan hệ logic (nguyên nhân, kết quả, tương phản, bổ sung).</p>
+
+  <h3 class="block-title"><span class="block-num">1</span>Liên từ kết hợp — FANBOYS</h3>
+  <div class="table-wrap">
+    <table class="parts-table">
+      <thead><tr><th>Chữ cái</th><th>Liên từ</th><th>Ý nghĩa</th><th>Ví dụ</th></tr></thead>
+      <tbody>
+        <tr><td><strong>F</strong></td><td>For</td><td>Vì (giống Because)</td><td>I drank some water, <strong>for</strong> I was thirsty.</td></tr>
+        <tr><td><strong>A</strong></td><td>And</td><td>Và</td><td>She bought apples <strong>and</strong> oranges.</td></tr>
+        <tr><td><strong>N</strong></td><td>Nor</td><td>Cũng không</td><td>He doesn't eat meat, <strong>nor</strong> does he eat fish.</td></tr>
+        <tr><td><strong>B</strong></td><td>But</td><td>Nhưng</td><td>The test was hard, <strong>but</strong> I passed.</td></tr>
+        <tr><td><strong>O</strong></td><td>Or</td><td>Hoặc</td><td>You can have tea <strong>or</strong> coffee.</td></tr>
+        <tr><td><strong>Y</strong></td><td>Yet</td><td>Nhưng, tuy nhiên</td><td>The weather was cold, <strong>yet</strong> bright and sunny.</td></tr>
+        <tr><td><strong>S</strong></td><td>So</td><td>Vì vậy</td><td>It was raining, <strong>so</strong> we stayed indoors.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="callout callout--note">Khi dùng FANBOYS để nối 2 mệnh đề độc lập hoàn chỉnh, bắt buộc phải có dấu phẩy đứng trước liên từ.</p>
+
+  <h3 class="block-title"><span class="block-num">2</span>Liên từ tương quan (Correlative)</h3>
+  <div class="tag-grid">
+    <div class="signal-tag"><span class="signal-tag__suffix">Both A and B</span><span class="signal-tag__mean">Cả A và B — động từ luôn chia số nhiều</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">Not only A but also B</span><span class="signal-tag__mean">Không những A mà còn B</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">Either A or B</span><span class="signal-tag__mean">Hoặc A hoặc B</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">Neither A nor B</span><span class="signal-tag__mean">Không A cũng không B</span></div>
+  </div>
+  <p class="callout callout--warn"><strong>Quy tắc chia động từ:</strong> với <em>Either…or</em>, <em>Neither…nor</em>, <em>Not only…but also</em>, động từ chia theo <strong>chủ ngữ gần nó nhất</strong>. <em>Neither the manager nor <strong>the employees are</strong> happy.</em></p>
+
+  <h3 class="block-title"><span class="block-num">3</span>Liên từ phụ thuộc (Subordinating)</h3>
+  <div class="table-wrap">
+    <table class="parts-table">
+      <thead><tr><th>Mối quan hệ</th><th>Liên từ phổ biến</th><th>Nghĩa</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Thời gian</strong></td><td><em>when, while, before, after, until, as soon as</em></td><td>khi, trong khi, trước, sau, cho đến khi, ngay khi</td></tr>
+        <tr><td><strong>Nguyên nhân</strong></td><td><em>because, since, as</em></td><td>bởi vì</td></tr>
+        <tr><td><strong>Nhượng bộ</strong></td><td><em>although, even though, though</em></td><td>mặc dù</td></tr>
+        <tr><td><strong>Điều kiện</strong></td><td><em>if, unless, provided that, as long as</em></td><td>nếu, trừ khi, miễn là</td></tr>
+        <tr><td><strong>Mục đích</strong></td><td><em>so that, in order that</em></td><td>để mà</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">4</span>Bẫy kinh điển: liên từ vs. giới từ</h3>
+  <p class="block-note">Nghĩa tiếng Việt giống hệt nhau nhưng cách dùng ngữ pháp hoàn toàn khác biệt:</p>
+  <div class="tabs" data-tabs>
+    <div class="tabs__list" role="tablist">
+      <button class="tabs__btn is-active" role="tab" aria-selected="true" data-tab="conj">Liên từ <em>+ Mệnh đề</em></button>
+      <button class="tabs__btn" role="tab" aria-selected="false" data-tab="prep">Giới từ <em>+ Danh từ/V-ing</em></button>
+    </div>
+    <div class="tabs__panel is-active" data-panel="conj">
+      <p><strong>Because / Since / As</strong> + S + V — <em>Bởi vì</em></p>
+      <p><strong>Although / Even though</strong> + S + V — <em>Mặc dù</em></p>
+      <p><strong>While</strong> + S + V — <em>Trong khi</em></p>
+    </div>
+    <div class="tabs__panel" data-panel="prep">
+      <p><strong>Because of / Due to</strong> + Noun/V-ing — <em>Bởi vì</em></p>
+      <p><strong>Despite / In spite of</strong> + Noun/V-ing — <em>Mặc dù</em></p>
+      <p><strong>During</strong> + Noun (khoảng thời gian) — <em>Trong khi</em></p>
+    </div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">5</span>Trạng từ liên kết (Conjunctive Adverbs)</h3>
+  <p class="block-note">Về từ loại chúng là trạng từ, đòi hỏi dấu câu khắt khe: thường đứng sau dấu chấm phẩy <strong>;</strong> và trước dấu phẩy <strong>,</strong>.</p>
+  <div class="tag-grid">
+    <div class="signal-tag"><span class="signal-tag__suffix">However / Nevertheless</span><span class="signal-tag__mean">Tuy nhiên</span><span class="signal-tag__ex">The system crashed; however, no data was lost.</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">Therefore / Consequently</span><span class="signal-tag__mean">Do đó, hậu quả là</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">Moreover / Furthermore</span><span class="signal-tag__mean">Hơn thế nữa</span></div>
+  </div>
+</section>
+
+<!-- ================================================= -->
+<!-- SHEET 08 — THÁN TỪ (INTERJECTION)                  -->
+<!-- ================================================= -->
+<section class="sheet" id="sec-08" data-num="08">
+  <header class="sheet__head">
+    <span class="sheet__tag">DWG-08</span>
+    <h2>Thán từ <span class="sheet__eng">Interjection</span></h2>
+  </header>
+
+  <p class="sheet__intro">Thán từ (<span class="sig">Interjection</span> — ký hiệu <strong>Interj</strong>) là "gia vị" cảm xúc của câu — dùng để bộc lộ những cảm xúc đột ngột, mạnh mẽ hoặc chỉ là những từ đệm (fillers) trong giao tiếp.</p>
+
+  <h3 class="block-title"><span class="block-num">1</span>Đặc điểm ngữ pháp "độc nhất vô nhị"</h3>
+  <div class="role-grid">
+    <div class="role-card">
+      <p class="role-card__name">Không liên kết ngữ pháp</p>
+      <p class="role-card__desc">Đứng độc lập, không làm chủ ngữ, vị ngữ hay bổ nghĩa cho từ nào. Bỏ thán từ đi, câu vẫn đúng ngữ pháp.</p>
+    </div>
+    <div class="role-card">
+      <p class="role-card__name">Vị trí &amp; dấu câu</p>
+      <p class="role-card__desc">Cảm xúc mạnh → đứng một mình + dấu chấm than: <span class="term">Ouch!</span> That hurts.<br>Cảm xúc nhẹ → ngăn cách bằng dấu phẩy: <span class="term">Well,</span> I think we should wait.</p>
+    </div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">2</span>Phân loại theo cảm xúc</h3>
+  <div class="table-wrap">
+    <table class="parts-table">
+      <thead><tr><th>Cảm xúc / mục đích</th><th>Thán từ phổ biến</th><th>Ví dụ</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Bất ngờ, ngạc nhiên</strong></td><td>Oh, Wow, Gosh, My goodness</td><td><strong>Wow!</strong> Your new mechanical keyboard looks amazing.</td></tr>
+        <tr><td><strong>Vui mừng, phấn khích</strong></td><td>Yay, Hurrah, Bingo</td><td><strong>Yay!</strong> We finally fixed the bug.</td></tr>
+        <tr><td><strong>Đau đớn vật lý</strong></td><td>Ouch, Ow</td><td><strong>Ouch!</strong> I accidentally hit the desk.</td></tr>
+        <tr><td><strong>Ghê tởm, khó chịu</strong></td><td>Ew, Ugh, Yuck</td><td><strong>Ew!</strong> This coffee tastes terrible.</td></tr>
+        <tr><td><strong>Kêu gọi chú ý</strong></td><td>Hey, Psst, Look</td><td><strong>Hey!</strong> Don't forget to save the database.</td></tr>
+        <tr><td><strong>Do dự, câu giờ (fillers)</strong></td><td>Um, Uh, Hmm, Well</td><td><strong>Hmm,</strong> let me check the documentation again.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ================================================= -->
+<!-- SHEET 09 — HẠN ĐỊNH TỪ (DETERMINER)                -->
+<!-- ================================================= -->
+<section class="sheet" id="sec-09" data-num="09">
+  <header class="sheet__head">
+    <span class="sheet__tag">DWG-09</span>
+    <h2>Hạn định từ <span class="sheet__eng">Determiner</span></h2>
+  </header>
+
+  <p class="sheet__intro">Hạn định từ (<span class="sig">Determiner</span> — ký hiệu <strong>Det</strong>) hoạt động như một "biển báo giao thông" đứng trước danh từ, xác định rõ danh từ đó chỉ đối tượng nào, số lượng bao nhiêu, hay thuộc sở hữu của ai — khác hoàn toàn với tính từ (vốn miêu tả tính chất).</p>
+
+  <h3 class="block-title"><span class="block-num">1</span>Vị trí "bất di bất dịch"</h3>
+  <p class="block-note">Luôn đứng TRƯỚC danh từ và trước cả tính từ (nếu có): <span class="mono-formula">[Hạn định từ] + (Tính từ) + Danh từ</span></p>
+  <p class="callout callout--note"><span class="term">This</span> mechanical keyboard. <span class="term">Some</span> complex database logs.</p>
+
+  <h3 class="block-title"><span class="block-num">2</span>Bảng phân loại hạn định từ</h3>
+  <div class="table-wrap">
+    <table class="parts-table">
+      <thead><tr><th>Nhóm</th><th>Bao gồm</th><th>Ví dụ</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Mạo từ (Articles)</strong></td><td>a, an, the</td><td>Can you restart <strong>the</strong> server?</td></tr>
+        <tr><td><strong>Từ chỉ định</strong></td><td>this, that, these, those</td><td><strong>This</strong> error keeps happening.</td></tr>
+        <tr><td><strong>Tính từ sở hữu</strong></td><td>my, your, his, her, its, our, their</td><td>We need to update <strong>our</strong> system.</td></tr>
+        <tr><td><strong>Từ phân bổ</strong></td><td>each, every, either, neither</td><td><strong>Every</strong> file must be translated.</td></tr>
+        <tr><td><strong>Lượng từ (Quantifiers)</strong></td><td>some, any, much, many, all, few, little…</td><td>There are <strong>many</strong> open tabs.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">3</span>Các "bẫy" lượng từ kinh điển</h3>
+  <p class="block-note"><strong>Bẫy 1 — đếm được vs. không đếm được:</strong></p>
+  <div class="tag-grid">
+    <div class="signal-tag"><span class="signal-tag__suffix">many / few / a few / several</span><span class="signal-tag__mean">Chỉ đi với danh từ ĐẾM ĐƯỢC số nhiều</span><span class="signal-tag__ex">many errors, a few users</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">much / little / a little</span><span class="signal-tag__mean">Chỉ đi với danh từ KHÔNG ĐẾM ĐƯỢC</span><span class="signal-tag__ex">much traffic, a little time</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">all / some / any / a lot of</span><span class="signal-tag__mean">Dùng được cho CẢ HAI loại</span></div>
+  </div>
+
+  <p class="block-note" style="margin-top:26px;"><strong>Bẫy 2 &amp; 3</strong> — chữ "A" thay đổi hoàn toàn ý nghĩa, và Some/Any tùy thể câu. Bấm để xem:</p>
+  <div class="flip-grid flip-grid--wide">
+    <button class="flip-card flip-card--wide" data-flip>
+      <div class="flip-card__inner">
+        <div class="flip-card__face flip-card__front">
+          <span class="flip-card__label">Tích cực</span>
+          <span class="flip-card__title">A few / A little</span>
+          <span class="flip-card__hint">bấm để xem →</span>
+        </div>
+        <div class="flip-card__face flip-card__back">
+          <p>"Có một chút, đủ để dùng."</p>
+          <p class="flip-card__ex">I have <span class="term">a few</span> switches left.</p>
+        </div>
+      </div>
+    </button>
+    <button class="flip-card flip-card--wide" data-flip>
+      <div class="flip-card__inner">
+        <div class="flip-card__face flip-card__front">
+          <span class="flip-card__label">Tiêu cực</span>
+          <span class="flip-card__title">Few / Little</span>
+          <span class="flip-card__hint">bấm để xem →</span>
+        </div>
+        <div class="flip-card__face flip-card__back">
+          <p>"Rất ít, gần như không có, không đủ."</p>
+          <p class="flip-card__ex">We have <span class="term">little</span> time to fix this bug.</p>
+        </div>
+      </div>
+    </button>
+    <button class="flip-card flip-card--wide" data-flip>
+      <div class="flip-card__inner">
+        <div class="flip-card__face flip-card__front">
+          <span class="flip-card__label">Khẳng định / Lời mời</span>
+          <span class="flip-card__title">Some</span>
+          <span class="flip-card__hint">bấm để xem →</span>
+        </div>
+        <div class="flip-card__face flip-card__back">
+          <p>Dùng trong câu khẳng định và lời mời/yêu cầu lịch sự.</p>
+          <p class="flip-card__ex">I need <span class="term">some</span> help with this code.</p>
+        </div>
+      </div>
+    </button>
+    <button class="flip-card flip-card--wide" data-flip>
+      <div class="flip-card__inner">
+        <div class="flip-card__face flip-card__front">
+          <span class="flip-card__label">Phủ định / Nghi vấn</span>
+          <span class="flip-card__title">Any</span>
+          <span class="flip-card__hint">bấm để xem →</span>
+        </div>
+        <div class="flip-card__face flip-card__back">
+          <p>Dùng trong câu phủ định (có not) và câu hỏi.</p>
+          <p class="flip-card__ex">There aren't <span class="term">any</span> bugs in this release.</p>
+        </div>
+      </div>
+    </button>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">4</span>Bẫy mạo từ A / An / The</h3>
+  <p class="callout callout--note"><strong>A/An:</strong> danh từ đếm được, số ít, chưa xác định (nhắc lần đầu). "An" trước nguyên âm. <strong>The:</strong> khi người nói và nghe đều đã biết rõ đối tượng. <em>I bought <strong>a</strong> keyboard. <strong>The</strong> keyboard is very responsive.</em></p>
+  <p class="callout callout--warn">Tuyệt đối ghi nhớ: KHÔNG bao giờ dùng "a/an" trước danh từ không đếm được (<em>information, software, equipment, water</em>).</p>
+</section>
+
+<!-- ================================================= -->
+<!-- SHEET 10 — THÌ HIỆN TẠI ĐƠN (PRESENT SIMPLE)       -->
+<!-- ================================================= -->
+<section class="sheet" id="sec-10" data-num="10">
+  <header class="sheet__head">
+    <span class="sheet__tag">DWG-10</span>
+    <h2>Thì hiện tại đơn <span class="sheet__eng">Present Simple</span></h2>
+  </header>
+
+  <p class="sheet__intro">Viên gạch nền tảng của toàn bộ hệ thống 12 thì. Tuy mang tên "đơn giản", đây là thì có tần suất sử dụng cao nhất và cũng là nơi dễ mất điểm nhất do quên chia động từ.</p>
+
+  <h3 class="block-title"><span class="block-num">1</span>Cấu trúc</h3>
+  <p class="block-note">Lỗi kinh điển: trộn lẫn to be và động từ thường (<em>sai: He is not play</em>). Phải tách biệt 2 nhóm:</p>
+  <div class="table-wrap">
+    <table class="parts-table">
+      <thead><tr><th>Thể</th><th>Cấu trúc — nhóm "to be"</th><th>Ví dụ</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Khẳng định (+)</strong></td><td><span class="mono-formula">S + am/is/are + N/Adj</span></td><td>The system <strong>is</strong> online.</td></tr>
+        <tr><td><strong>Phủ định (-)</strong></td><td><span class="mono-formula">S + am/is/are + NOT + N/Adj</span></td><td>The server <strong>is not (isn't)</strong> down.</td></tr>
+        <tr><td><strong>Nghi vấn (?)</strong></td><td><span class="mono-formula">Am/Is/Are + S + N/Adj?</span></td><td><strong>Is</strong> the data accurate?</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-wrap" style="margin-top:12px;">
+    <table class="parts-table">
+      <thead><tr><th>Thể</th><th>Cấu trúc — nhóm động từ thường</th><th>Ví dụ</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Khẳng định (+)</strong></td><td><span class="mono-formula">S + V-inf / V-s/es</span></td><td>He <strong>writes</strong> code every day.</td></tr>
+        <tr><td><strong>Phủ định (-)</strong></td><td><span class="mono-formula">S + do/does + NOT + V-inf</span></td><td>The script <strong>does not (doesn't)</strong> run.</td></tr>
+        <tr><td><strong>Nghi vấn (?)</strong></td><td><span class="mono-formula">Do/Does + S + V-inf?</span></td><td><strong>Do</strong> you use a mechanical keyboard?</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="callout callout--note"><strong>Chia động từ ngôi 3 số ít:</strong> thêm <strong>-es</strong> nếu tận cùng o, s, ch, x, sh, z (goes, watches, fixes) · đổi <strong>-y → -ies</strong> nếu trước "y" là phụ âm (study→studies) · còn lại thêm <strong>-s</strong>.</p>
+
+  <h3 class="block-title"><span class="block-num">2</span>Cách dùng cốt lõi</h3>
+  <div class="role-grid role-grid--3">
+    <div class="role-card">
+      <p class="role-card__name">Thói quen lặp lại</p>
+      <p class="role-card__ex">I <span class="term">drink</span> coffee every morning.</p>
+    </div>
+    <div class="role-card">
+      <p class="role-card__name">Sự thật hiển nhiên</p>
+      <p class="role-card__ex">Water <span class="term">boils</span> at 100°C.</p>
+    </div>
+    <div class="role-card">
+      <p class="role-card__name">Lịch trình cố định <em>(mang nghĩa tương lai)</em></p>
+      <p class="role-card__desc">Bẫy hay gặp: dù là việc ở tương lai nhưng vì theo lịch trình cố định, vẫn dùng HTĐ.</p>
+      <p class="role-card__ex">The flight to Tokyo <span class="term">departs</span> at 8:00 AM tomorrow.</p>
+    </div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">3</span>Dấu hiệu nhận biết</h3>
+  <div class="tag-grid">
+    <div class="signal-tag"><span class="signal-tag__suffix">always / usually / often</span><span class="signal-tag__mean">Tần suất — trước V thường, sau to be</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">sometimes / rarely / never</span><span class="signal-tag__mean">Tần suất</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">every day/week/month/year</span><span class="signal-tag__mean">Thời gian lặp lại</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">once / twice / three times a…</span><span class="signal-tag__mean">Số lần lặp lại</span></div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">4</span>Hai "bẫy" thường gặp</h3>
+  <p class="callout callout--warn"><strong>Bẫy đại từ bất định:</strong> chủ ngữ <em>Everyone, Everybody, Someone, Nobody…</em> → động từ LUÔN chia số ít. <span class="term">Everyone wants</span> a stable system <em>(không dùng "want")</em>.</p>
+  <p class="callout callout--warn"><strong>Bẫy câu hỏi Wh-:</strong> hay quên mượn trợ động từ. <em>Sai: Where you live?</em> → <strong>Đúng: Where do you live?</strong></p>
+</section>
+
+<!-- ================================================= -->
+<!-- SHEET 11 — THÌ HIỆN TẠI TIẾP DIỄN                  -->
+<!-- ================================================= -->
+<section class="sheet" id="sec-11" data-num="11">
+  <header class="sheet__head">
+    <span class="sheet__tag">DWG-11</span>
+    <h2>Thì hiện tại tiếp diễn <span class="sheet__eng">Present Continuous</span></h2>
+  </header>
+
+  <p class="sheet__intro">"Mảnh ghép" đối lập hoàn hảo với Hiện tại đơn. Nếu HTĐ nói về bản chất, ổn định, lặp lại, thì HTTD nhấn mạnh <strong>sự tạm thời, tính thời điểm và những gì đang dở dang</strong>.</p>
+
+  <h3 class="block-title"><span class="block-num">1</span>Cấu trúc</h3>
+  <div class="table-wrap">
+    <table class="parts-table">
+      <thead><tr><th>Thể</th><th>Cấu trúc</th><th>Ví dụ</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Khẳng định (+)</strong></td><td><span class="mono-formula">S + am/is/are + V-ing</span></td><td>I <strong>am debugging</strong> the Spring Boot application.</td></tr>
+        <tr><td><strong>Phủ định (-)</strong></td><td><span class="mono-formula">S + am/is/are + NOT + V-ing</span></td><td>The database <strong>is not synchronizing</strong> right now.</td></tr>
+        <tr><td><strong>Nghi vấn (?)</strong></td><td><span class="mono-formula">Am/Is/Are + S + V-ing?</span></td><td><strong>Are</strong> you <strong>testing</strong> the new mechanical keyboard?</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">2</span>Khác biệt cốt lõi: HTĐ vs. HTTD</h3>
+  <div class="tabs" data-tabs>
+    <div class="tabs__list" role="tablist">
+      <button class="tabs__btn is-active" role="tab" aria-selected="true" data-tab="s1">Hiện tại đơn</button>
+      <button class="tabs__btn" role="tab" aria-selected="false" data-tab="s2">Hiện tại tiếp diễn</button>
+    </div>
+    <div class="tabs__panel is-active" data-panel="s1">
+      <p><strong>Ổn định dài hạn:</strong> sự thật, bản chất, nghề nghiệp. <em>He works as a backend engineer.</em></p>
+      <p><strong>Thói quen:</strong> lặp đi lặp lại. <em>I read technical documentation every day.</em></p>
+      <p><strong>Tương lai — lịch trình:</strong> tàu xe, giờ mở cửa. <em>The flight leaves at 8 PM.</em></p>
+    </div>
+    <div class="tabs__panel" data-panel="s2">
+      <p><strong>Tạm thời:</strong> chỉ xảy ra trong khoảng ngắn quanh hiện tại. <em>He is studying for an exam this month.</em></p>
+      <p><strong>Đang xảy ra:</strong> ngay lúc nói, chưa kết thúc. <em>I am reading the Elasticsearch docs.</em></p>
+      <p><strong>Tương lai — kế hoạch cá nhân:</strong> đã chốt chắc chắn. <em>I am meeting the team tomorrow.</em></p>
+    </div>
+  </div>
+  <p class="callout callout--note"><strong>Góc độ đặc biệt — phàn nàn với "always":</strong> HTTD + always = phàn nàn về việc lặp lại gây khó chịu. <em>The server <strong>is always crashing</strong>!</em></p>
+
+  <h3 class="block-title"><span class="block-num">3</span>Dấu hiệu nhận biết</h3>
+  <div class="tag-grid">
+    <div class="signal-tag"><span class="signal-tag__suffix">now / right now</span><span class="signal-tag__mean">Ngay lúc nói</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">at the moment / currently</span><span class="signal-tag__mean">Hiện tại</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">Look! / Listen!</span><span class="signal-tag__mean">Câu mệnh lệnh thu hút chú ý</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">Watch out!</span><span class="signal-tag__mean">Cẩn thận!</span></div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">4</span>Bẫy động từ trạng thái (Stative Verbs)</h3>
+  <p class="block-note">Bẫy phổ biến nhất: động từ trạng thái KHÔNG BAO GIỜ chia ở thì tiếp diễn, dù hành động đang diễn ra ngay lúc nói. Bấm để xem nhóm động từ:</p>
+  <div class="flip-grid flip-grid--compact" style="grid-template-columns:repeat(3,1fr);">
+    <button class="flip-card" data-flip><div class="flip-card__inner"><div class="flip-card__face flip-card__front"><span>Nhận thức</span></div><div class="flip-card__face flip-card__back"><span>know, understand, believe, think</span></div></div></button>
+    <button class="flip-card" data-flip><div class="flip-card__inner"><div class="flip-card__face flip-card__front"><span>Cảm xúc</span></div><div class="flip-card__face flip-card__back"><span>like, love, hate, want, need, prefer</span></div></div></button>
+    <button class="flip-card" data-flip><div class="flip-card__inner"><div class="flip-card__face flip-card__front"><span>Sở hữu</span></div><div class="flip-card__face flip-card__back"><span>have, own, belong to</span></div></div></button>
+  </div>
+  <p class="callout callout--warn"><em>Sai:</em> I <strong>am needing</strong> a TKL keyboard right now.<br><em>Đúng:</em> I <strong>need</strong> a TKL keyboard right now. <em>(Dù có "right now", "need" là động từ trạng thái)</em>.</p>
+</section>
+
+<!-- ================================================= -->
+<!-- SHEET 12 — THÌ HIỆN TẠI HOÀN THÀNH                 -->
+<!-- ================================================= -->
+<section class="sheet" id="sec-12" data-num="12">
+  <header class="sheet__head">
+    <span class="sheet__tag">DWG-12</span>
+    <h2>Thì hiện tại hoàn thành <span class="sheet__eng">Present Perfect</span></h2>
+  </header>
+
+  <p class="sheet__intro">Thường là "nỗi ám ảnh" lớn nhất vì tiếng Việt không có cấu trúc tương đương. Hãy hình dung như một <strong>"cây cầu nối liền Quá khứ và Hiện tại"</strong> — hành động vắt ngang qua cả hai.</p>
+
+  <h3 class="block-title"><span class="block-num">1</span>Cấu trúc</h3>
+  <p class="block-note">Trợ động từ <strong>have/has</strong> + Động từ ở Phân từ 2 (V3/ed). I/You/We/They → have. He/She/It → has.</p>
+  <div class="table-wrap">
+    <table class="parts-table">
+      <thead><tr><th>Thể</th><th>Cấu trúc</th><th>Ví dụ</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Khẳng định (+)</strong></td><td><span class="mono-formula">S + have/has + V3/ed</span></td><td>I <strong>have configured</strong> the Elasticsearch cluster.</td></tr>
+        <tr><td><strong>Phủ định (-)</strong></td><td><span class="mono-formula">S + have/has + NOT + V3/ed</span></td><td>The system <strong>has not (hasn't) synced</strong> the logs yet.</td></tr>
+        <tr><td><strong>Nghi vấn (?)</strong></td><td><span class="mono-formula">Have/Has + S + V3/ed?</span></td><td><strong>Have</strong> you <strong>tested</strong> the new TKL keyboard?</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">2</span>3 cách dùng cốt lõi</h3>
+  <div class="role-grid role-grid--3">
+    <div class="role-card">
+      <p class="role-card__name">Bắt đầu ở QK, kéo dài đến hiện tại</p>
+      <p class="role-card__ex">I <span class="term">have worked</span> with Java for 3 years.</p>
+    </div>
+    <div class="role-card">
+      <p class="role-card__name">Trải nghiệm — không quan tâm khi nào</p>
+      <p class="role-card__ex">He <span class="term">has never used</span> MariaDB before.</p>
+    </div>
+    <div class="role-card">
+      <p class="role-card__name">Vừa xảy ra, còn để lại hậu quả</p>
+      <p class="role-card__ex">I <span class="term">have deleted</span> the database tables!</p>
+    </div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">3</span>Dấu hiệu nhận biết</h3>
+  <div class="tag-grid">
+    <div class="signal-tag"><span class="signal-tag__suffix">just / recently / lately</span><span class="signal-tag__mean">Vừa mới, gần đây</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">already</span><span class="signal-tag__mean">Rồi (câu khẳng định)</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">yet</span><span class="signal-tag__mean">Chưa (cuối câu phủ định/nghi vấn)</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">so far / up to now</span><span class="signal-tag__mean">Cho đến nay</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">ever / never</span><span class="signal-tag__mean">Đã từng / chưa từng</span></div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">4</span>"Bẫy" kinh điển: SINCE vs. FOR</h3>
+  <div class="flip-grid flip-grid--wide">
+    <button class="flip-card flip-card--wide" data-flip>
+      <div class="flip-card__inner">
+        <div class="flip-card__face flip-card__front">
+          <span class="flip-card__label">Khoảng thời gian</span>
+          <span class="flip-card__title">FOR</span>
+          <span class="flip-card__hint">bấm để xem →</span>
+        </div>
+        <div class="flip-card__face flip-card__back">
+          <p>Chỉ độ dài thời gian (đo như đồng hồ đếm ngược).</p>
+          <p class="flip-card__ex"><em>for 5 years, for 2 months, for a long time</em></p>
+        </div>
+      </div>
+    </button>
+    <button class="flip-card flip-card--wide" data-flip>
+      <div class="flip-card__inner">
+        <div class="flip-card__face flip-card__front">
+          <span class="flip-card__label">Mốc thời gian</span>
+          <span class="flip-card__title">SINCE</span>
+          <span class="flip-card__hint">bấm để xem →</span>
+        </div>
+        <div class="flip-card__face flip-card__back">
+          <p>Chỉ điểm xuất phát (như nhìn vào lịch). Cấu trúc hay thi: <span class="mono-formula">HTHT + SINCE + Quá khứ đơn</span>.</p>
+          <p class="flip-card__ex">We <strong>have upgraded</strong> the server <strong>since</strong> the system <strong>crashed</strong>.</p>
+        </div>
+      </div>
+    </button>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">5</span>Bẫy tư duy: Quá khứ đơn vs. Hiện tại hoàn thành</h3>
+  <div class="tabs" data-tabs>
+    <div class="tabs__list" role="tablist">
+      <button class="tabs__btn is-active" role="tab" aria-selected="true" data-tab="past">Có mốc thời gian cụ thể</button>
+      <button class="tabs__btn" role="tab" aria-selected="false" data-tab="perf">Không có mốc thời gian</button>
+    </div>
+    <div class="tabs__panel is-active" data-panel="past">
+      <p><em>yesterday, last year, in 2021</em> → bắt buộc dùng <strong>Quá khứ đơn</strong>.</p>
+      <p class="tabs__ex">I <span class="term">fixed</span> the bug <em>yesterday</em>.</p>
+    </div>
+    <div class="tabs__panel" data-panel="perf">
+      <p>Chỉ nói về kết quả/trải nghiệm → dùng <strong>Hiện tại hoàn thành</strong>.</p>
+      <p class="tabs__ex">I <span class="term">have fixed</span> the bug.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================= -->
+<!-- SHEET 13 — THÌ HIỆN TẠI HOÀN THÀNH TIẾP DIỄN       -->
+<!-- ================================================= -->
+<section class="sheet" id="sec-13" data-num="13">
+  <header class="sheet__head">
+    <span class="sheet__tag">DWG-13</span>
+    <h2>Thì HT hoàn thành tiếp diễn <span class="sheet__eng">Present Perfect Continuous</span></h2>
+  </header>
+
+  <p class="sheet__intro">Nếu Hiện tại hoàn thành là cây cầu nối quá khứ và hiện tại, thì này là bản "nâng cấp" nhấn mạnh vào <strong>độ dài, tính liên tục và sự vất vả của quá trình</strong> đi qua cây cầu đó.</p>
+
+  <h3 class="block-title"><span class="block-num">1</span>Cấu trúc</h3>
+  <div class="table-wrap">
+    <table class="parts-table">
+      <thead><tr><th>Thể</th><th>Cấu trúc</th><th>Ví dụ</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Khẳng định (+)</strong></td><td><span class="mono-formula">S + have/has been + V-ing</span></td><td>I <strong>have been studying</strong> English for 3 hours.</td></tr>
+        <tr><td><strong>Phủ định (-)</strong></td><td><span class="mono-formula">S + have/has not been + V-ing</span></td><td>The script <strong>hasn't been running</strong> properly all morning.</td></tr>
+        <tr><td><strong>Nghi vấn (?)</strong></td><td><span class="mono-formula">Have/Has + S + been + V-ing?</span></td><td><strong>Have</strong> you <strong>been typing</strong> on that keyboard all day?</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">2</span>Khác biệt cốt lõi: quá trình vs. kết quả</h3>
+  <div class="tabs" data-tabs>
+    <div class="tabs__list" role="tablist">
+      <button class="tabs__btn is-active" role="tab" aria-selected="true" data-tab="cont">Quá trình <em>(How long?)</em></button>
+      <button class="tabs__btn" role="tab" aria-selected="false" data-tab="perf">Kết quả <em>(How much/many?)</em></button>
+    </div>
+    <div class="tabs__panel is-active" data-panel="cont">
+      <p>Nhấn mạnh hành động kéo dài bao lâu, diễn ra liên tục — hành động vẫn <strong>dở dang, chưa xong</strong>.</p>
+      <p class="tabs__ex">I <span class="term">have been writing</span> this Java application all week.</p>
+    </div>
+    <div class="tabs__panel" data-panel="perf">
+      <p>Nhấn mạnh kết quả/số lượng đạt được — hành động <strong>đã hoàn tất</strong>.</p>
+      <p class="tabs__ex">I <span class="term">have written</span> three new API endpoints.</p>
+    </div>
+  </div>
+  <p class="callout callout--note">Cũng thường dùng để diễn tả một hành động <strong>vừa mới kết thúc</strong> nhưng vẫn để lại ảnh hưởng ở hiện tại: <em>You look exhausted! <strong>Have</strong> you <strong>been working</strong> overtime?</em></p>
+
+  <h3 class="block-title"><span class="block-num">3</span>Dấu hiệu nhận biết</h3>
+  <div class="tag-grid">
+    <div class="signal-tag"><span class="signal-tag__suffix">all day / all week / all morning</span><span class="signal-tag__mean">Bao quát cả khoảng thời gian</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">for + [khoảng thời gian] + now</span><span class="signal-tag__mean">Tính đến giờ được… liên tục</span><span class="signal-tag__ex">for 2 hours now</span></div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">4</span>"Bẫy" bắt buộc phải nhớ: động từ trạng thái</h3>
+  <p class="callout callout--warn">Động từ trạng thái KHÔNG BAO GIỜ chia tiếp diễn — phải lùi về Hiện tại hoàn thành.<br><em>Sai:</em> I <strong>have been knowing</strong> him for 5 years.<br><em>Đúng:</em> I <strong>have known</strong> him for 5 years.</p>
+</section>
+<!-- ================================================= -->
+<!-- SHEET 14 — THÌ QUÁ KHỨ ĐƠN (PAST SIMPLE)           -->
+<!-- ================================================= -->
+<section class="sheet" id="sec-14" data-num="14">
+  <header class="sheet__head">
+    <span class="sheet__tag">DWG-14</span>
+    <h2>Thì quá khứ đơn <span class="sheet__eng">Past Simple</span></h2>
+  </header>
+
+  <p class="sheet__intro">"Trang sách đã gấp lại". Nếu Hiện tại hoàn thành là cây cầu nối với hiện tại, Quá khứ đơn là một sự kiện đã cắt đứt hoàn toàn, không còn liên quan đến hiện tại.</p>
+
+  <h3 class="block-title"><span class="block-num">1</span>Cấu trúc</h3>
+  <p class="block-note">Bắt buộc chia làm 2 nhóm, không bao giờ để chúng đứng cạnh nhau (<em>sai: He was went</em>). I/He/She/It/danh từ số ít → <strong>was</strong>. You/We/They/danh từ số nhiều → <strong>were</strong>.</p>
+  <div class="table-wrap">
+    <table class="parts-table">
+      <thead><tr><th>Thể</th><th>Cấu trúc — "to be"</th><th>Ví dụ</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Khẳng định (+)</strong></td><td><span class="mono-formula">S + was/were + N/Adj</span></td><td>The cluster <strong>was</strong> offline yesterday.</td></tr>
+        <tr><td><strong>Phủ định (-)</strong></td><td><span class="mono-formula">S + was/were + NOT</span></td><td>The logs <strong>were not (weren't)</strong> available.</td></tr>
+        <tr><td><strong>Nghi vấn (?)</strong></td><td><span class="mono-formula">Was/Were + S + N/Adj?</span></td><td><strong>Was</strong> the backend code complex?</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-wrap" style="margin-top:12px;">
+    <table class="parts-table">
+      <thead><tr><th>Thể</th><th>Cấu trúc — động từ thường</th><th>Ví dụ</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Khẳng định (+)</strong></td><td><span class="mono-formula">S + V2/ed</span></td><td>I <strong>deployed</strong> the Spring Boot app last night.</td></tr>
+        <tr><td><strong>Phủ định (-)</strong></td><td><span class="mono-formula">S + did + NOT + V-inf</span></td><td>The server <strong>did not (didn't) restart</strong> properly.</td></tr>
+        <tr><td><strong>Nghi vấn (?)</strong></td><td><span class="mono-formula">Did + S + V-inf?</span></td><td><strong>Did</strong> you <strong>backup</strong> the MariaDB database?</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="callout callout--warn"><strong>Quy tắc vàng:</strong> đã mượn "did" thì động từ chính BẮT BUỘC về nguyên thể. Không viết: <em>Did you backed up?</em></p>
+
+  <h3 class="block-title"><span class="block-num">2</span>Cách dùng cốt lõi</h3>
+  <div class="role-grid">
+    <div class="role-card">
+      <p class="role-card__name">Hành động chấm dứt hoàn toàn trong QK</p>
+      <p class="role-card__desc">Kèm mốc thời gian cực kỳ cụ thể.</p>
+      <p class="role-card__ex">The API <span class="term">crashed</span> at 3:00 AM.</p>
+    </div>
+    <div class="role-card">
+      <p class="role-card__name">Chuỗi hành động liên tiếp</p>
+      <p class="role-card__desc">Kể lại một quy trình, một câu chuyện.</p>
+      <p class="role-card__ex">I <span class="term">logged</span> in, <span class="term">checked</span> the logs, and <span class="term">restarted</span> the service.</p>
+    </div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">3</span>Dấu hiệu nhận biết</h3>
+  <div class="tag-grid">
+    <div class="signal-tag"><span class="signal-tag__suffix">yesterday</span><span class="signal-tag__mean">Hôm qua</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">last + [time]</span><span class="signal-tag__mean">last night, last week…</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">[time] + ago</span><span class="signal-tag__mean">2 hours ago, 3 days ago</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">in + [năm/tháng QK]</span><span class="signal-tag__mean">in 2020, in May</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">When + mệnh đề QK</span><span class="signal-tag__mean">Kể lại một mốc thời gian</span></div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">4</span>"Bẫy" thường gặp: Used to</h3>
+  <p class="callout callout--note"><span class="mono-formula">Used to + V-inf</span> — đã từng làm gì trong quá khứ nhưng hiện tại không còn làm nữa. <em>I <strong>used to code</strong> in C++, but now I only use Java.</em></p>
+  <p class="callout callout--warn">Đừng nhầm với <em>be/get used to + V-ing</em> (quen với việc gì đó ở hiện tại).</p>
+</section>
+
+<!-- ================================================= -->
+<!-- SHEET 15 — THÌ QUÁ KHỨ TIẾP DIỄN                   -->
+<!-- ================================================= -->
+<section class="sheet" id="sec-15" data-num="15">
+  <header class="sheet__head">
+    <span class="sheet__tag">DWG-15</span>
+    <h2>Thì quá khứ tiếp diễn <span class="sheet__eng">Past Continuous</span></h2>
+  </header>
+
+  <p class="sheet__intro">Như một "thước phim quay chậm" của quá khứ. Nếu Quá khứ đơn là một "dấu chấm", Quá khứ Tiếp diễn là một "đường kẻ dài" — một quá trình đang dở dang tại một thời điểm xác định trong quá khứ.</p>
+
+  <h3 class="block-title"><span class="block-num">1</span>Cấu trúc</h3>
+  <div class="table-wrap">
+    <table class="parts-table">
+      <thead><tr><th>Thể</th><th>Cấu trúc</th><th>Ví dụ</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Khẳng định (+)</strong></td><td><span class="mono-formula">S + was/were + V-ing</span></td><td>I <strong>was configuring</strong> the Kafka broker.</td></tr>
+        <tr><td><strong>Phủ định (-)</strong></td><td><span class="mono-formula">S + was/were + NOT + V-ing</span></td><td>The nodes <strong>were not communicating</strong>.</td></tr>
+        <tr><td><strong>Nghi vấn (?)</strong></td><td><span class="mono-formula">Was/Were + S + V-ing?</span></td><td><strong>Were</strong> you <strong>monitoring</strong> the logs at that time?</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">2</span>Cách dùng cốt lõi</h3>
+  <div class="role-grid">
+    <div class="role-card">
+      <p class="role-card__name">Đang xảy ra tại thời điểm cụ thể</p>
+      <p class="role-card__ex">At 11:00 PM last night, I <span class="term">was typing</span> on my keyboard.</p>
+    </div>
+    <div class="role-card">
+      <p class="role-card__name">Hai hành động song song <em>(While)</em></p>
+      <p class="role-card__ex"><span class="term">While</span> I was debugging, the server <span class="term">was syncing</span> the database.</p>
+    </div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">3</span>Cấu trúc kinh điển: kết hợp với Quá khứ đơn</h3>
+  <p class="block-note">Quy tắc vàng: <strong>hành động đang xảy ra (dài)</strong> dùng Quá khứ tiếp diễn, <strong>hành động xen vào (ngắn)</strong> dùng Quá khứ đơn.</p>
+  <div class="accordion" data-accordion>
+    <div class="accordion-item">
+      <button class="accordion-item__btn" aria-expanded="false"><span>[QK tiếp diễn] + WHEN + [QK đơn]</span><span class="accordion-item__icon"></span></button>
+      <div class="accordion-item__panel">
+        <p>Ai đó đang làm gì (nền) thì bỗng nhiên có hành động khác xảy ra, cắt ngang.</p>
+        <p>We <strong>were testing</strong> the new cluster <strong>when</strong> the power <strong>went out</strong>.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-item__btn" aria-expanded="false"><span>WHEN + [QK đơn], [QK tiếp diễn]</span><span class="accordion-item__icon"></span></button>
+      <div class="accordion-item__panel">
+        <p>Khi một hành động xảy ra, một hành động khác đang diễn ra.</p>
+        <p><strong>When</strong> the manager <strong>arrived</strong>, the developers <strong>were fixing</strong> a production bug.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-item__btn" aria-expanded="false"><span>WHILE + [QK tiếp diễn], [QK đơn]</span><span class="accordion-item__icon"></span></button>
+      <div class="accordion-item__panel">
+        <p>Trong khi một hành động đang diễn ra thì hành động khác xảy ra, cắt ngang.</p>
+        <p><strong>While</strong> the system <strong>was running</strong> the batch job, it <strong>encountered</strong> a memory error.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-item__btn" aria-expanded="false"><span>WHILE + [QK tiếp diễn], [QK tiếp diễn]</span><span class="accordion-item__icon"></span></button>
+      <div class="accordion-item__panel">
+        <p>Hai hành động đang diễn ra đồng thời trong cùng khoảng thời gian.</p>
+        <p><strong>While</strong> the backend <strong>was processing</strong> requests, the frontend <strong>was loading</strong> user data.</p>
+      </div>
+    </div>
+  </div>
+  <p class="callout callout--note">Khi diễn tả <strong>hành động cắt ngang</strong>, người bản ngữ ưu tiên dùng <strong>when</strong>. <strong>While</strong> tự nhiên hơn khi nhấn mạnh hai hành động song song.</p>
+
+  <h3 class="block-title"><span class="block-num">4</span>Dấu hiệu nhận biết riêng biệt</h3>
+  <div class="tag-grid">
+    <div class="signal-tag"><span class="signal-tag__suffix">at + [giờ chính xác] + QK</span><span class="signal-tag__mean">at 8 AM yesterday</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">at this/that time + QK</span><span class="signal-tag__mean">at this time last week</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">all + thời gian QK</span><span class="signal-tag__mean">all yesterday morning</span></div>
+  </div>
+  <p class="callout callout--warn">Động từ trạng thái (know, understand, need, want…) vẫn bị CẤM dùng ở thì tiếp diễn, phải lùi về Quá khứ đơn dù có dấu hiệu.</p>
+</section>
+
+<!-- ================================================= -->
+<!-- SHEET 16 — THÌ QUÁ KHỨ HOÀN THÀNH                  -->
+<!-- ================================================= -->
+<section class="sheet" id="sec-16" data-num="16">
+  <header class="sheet__head">
+    <span class="sheet__tag">DWG-16</span>
+    <h2>Thì quá khứ hoàn thành <span class="sheet__eng">Past Perfect</span></h2>
+  </header>
+
+  <p class="sheet__intro">Được mệnh danh là <strong>"Quá khứ của Quá khứ"</strong> — dùng để thiết lập trật tự thời gian giữa hai sự kiện đều đã kết thúc trong quá khứ: sự kiện xảy ra sau dùng Quá khứ đơn, sự kiện xảy ra trước dùng Quá khứ hoàn thành.</p>
+
+  <h3 class="block-title"><span class="block-num">1</span>Cấu trúc</h3>
+  <p class="block-note">Trợ động từ <strong>had</strong> dùng chung cho mọi ngôi — không cần chia.</p>
+  <div class="table-wrap">
+    <table class="parts-table">
+      <thead><tr><th>Thể</th><th>Cấu trúc</th><th>Ví dụ</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Khẳng định (+)</strong></td><td><span class="mono-formula">S + had + V3/ed</span></td><td>I <strong>had backed up</strong> the database.</td></tr>
+        <tr><td><strong>Phủ định (-)</strong></td><td><span class="mono-formula">S + had NOT (hadn't) + V3/ed</span></td><td>The system <strong>hadn't synchronized</strong> the logs.</td></tr>
+        <tr><td><strong>Nghi vấn (?)</strong></td><td><span class="mono-formula">Had + S + V3/ed?</span></td><td><strong>Had</strong> you <strong>saved</strong> the code?</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">2</span>3 cấu trúc kinh điển (bắt buộc nhớ)</h3>
+  <div class="accordion" data-accordion>
+    <div class="accordion-item">
+      <button class="accordion-item__btn" aria-expanded="false"><span>Before + [QK đơn], [QK hoàn thành]</span><span class="accordion-item__icon"></span></button>
+      <div class="accordion-item__panel">
+        <p>Hành động sau "before" xảy ra SAU.</p>
+        <p><strong>Before</strong> the server <strong>crashed</strong>, I <strong>had saved</strong> all the logs.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-item__btn" aria-expanded="false"><span>After + [QK hoàn thành], [QK đơn]</span><span class="accordion-item__icon"></span></button>
+      <div class="accordion-item__panel">
+        <p>Hành động sau "after" xảy ra TRƯỚC.</p>
+        <p><strong>After</strong> the system <strong>had generated</strong> the report, it <strong>sent</strong> an email.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-item__btn" aria-expanded="false"><span>By the time + [QK đơn], [QK hoàn thành]</span><span class="accordion-item__icon"></span></button>
+      <div class="accordion-item__panel">
+        <p>Cấu trúc xuất hiện cực dày đặc trong bài thi TOEIC.</p>
+        <p><strong>By the time</strong> I <strong>arrived</strong> at the office, the team <strong>had fixed</strong> the bug.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">3</span>So sánh: Hiện tại hoàn thành vs. Quá khứ hoàn thành</h3>
+  <div class="tabs" data-tabs>
+    <div class="tabs__list" role="tablist">
+      <button class="tabs__btn is-active" role="tab" aria-selected="true" data-tab="pp">Hiện tại hoàn thành</button>
+      <button class="tabs__btn" role="tab" aria-selected="false" data-tab="pastp">Quá khứ hoàn thành</button>
+    </div>
+    <div class="tabs__panel is-active" data-panel="pp">
+      <p>Hành động hoàn tất tính đến mốc <strong>hiện tại</strong>.</p>
+      <p class="tabs__ex">I am not hungry. I <span class="term">have eaten</span> lunch.</p>
+    </div>
+    <div class="tabs__panel" data-panel="pastp">
+      <p>Hành động hoàn tất tính đến một mốc <strong>trong quá khứ</strong>.</p>
+      <p class="tabs__ex">I wasn't hungry yesterday. I <span class="term">had eaten</span> lunch.</p>
+    </div>
+  </div>
+  <p class="callout callout--note">Mẹo nhỏ: thì <em>Quá khứ hoàn thành tiếp diễn (had been + V-ing)</em> cực kỳ hiếm gặp — chỉ nhấn mạnh khoảng thời gian kéo dài trước đó. <em>The CPU had been running at 100% for 2 hours before it crashed.</em></p>
+</section>
+
+<!-- ================================================= -->
+<!-- SHEET 17 — THÌ QUÁ KHỨ HOÀN THÀNH TIẾP DIỄN        -->
+<!-- ================================================= -->
+<section class="sheet" id="sec-17" data-num="17">
+  <header class="sheet__head">
+    <span class="sheet__tag">DWG-17</span>
+    <h2>Thì QK hoàn thành tiếp diễn <span class="sheet__eng">Past Perfect Continuous</span></h2>
+  </header>
+
+  <p class="sheet__intro">Nếu Quá khứ hoàn thành nhấn mạnh việc đã <em>xong xuôi, chốt sổ</em> trước một mốc quá khứ, thì này phóng to vào <strong>quá trình, sự kéo dài và tính liên tục</strong> của hành động ngay trước khi bị cắt ngang. Rất hiếm gặp trong thực tế và trong bài thi.</p>
+
+  <h3 class="block-title"><span class="block-num">1</span>Cấu trúc</h3>
+  <div class="table-wrap">
+    <table class="parts-table">
+      <thead><tr><th>Thể</th><th>Cấu trúc</th><th>Ví dụ</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Khẳng định (+)</strong></td><td><span class="mono-formula">S + had been + V-ing</span></td><td>The database <strong>had been running</strong> smoothly.</td></tr>
+        <tr><td><strong>Phủ định (-)</strong></td><td><span class="mono-formula">S + hadn't been + V-ing</span></td><td>The API <strong>hadn't been responding</strong> for hours.</td></tr>
+        <tr><td><strong>Nghi vấn (?)</strong></td><td><span class="mono-formula">Had + S + been + V-ing?</span></td><td><strong>Had</strong> you <strong>been working</strong> before the crash?</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">2</span>Hai cách dùng cốt lõi</h3>
+  <div class="role-grid">
+    <div class="role-card">
+      <p class="role-card__name">Nhấn mạnh khoảng thời gian kéo dài trước một sự kiện khác</p>
+      <p class="role-card__ex">The job <span class="term">had been running</span> for 3 hours before it <span class="term">failed</span>.</p>
+    </div>
+    <div class="role-card">
+      <p class="role-card__name">Giải thích nguyên nhân cho một trạng thái vật lý ở QK</p>
+      <p class="role-card__ex">He was exhausted because he <span class="term">had been debugging</span> all night.</p>
+    </div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">3</span>So sánh: kết quả vs. quá trình</h3>
+  <div class="tabs" data-tabs>
+    <div class="tabs__list" role="tablist">
+      <button class="tabs__btn is-active" role="tab" aria-selected="true" data-tab="r">Quá khứ hoàn thành <em>(kết quả)</em></button>
+      <button class="tabs__btn" role="tab" aria-selected="false" data-tab="p">QK hoàn thành TD <em>(quá trình)</em></button>
+    </div>
+    <div class="tabs__panel is-active" data-panel="r">
+      <p>Quan tâm đến số lượng, kết quả đạt được tính đến mốc quá khứ.</p>
+      <p class="tabs__ex">By 5 PM yesterday, I <span class="term">had translated</span> 30 subtitle files.</p>
+    </div>
+    <div class="tabs__panel" data-panel="p">
+      <p>Quan tâm đến thời gian tiêu tốn, sự liên tục tính đến mốc quá khứ.</p>
+      <p class="tabs__ex">By 5 PM yesterday, I <span class="term">had been translating</span> subtitles for 8 hours.</p>
+    </div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">4</span>Dấu hiệu nhận biết &amp; bẫy cần tránh</h3>
+  <div class="tag-grid">
+    <div class="signal-tag"><span class="signal-tag__suffix">for + [khoảng thời gian]</span><span class="signal-tag__mean">for 2 hours, for a long time</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">all + [thời gian]</span><span class="signal-tag__mean">all morning, all day</span></div>
+  </div>
+  <p class="callout callout--warn"><strong>Bẫy động từ trạng thái:</strong> know, understand, want, like, have/own… TUYỆT ĐỐI KHÔNG chia tiếp diễn.<br><em>Sai:</em> I <strong>had been knowing</strong> how to use Elasticsearch for 3 years.<br><em>Đúng:</em> I <strong>had known</strong> how to use Elasticsearch for 3 years.</p>
+</section>
+<!-- ================================================= -->
+<!-- SHEET 18 — THÌ TƯƠNG LAI ĐƠN (FUTURE SIMPLE)       -->
+<!-- ================================================= -->
+<section class="sheet" id="sec-18" data-num="18">
+  <header class="sheet__head">
+    <span class="sheet__tag">DWG-18</span>
+    <h2>Thì tương lai đơn <span class="sheet__eng">Future Simple</span></h2>
+  </header>
+
+  <p class="sheet__intro">Cực kỳ "thân thiện" vì không cần bận tâm chủ ngữ số ít hay số nhiều — tất cả dùng chung một trợ động từ duy nhất: <strong>WILL</strong>.</p>
+
+  <h3 class="block-title"><span class="block-num">1</span>Cấu trúc</h3>
+  <p class="block-note">Động từ chính sau "will" LUÔN ở dạng nguyên thể không "to" (V-inf).</p>
+  <div class="table-wrap">
+    <table class="parts-table">
+      <thead><tr><th>Thể</th><th>Cấu trúc</th><th>Ví dụ</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Khẳng định (+)</strong></td><td><span class="mono-formula">S + will + V-inf</span></td><td>I <strong>will update</strong> the Spring Boot framework tomorrow.</td></tr>
+        <tr><td><strong>Phủ định (-)</strong></td><td><span class="mono-formula">S + will NOT (won't) + V-inf</span></td><td>The new system <strong>won't crash</strong> easily.</td></tr>
+        <tr><td><strong>Nghi vấn (?)</strong></td><td><span class="mono-formula">Will + S + V-inf?</span></td><td><strong>Will</strong> you <strong>buy</strong> that TKL keyboard?</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="callout callout--note">"Shall" cũng dùng được cho ngôi I/We, nhưng tiếng Anh hiện đại và bài thi dùng "Will" cho mọi ngôi.</p>
+
+  <h3 class="block-title"><span class="block-num">2</span>3 tình huống bắt buộc dùng "Will"</h3>
+  <div class="role-grid role-grid--3">
+    <div class="role-card">
+      <p class="role-card__name">Quyết định tức thời</p>
+      <p class="role-card__desc">Chưa hề có kế hoạch từ trước, vừa nghĩ ra ngay lúc nói.</p>
+      <p class="role-card__ex">"The server is down!" — "I <span class="term">will restart</span> it right now."</p>
+    </div>
+    <div class="role-card">
+      <p class="role-card__name">Dự đoán chủ quan</p>
+      <p class="role-card__desc">Đi kèm think, hope, believe, suppose…</p>
+      <p class="role-card__ex">I think AI <span class="term">will replace</span> traditional translation methods.</p>
+    </div>
+    <div class="role-card">
+      <p class="role-card__name">Hứa hẹn / đề nghị / cảnh báo</p>
+      <p class="role-card__ex">I <span class="term">will finish</span> the docs by Friday. Don't touch that wire, or you <span class="term">will get</span> a shock!</p>
+    </div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">3</span>Dấu hiệu nhận biết</h3>
+  <div class="tag-grid">
+    <div class="signal-tag"><span class="signal-tag__suffix">tomorrow</span><span class="signal-tag__mean">Ngày mai</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">next + [time]</span><span class="signal-tag__mean">next week, next month</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">in + [khoảng thời gian]</span><span class="signal-tag__mean">in 5 minutes, in 2 days</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">probably / perhaps</span><span class="signal-tag__mean">Chắc chắn/hy vọng</span></div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">4</span>"Bẫy" kinh điển: câu điều kiện loại 1</h3>
+  <p class="block-note"><span class="mono-formula">If + [Hiện tại đơn], S + will + V-inf</span></p>
+  <p class="callout callout--note">If you <span class="term">use</span> (HTĐ) this script, it <span class="term">will save</span> (TLĐ) you a lot of time.</p>
+  <p class="callout callout--warn">Tuyệt đối không bao giờ cho "will" đứng ngay sau "If". <em>Sai: If you will use...</em></p>
+</section>
+
+<!-- ================================================= -->
+<!-- SHEET 19 — THÌ TƯƠNG LAI GẦN (NEAR FUTURE)         -->
+<!-- ================================================= -->
+<section class="sheet" id="sec-19" data-num="19">
+  <header class="sheet__head">
+    <span class="sheet__tag">DWG-19</span>
+    <h2>Thì tương lai gần <span class="sheet__eng">Near Future — Be going to</span></h2>
+  </header>
+
+  <p class="sheet__intro">Tương tự Tương lai đơn nhưng khác biệt cốt lõi: "Will" là quyết định bộc phát hoặc tiên đoán cảm tính, còn "Be going to" đại diện cho <strong>sự chuẩn bị kỹ lưỡng và bằng chứng rõ ràng</strong>.</p>
+
+  <h3 class="block-title"><span class="block-num">1</span>Cấu trúc</h3>
+  <div class="table-wrap">
+    <table class="parts-table">
+      <thead><tr><th>Thể</th><th>Cấu trúc</th><th>Ví dụ</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Khẳng định (+)</strong></td><td><span class="mono-formula">S + am/is/are + going to + V-inf</span></td><td>I <strong>am going to buy</strong> a new keyboard.</td></tr>
+        <tr><td><strong>Phủ định (-)</strong></td><td><span class="mono-formula">S + am/is/are + NOT + going to + V-inf</span></td><td>They <strong>aren't going to migrate</strong> the database today.</td></tr>
+        <tr><td><strong>Nghi vấn (?)</strong></td><td><span class="mono-formula">Am/Is/Are + S + going to + V-inf?</span></td><td><strong>Is</strong> he <strong>going to take</strong> the exam next month?</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="callout callout--note">Giao tiếp thân mật, "going to" thường nói lướt thành <strong>"gonna"</strong> — <em>I'm gonna fix it.</em></p>
+
+  <h3 class="block-title"><span class="block-num">2</span>Khác biệt với "Will"</h3>
+  <div class="tabs" data-tabs>
+    <div class="tabs__list" role="tablist">
+      <button class="tabs__btn is-active" role="tab" aria-selected="true" data-tab="going">Be going to</button>
+      <button class="tabs__btn" role="tab" aria-selected="false" data-tab="will">Will</button>
+    </div>
+    <div class="tabs__panel is-active" data-panel="going">
+      <p><strong>Dự định có từ trước:</strong> "Why did you buy those parts?" — "I <span class="term">am going to build</span> a custom PC."</p>
+      <p><strong>Dự đoán có căn cứ rõ ràng:</strong> The CPU usage is at 99%, the system <span class="term">is going to crash</span>!</p>
+    </div>
+    <div class="tabs__panel" data-panel="will">
+      <p><strong>Quyết định bộc phát:</strong> "My PC is broken!" — "Oh, I <span class="term">will lend</span> you my laptop."</p>
+      <p><strong>Dự đoán chủ quan:</strong> I think the system <span class="term">will run</span> smoothly.</p>
+    </div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">3</span>"Bẫy" ngữ pháp trong bài thi</h3>
+  <p class="callout callout--note"><strong>Be going to vs. Hiện tại tiếp diễn:</strong> "Be going to" = dự định chưa chốt thời gian cụ thể (<em>I am going to read the docs</em>); Hiện tại tiếp diễn = kế hoạch đã chốt 100% (<em>I am taking the test at 8 AM tomorrow</em>). Riêng động từ "go", tránh lặp từ "am going to go" — dùng luôn HTTD: <em>I am going to the office tomorrow.</em></p>
+  <p class="callout callout--warn"><strong>"Was/Were going to"</strong> — dự định bất thành trong quá khứ (đã định làm nhưng cuối cùng không làm). <em>I <strong>was going to synchronize</strong> the logs yesterday, but the network failed.</em></p>
+</section>
+
+<!-- ================================================= -->
+<!-- SHEET 20 — THÌ TƯƠNG LAI TIẾP DIỄN                 -->
+<!-- ================================================= -->
+<section class="sheet" id="sec-20" data-num="20">
+  <header class="sheet__head">
+    <span class="sheet__tag">DWG-20</span>
+    <h2>Thì tương lai tiếp diễn <span class="sheet__eng">Future Continuous</span></h2>
+  </header>
+
+  <p class="sheet__intro">Giống việc cài đặt một chiếc "camera quay chậm" ở tương lai — không chỉ nói rằng sự việc "sẽ xảy ra", mà nhấn mạnh tại đúng thời khắc đó, hành động đang <strong>diễn ra dở dang</strong>.</p>
+
+  <h3 class="block-title"><span class="block-num">1</span>Cấu trúc</h3>
+  <p class="block-note"><span class="mono-formula">will be + V-ing</span> — áp dụng chung cho mọi ngôi.</p>
+  <div class="table-wrap">
+    <table class="parts-table">
+      <thead><tr><th>Thể</th><th>Cấu trúc</th><th>Ví dụ</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Khẳng định (+)</strong></td><td><span class="mono-formula">S + will be + V-ing</span></td><td>I <strong>will be running</strong> the script at 8 PM tonight.</td></tr>
+        <tr><td><strong>Phủ định (-)</strong></td><td><span class="mono-formula">S + will NOT be + V-ing</span></td><td>The server <strong>won't be operating</strong> during maintenance.</td></tr>
+        <tr><td><strong>Nghi vấn (?)</strong></td><td><span class="mono-formula">Will + S + be + V-ing?</span></td><td><strong>Will</strong> you <strong>be working</strong> on the database tomorrow morning?</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">2</span>Các cách dùng cốt lõi</h3>
+  <div class="role-grid role-grid--3">
+    <div class="role-card">
+      <p class="role-card__name">Đang xảy ra tại thời điểm xác định</p>
+      <p class="role-card__desc">Cách dùng quan trọng &amp; hay thi nhất.</p>
+      <p class="role-card__ex"><span class="term">At 10 AM tomorrow</span>, I <span class="term">will be taking</span> the exam.</p>
+    </div>
+    <div class="role-card">
+      <p class="role-card__name">Thói quen / lịch trình đương nhiên</p>
+      <p class="role-card__ex">I <span class="term">will be seeing</span> the manager at the weekly meeting tomorrow.</p>
+    </div>
+    <div class="role-card">
+      <p class="role-card__name">Hỏi lịch sự về kế hoạch</p>
+      <p class="role-card__desc">Lịch sự và bớt ép buộc hơn Tương lai đơn.</p>
+      <p class="role-card__ex"><span class="term">Will you be using</span> the meeting room this afternoon?</p>
+    </div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">3</span>Dấu hiệu nhận biết</h3>
+  <div class="tag-grid">
+    <div class="signal-tag"><span class="signal-tag__suffix">at this time/moment + TL</span><span class="signal-tag__mean">at this time tomorrow</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">at + [giờ cụ thể] + TL</span><span class="signal-tag__mean">at 8 PM tonight</span></div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">4</span>"Bẫy" mệnh đề thời gian When/While</h3>
+  <p class="callout callout--warn"><strong>Cảnh báo lớn nhất:</strong> mệnh đề When/While chỉ tương lai KHÔNG BAO GIỜ dùng "will" — bắt buộc chia ở <strong>Hiện tại đơn</strong>.<br><span class="mono-formula">When + [Hiện tại đơn], [Tương lai tiếp diễn]</span><br><em>Đúng:</em> <strong>When</strong> you <strong>arrive</strong> tomorrow, I <strong>will be checking</strong> the error logs.<br><em>Sai:</em> When you <em>will arrive</em> tomorrow…</p>
+  <p class="callout callout--note">Và luôn nhớ: động từ trạng thái (know, need, understand, want…) không bao giờ chia ở thì tiếp diễn.</p>
+</section>
+
+<!-- ================================================= -->
+<!-- SHEET 21 — THÌ TƯƠNG LAI HOÀN THÀNH                -->
+<!-- ================================================= -->
+<section class="sheet" id="sec-21" data-num="21">
+  <header class="sheet__head">
+    <span class="sheet__tag">DWG-21</span>
+    <h2>Thì tương lai hoàn thành <span class="sheet__eng">Future Perfect</span></h2>
+  </header>
+
+  <p class="sheet__intro">Một trong những thì nâng cao nhất nhưng cực kỳ logic nếu đã nắm chắc Quá khứ hoàn thành: dùng để khẳng định một việc chắc chắn sẽ <strong>"chốt sổ" (hoàn tất) TRƯỚC một cột mốc hoặc deadline trong tương lai</strong>.</p>
+
+  <h3 class="block-title"><span class="block-num">1</span>Cấu trúc</h3>
+  <p class="block-note"><strong>will</strong> + <strong>have + V3/ed</strong>. Vì đứng sau "will", chữ "have" luôn giữ nguyên thể — tuyệt đối không dùng "has".</p>
+  <div class="table-wrap">
+    <table class="parts-table">
+      <thead><tr><th>Thể</th><th>Cấu trúc</th><th>Ví dụ</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Khẳng định (+)</strong></td><td><span class="mono-formula">S + will have + V3/ed</span></td><td>We <strong>will have migrated</strong> the database by next Friday.</td></tr>
+        <tr><td><strong>Phủ định (-)</strong></td><td><span class="mono-formula">S + won't have + V3/ed</span></td><td>I <strong>won't have finished</strong> the refactoring by 5 PM.</td></tr>
+        <tr><td><strong>Nghi vấn (?)</strong></td><td><span class="mono-formula">Will + S + have + V3/ed?</span></td><td><strong>Will</strong> you <strong>have translated</strong> all the files by tomorrow?</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">2</span>2 kịch bản chính</h3>
+  <div class="role-grid">
+    <div class="role-card">
+      <p class="role-card__name">Hoàn tất TRƯỚC một mốc thời gian</p>
+      <p class="role-card__ex"><span class="term">By 11 PM tonight</span>, the cron job <span class="term">will have synchronized</span> all the logs.</p>
+    </div>
+    <div class="role-card">
+      <p class="role-card__name">Hoàn tất TRƯỚC một hành động khác</p>
+      <p class="role-card__ex"><span class="term">Before</span> the manager checks the system, I <span class="term">will have fixed</span> the shard allocation error.</p>
+    </div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">3</span>Dấu hiệu nhận biết "bộ ba quyền lực"</h3>
+  <p class="block-note">Gần như "đóng đinh" với giới từ <strong>BY</strong>. Thấy chữ này + thời gian tương lai, 99% đáp án là <em>will have + V3/ed</em>.</p>
+  <div class="tag-grid">
+    <div class="signal-tag"><span class="signal-tag__suffix">By + [thời gian TL]</span><span class="signal-tag__mean">by tomorrow, by 2027</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">By the time + [HTĐ]</span><span class="signal-tag__mean">Tính đến cái lúc…</span></div>
+    <div class="signal-tag"><span class="signal-tag__suffix">Before + [HTĐ]</span><span class="signal-tag__mean">Trước khi…</span></div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">4</span>"Bẫy" mệnh đề thời gian</h3>
+  <p class="callout callout--warn">Không dùng "will" trong mệnh đề trạng ngữ chỉ thời gian.<br><span class="mono-formula">By the time/Before + S + V (HTĐ), S + will have + V3/ed</span><br><em>Đúng:</em> By the time you <strong>arrive</strong> tomorrow, I <strong>will have left</strong>.<br><em>Sai:</em> By the time you <em>will arrive</em> tomorrow…</p>
+</section>
+
+<!-- ================================================= -->
+<!-- SHEET 22 — THÌ TƯƠNG LAI HOÀN THÀNH TIẾP DIỄN      -->
+<!-- ================================================= -->
+<section class="sheet" id="sec-22" data-num="22">
+  <header class="sheet__head">
+    <span class="sheet__tag">DWG-22</span>
+    <h2>Thì TL hoàn thành tiếp diễn <span class="sheet__eng">Future Perfect Continuous</span></h2>
+  </header>
+
+  <p class="sheet__intro">Mảnh ghép phức tạp nhất, dài nhất — nhưng tuân theo cùng một logic thống nhất với các thì trước. Khép lại toàn bộ chuyên đề về Tenses.</p>
+
+  <h3 class="block-title"><span class="block-num">1</span>Cấu trúc</h3>
+  <p class="block-note">Tương lai (<strong>will</strong>) + Hoàn thành (<strong>have</strong>) + Tiếp diễn (<strong>been V-ing</strong>). Mọi chủ ngữ dùng chung một công thức.</p>
+  <div class="table-wrap">
+    <table class="parts-table">
+      <thead><tr><th>Thể</th><th>Cấu trúc</th><th>Ví dụ</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Khẳng định (+)</strong></td><td><span class="mono-formula">S + will have been + V-ing</span></td><td>By next month, I <strong>will have been studying</strong> for half a year.</td></tr>
+        <tr><td><strong>Phủ định (-)</strong></td><td><span class="mono-formula">S + won't have been + V-ing</span></td><td>The old server <strong>won't have been running</strong> for a full year.</td></tr>
+        <tr><td><strong>Nghi vấn (?)</strong></td><td><span class="mono-formula">Will + S + have been + V-ing?</span></td><td><strong>Will</strong> the script <strong>have been running</strong> for 24 hours by tomorrow?</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">2</span>Cách dùng cốt lõi: nhấn mạnh tính quá trình</h3>
+  <div class="tabs" data-tabs>
+    <div class="tabs__list" role="tablist">
+      <button class="tabs__btn is-active" role="tab" aria-selected="true" data-tab="fp">Tương lai hoàn thành <em>(kết quả)</em></button>
+      <button class="tabs__btn" role="tab" aria-selected="false" data-tab="fpc">TL hoàn thành TD <em>(quá trình)</em></button>
+    </div>
+    <div class="tabs__panel is-active" data-panel="fp">
+      <p>Nhấn mạnh con số, kết quả đạt được.</p>
+      <p class="tabs__ex">By 5 PM today, I <span class="term">will have written</span> 500 lines of Java code.</p>
+    </div>
+    <div class="tabs__panel" data-panel="fpc">
+      <p>Nhấn mạnh sự bền bỉ, tính liên tục của quá trình.</p>
+      <p class="tabs__ex">By 5 PM today, I <span class="term">will have been writing</span> Java code for 8 hours.</p>
+    </div>
+  </div>
+
+  <h3 class="block-title"><span class="block-num">3</span>Dấu hiệu nhận biết "combo kép"</h3>
+  <p class="block-note">Bắt buộc thỏa mãn cùng lúc 2 điều kiện: <strong>Mốc tương lai</strong> (By / By the time) + <strong>Khoảng thời gian</strong> (For + thời gian).</p>
+  <p class="callout callout--note"><span class="term">By the end of this year</span>, we will have been using Spring WebFlux <span class="term">for two years</span>.</p>
+
+  <h3 class="block-title"><span class="block-num">4</span>"Bẫy" động từ trạng thái</h3>
+  <p class="callout callout--warn">Động từ trạng thái (know, have, understand, believe, want…) KHÔNG BAO GIỜ thêm "-ing". Nếu ngữ cảnh có cả "By" và "For", phải lùi về <strong>Tương lai hoàn thành</strong>.<br><em>Sai:</em> By tomorrow, I <strong>will have been having</strong> this keyboard for exactly 1 year.<br><em>Đúng:</em> By tomorrow, I <strong>will have had</strong> this keyboard for exactly 1 year.</p>
+  <p class="block-note" style="margin-top:20px;">Trong giao tiếp hàng ngày, người bản xứ thường xuê xoa dùng Tương lai hoàn thành thay cho cấu trúc dài này. Nhưng trong bài thi học thuật, hãy phân biệt rõ dựa vào từ khóa <strong>"FOR + khoảng thời gian"</strong>.</p>
+</section>
+
+
+
+    <footer class="site-footer">
+      <p>GRAMMAR WORKS — bản vẽ ngữ pháp tiếng Anh dành cho người Việt học thi. Sheet 04 → 22 sẽ được phát hành tiếp theo.</p>
+    </footer>
+
+  </main>
+</div>
+
+<script src="script.js"></script>
 </body>
-
 </html>
