@@ -731,9 +731,9 @@ html[data-theme="dark"] .btn--primary{ color: #06222F; }
 .is-word::after {
   content: attr(data-type);
   position: absolute;
-  bottom: 100%;
+  top: 100%;
   left: 50%;
-  transform: translateX(-50%) translateY(-10px);
+  transform: translateX(-50%) translateY(24px);
   background-color: var(--ink);
   color: var(--surface);
   font-family: var(--font-mono);
@@ -750,12 +750,12 @@ html[data-theme="dark"] .btn--primary{ color: #06222F; }
 .is-word::before {
   content: "";
   position: absolute;
-  bottom: 100%;
+  top: 100%;
   left: 50%;
-  transform: translateX(-50%) translateY(0);
+  transform: translateX(-50%) translateY(12px);
   border-width: 6px;
   border-style: solid;
-  border-color: var(--ink) transparent transparent transparent;
+  border-color: transparent transparent var(--ink) transparent;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s, transform 0.2s;
@@ -763,11 +763,11 @@ html[data-theme="dark"] .btn--primary{ color: #06222F; }
 }
 .is-word:hover::after {
   opacity: 1;
-  transform: translateX(-50%) translateY(-4px);
+  transform: translateX(-50%) translateY(15px);
 }
 .is-word:hover::before {
   opacity: 1;
-  transform: translateX(-50%) translateY(-4px);
+  transform: translateX(-50%) translateY(4px);
 }
 @media (max-width: 620px){
   .interactive-sentence { font-size: 1.6rem; gap: 8px 12px; }
