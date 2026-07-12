@@ -106,9 +106,22 @@
   /* ---------------------------------------------------------
      FLIP CARDS (click / keyboard toggle — works on touch too)
      --------------------------------------------------------- */
-  document.querySelectorAll('[data-flip]').forEach(function (card) {
+  var flipCards = document.querySelectorAll('[data-flip]');
+  flipCards.forEach(function (card) {
     card.addEventListener('click', function () {
-      card.classList.toggle('is-flipped');
+      var isFlipped = card.classList.contains('is-flipped');
+      // Unflip all cards first
+      flipCards.forEach(function (c) { 
+        if (c.classList.contains('is-flipped')) {
+          c.classList.remove('is-flipped');
+          c.classList.add('is-unflipped');
+        }
+      });
+      // If it wasn't flipped before, flip it now
+      if (!isFlipped) {
+        card.classList.remove('is-unflipped');
+        card.classList.add('is-flipped');
+      }
     });
   });
 

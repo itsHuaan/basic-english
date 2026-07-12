@@ -591,39 +591,65 @@ html[data-theme="dark"] .btn--primary{ color: #06222F; }
 /* =========================================================
    FLIP CARDS
    ========================================================= */
-.flip-grid{ display:grid; gap:12px; margin-bottom: 14px; perspective: 1000px; }
+.flip-grid{ display:grid; gap:12px; margin-bottom: 14px; }
 .flip-grid--compact{ grid-template-columns: repeat(4, 1fr); }
 .flip-grid--wide{ grid-template-columns: repeat(2, 1fr); }
 .flip-grid--3{ grid-template-columns: repeat(3, 1fr); }
 
 .flip-card{
-  background:none; border:none; padding:0; cursor:pointer;
+  background:none; padding:0; cursor:pointer;
   height: 92px;
-  perspective: 900px;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-m);
+  border: 1px solid var(--line);
   font-family: var(--font-body);
 }
 .flip-card--wide{ height: 150px; }
+
 .flip-card__inner{
-  position:relative; width:100%; height:100%;
-  transition: transform .5s cubic-bezier(.4,.2,.2,1);
-  transform-style: preserve-3d;
+  position: absolute; width:100%; height:100%; inset: 0;
 }
-.flip-card.is-flipped .flip-card__inner{ transform: rotateY(180deg); }
+
 .flip-card__face{
-  position:absolute; inset:0;
-  backface-visibility:hidden;
-  border-radius: var(--radius-m);
-  border: 1px solid var(--line);
+  position: absolute; inset: 0; width: 100%; height: 100%;
   display:flex; flex-direction:column; align-items:center; justify-content:center;
   padding: 12px;
   text-align:center;
 }
-.flip-card__front{ background: var(--surface); color: var(--ink); font-weight:600; }
+
+@keyframes slideOutRight {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+@keyframes slideInLeft {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+}
+
+.flip-card__front{ 
+  background: var(--surface); color: var(--ink); font-weight:600; 
+  transform: translateX(0);
+}
 .flip-card__back{
   background: var(--accent-tint);
   color: var(--ink);
-  transform: rotateY(180deg);
   font-size:.86rem;
+  transform: translateX(100%);
+}
+
+.flip-card.is-flipped .flip-card__front {
+  animation: slideOutRight 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.flip-card.is-flipped .flip-card__back {
+  animation: slideInLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.flip-card.is-unflipped .flip-card__back {
+  animation: slideOutRight 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.flip-card.is-unflipped .flip-card__front {
+  animation: slideInLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 .flip-card--wide .flip-card__front{ align-items:flex-start; text-align:left; gap:6px; }
 .flip-card--wide .flip-card__back{ align-items:flex-start; text-align:left; gap:6px; }
