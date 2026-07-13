@@ -3092,1632 +3092,1632 @@
 
   // Tenses exercises
   Object.assign(exercisesData, {
-  "10": {
-    "title": "Hiện tại đơn (Present Simple)",
-    "questions": [
-      {
-        "num": "1",
-        "text": "The factory _______ its operations at 8:00 AM every morning.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "start"
-          },
-          {
-            "letter": "B",
-            "text": "starts"
-          },
-          {
-            "letter": "C",
-            "text": "is starting"
-          },
-          {
-            "letter": "D",
-            "text": "started"
-          }
-        ],
-        "answer": "B",
-        "explanation": "Chủ ngữ \"The factory\" số ít + \"every morning\""
-      },
-      {
-        "num": "2",
-        "text": "Mr. Smith normally _______ public transportation to commute to the office.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "take"
-          },
-          {
-            "letter": "B",
-            "text": "takes"
-          },
-          {
-            "letter": "C",
-            "text": "taking"
-          },
-          {
-            "letter": "D",
-            "text": "is taking"
-          }
-        ],
-        "answer": "B",
-        "explanation": "Chủ ngữ \"Mr. Smith\" số ít + trạng từ \"normally\""
-      },
-      {
-        "num": "3",
-        "text": "The quarterly report always _______ a detailed summary of our financial status.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "includes"
-          },
-          {
-            "letter": "B",
-            "text": "include"
-          },
-          {
-            "letter": "C",
-            "text": "included"
-          },
-          {
-            "letter": "D",
-            "text": "including"
-          }
-        ],
-        "answer": "A",
-        "explanation": "Chủ ngữ \"The quarterly report\" số ít + trạng từ \"always\""
-      },
-      {
-        "num": "4",
-        "text": "_______ the new software system require a high-speed internet connection?",
-        "options": [
-          {
-            "letter": "A",
-            "text": "Do"
-          },
-          {
-            "letter": "B",
-            "text": "Does"
-          },
-          {
-            "letter": "C",
-            "text": "Is"
-          },
-          {
-            "letter": "D",
-            "text": "Has"
-          }
-        ],
-        "answer": "B",
-        "explanation": "Câu hỏi với chủ ngữ \"the new software system\" số ít"
-      },
-      {
-        "num": "5",
-        "text": "Our delivery personnel rarely _______ packages on weekends.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "delivers"
-          },
-          {
-            "letter": "B",
-            "text": "deliver"
-          },
-          {
-            "letter": "C",
-            "text": "delivered"
-          },
-          {
-            "letter": "D",
-            "text": "delivering"
-          }
-        ],
-        "answer": "B",
-        "explanation": "Chủ ngữ \"personnel\" là danh từ tập hợp mang nghĩa số nhiều (nhân viên) + \"rarely\""
-      }
-    ]
-  },
-  "11": {
-    "title": "Hiện tại tiếp diễn (Present Continuous)",
-    "questions": [
-      {
-        "num": "1",
-        "text": "The maintenance team _______ the air conditioning units on the third floor right now.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "repair"
-          },
-          {
-            "letter": "B",
-            "text": "repairs"
-          },
-          {
-            "letter": "C",
-            "text": "is repairing"
-          },
-          {
-            "letter": "D",
-            "text": "are repairing"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Chủ ngữ \"The maintenance team\" số ít trong TOEIC Mỹ + \"right now\""
-      },
-      {
-        "num": "2",
-        "text": "We _______ a new marketing strategy to attract younger customers this month.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "develop"
-          },
-          {
-            "letter": "B",
-            "text": "develops"
-          },
-          {
-            "letter": "C",
-            "text": "are developing"
-          },
-          {
-            "letter": "D",
-            "text": "developed"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Chủ ngữ \"We\" số nhiều + \"this month\" chỉ kế hoạch/hành động tạm thời"
-      },
-      {
-        "num": "3",
-        "text": "Please be quiet; the CEO _______ a video conference with the overseas clients.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "has"
-          },
-          {
-            "letter": "B",
-            "text": "have"
-          },
-          {
-            "letter": "C",
-            "text": "is having"
-          },
-          {
-            "letter": "D",
-            "text": "had"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Hành động đang diễn ra tại thời điểm nói: \"Please be quiet\""
-      },
-      {
-        "num": "4",
-        "text": "Currently, the local government _______ a new bridge to reduce traffic congestion.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "build"
-          },
-          {
-            "letter": "B",
-            "text": "built"
-          },
-          {
-            "letter": "C",
-            "text": "are building"
-          },
-          {
-            "letter": "D",
-            "text": "is building"
-          }
-        ],
-        "answer": "D",
-        "explanation": "Chủ ngữ \"the local government\" số ít + \"Currently\""
-      },
-      {
-        "num": "5",
-        "text": "_______ Ms. Taylor _______ a training session in the main conference room at the moment?",
-        "options": [
-          {
-            "letter": "A",
-            "text": "Is / conducting"
-          },
-          {
-            "letter": "B",
-            "text": "Does / conduct"
-          },
-          {
-            "letter": "C",
-            "text": "Are / conducting"
-          },
-          {
-            "letter": "D",
-            "text": "Has / conducted"
-          }
-        ],
-        "answer": "A",
-        "explanation": "Câu hỏi đang diễn ra với \"Ms. Taylor\" số ít + \"at the moment\""
-      }
-    ]
-  },
-  "12": {
-    "title": "Hiện tại hoàn thành (Present Perfect)",
-    "questions": [
-      {
-        "num": "1",
-        "text": "Our company _______ three new branches in Europe so far this year.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "opened"
-          },
-          {
-            "letter": "B",
-            "text": "opens"
-          },
-          {
-            "letter": "C",
-            "text": "has opened"
-          },
-          {
-            "letter": "D",
-            "text": "have opened"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Chủ ngữ \"Our company\" số ít + \"so far this year\""
-      },
-      {
-        "num": "2",
-        "text": "I _______ the final budget report to the board of directors already.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "submit"
-          },
-          {
-            "letter": "B",
-            "text": "submitted"
-          },
-          {
-            "letter": "C",
-            "text": "have submitted"
-          },
-          {
-            "letter": "D",
-            "text": "has submitted"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Chủ ngữ \"I\" + \"already\""
-      },
-      {
-        "num": "3",
-        "text": "The marketing manager _______ highly successful in boosting our online sales since last quarter.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "is"
-          },
-          {
-            "letter": "B",
-            "text": "was"
-          },
-          {
-            "letter": "C",
-            "text": "has been"
-          },
-          {
-            "letter": "D",
-            "text": "have been"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Chủ ngữ \"The marketing manager\" số ít + \"since last quarter\""
-      },
-      {
-        "num": "4",
-        "text": "We _______ a lot of positive feedback from our customers recently.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "receive"
-          },
-          {
-            "letter": "B",
-            "text": "are receiving"
-          },
-          {
-            "letter": "C",
-            "text": "has received"
-          },
-          {
-            "letter": "D",
-            "text": "have received"
-          }
-        ],
-        "answer": "D",
-        "explanation": "Chủ ngữ \"We\" + \"recently\""
-      },
-      {
-        "num": "5",
-        "text": "_______ you _______ the updated policy handbook yet?",
-        "options": [
-          {
-            "letter": "A",
-            "text": "Did / read"
-          },
-          {
-            "letter": "B",
-            "text": "Have / read"
-          },
-          {
-            "letter": "C",
-            "text": "Are / reading"
-          },
-          {
-            "letter": "D",
-            "text": "Has / read"
-          }
-        ],
-        "answer": "B",
-        "explanation": "Câu hỏi trải nghiệm/hoàn tất với chủ ngữ \"you\" + \"yet\""
-      }
-    ]
-  },
-  "13": {
-    "title": "Hiện tại hoàn thành tiếp diễn (Present Perfect Continuous)",
-    "questions": [
-      {
-        "num": "1",
-        "text": "The IT department _______ the server issues for over three hours.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "fixed"
-          },
-          {
-            "letter": "B",
-            "text": "has fixed"
-          },
-          {
-            "letter": "C",
-            "text": "has been fixing"
-          },
-          {
-            "letter": "D",
-            "text": "have been fixing"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Chủ ngữ \"The IT department\" số ít + \"for over three hours\" nhấn mạnh quá trình"
-      },
-      {
-        "num": "2",
-        "text": "We _______ hard on this joint venture since the beginning of the year.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "work"
-          },
-          {
-            "letter": "B",
-            "text": "worked"
-          },
-          {
-            "letter": "C",
-            "text": "have been working"
-          },
-          {
-            "letter": "D",
-            "text": "has been working"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Chủ ngữ \"We\" + \"since the beginning...\" nhấn mạnh sự liên tục"
-      },
-      {
-        "num": "3",
-        "text": "Mr. Jenkins _______ about the poor internet connection all morning.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "complains"
-          },
-          {
-            "letter": "B",
-            "text": "complained"
-          },
-          {
-            "letter": "C",
-            "text": "has been complaining"
-          },
-          {
-            "letter": "D",
-            "text": "have been complaining"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Chủ ngữ \"Mr. Jenkins\" số ít + \"all morning\""
-      },
-      {
-        "num": "4",
-        "text": "They _______ for the keynote speaker to arrive for more than an hour.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "wait"
-          },
-          {
-            "letter": "B",
-            "text": "are waiting"
-          },
-          {
-            "letter": "C",
-            "text": "has been waiting"
-          },
-          {
-            "letter": "D",
-            "text": "have been waiting"
-          }
-        ],
-        "answer": "D",
-        "explanation": "Chủ ngữ \"They\" + \"for more than an hour\""
-      },
-      {
-        "num": "5",
-        "text": "How long _______ she _______ as the lead developer for this project?",
-        "options": [
-          {
-            "letter": "A",
-            "text": "did / serve"
-          },
-          {
-            "letter": "B",
-            "text": "is / serving"
-          },
-          {
-            "letter": "C",
-            "text": "has / been serving"
-          },
-          {
-            "letter": "D",
-            "text": "have / been serving"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Câu hỏi \"How long\" với chủ ngữ \"she\""
-      }
-    ]
-  },
-  "14": {
-    "title": "Quá khứ đơn (Past Simple)",
-    "questions": [
-      {
-        "num": "1",
-        "text": "The board of directors _______ the proposed budget during yesterday's meeting.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "approve"
-          },
-          {
-            "letter": "B",
-            "text": "approved"
-          },
-          {
-            "letter": "C",
-            "text": "approves"
-          },
-          {
-            "letter": "D",
-            "text": "has approved"
-          }
-        ],
-        "answer": "B",
-        "explanation": "Dấu hiệu \"yesterday\""
-      },
-      {
-        "num": "2",
-        "text": "Ms. White _______ the company as a junior accountant five years ago.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "joins"
-          },
-          {
-            "letter": "B",
-            "text": "joined"
-          },
-          {
-            "letter": "C",
-            "text": "has joined"
-          },
-          {
-            "letter": "D",
-            "text": "is joining"
-          }
-        ],
-        "answer": "B",
-        "explanation": "Dấu hiệu \"five years ago\""
-      },
-      {
-        "num": "3",
-        "text": "We _______ a significant drop in raw material prices last month.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "notice"
-          },
-          {
-            "letter": "B",
-            "text": "noticed"
-          },
-          {
-            "letter": "C",
-            "text": "have noticed"
-          },
-          {
-            "letter": "D",
-            "text": "notices"
-          }
-        ],
-        "answer": "B",
-        "explanation": "Dấu hiệu \"last month\""
-      },
-      {
-        "num": "4",
-        "text": "_______ the client sign the contract before leaving the office?",
-        "options": [
-          {
-            "letter": "A",
-            "text": "Do"
-          },
-          {
-            "letter": "B",
-            "text": "Does"
-          },
-          {
-            "letter": "C",
-            "text": "Did"
-          },
-          {
-            "letter": "D",
-            "text": "Was"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Câu hỏi ở quá khứ do hành động đã xảy ra \"before leaving\""
-      },
-      {
-        "num": "5",
-        "text": "The delivery truck _______ down on its way to the warehouse on Monday.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "break"
-          },
-          {
-            "letter": "B",
-            "text": "breaks"
-          },
-          {
-            "letter": "C",
-            "text": "broke"
-          },
-          {
-            "letter": "D",
-            "text": "broken"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Dấu hiệu \"on Monday\" trong ngữ cảnh kể lại sự việc đã qua"
-      }
-    ]
-  },
-  "15": {
-    "title": "Quá khứ tiếp diễn (Past Continuous)",
-    "questions": [
-      {
-        "num": "1",
-        "text": "I _______ the monthly report when the power went out unexpectedly.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "type"
-          },
-          {
-            "letter": "B",
-            "text": "typed"
-          },
-          {
-            "letter": "C",
-            "text": "was typing"
-          },
-          {
-            "letter": "D",
-            "text": "am typing"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Hành động đang diễn ra trong quá khứ thì bị hành động khác \"went out\" xen vào"
-      },
-      {
-        "num": "2",
-        "text": "While the manager _______ the presentation, the fire alarm rang.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "gave"
-          },
-          {
-            "letter": "B",
-            "text": "was giving"
-          },
-          {
-            "letter": "C",
-            "text": "is giving"
-          },
-          {
-            "letter": "D",
-            "text": "gives"
-          }
-        ],
-        "answer": "B",
-        "explanation": "Tương tự câu 1, hành động đang diễn ra đi sau \"While\""
-      },
-      {
-        "num": "3",
-        "text": "They _______ the new layout of the office at 10 AM yesterday.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "discuss"
-          },
-          {
-            "letter": "B",
-            "text": "discussed"
-          },
-          {
-            "letter": "C",
-            "text": "was discussing"
-          },
-          {
-            "letter": "D",
-            "text": "were discussing"
-          }
-        ],
-        "answer": "D",
-        "explanation": "Hành động xảy ra tại thời điểm xác định trong quá khứ \"at 10 AM yesterday\" + \"They\""
-      },
-      {
-        "num": "4",
-        "text": "What _______ you _______ when the client called to cancel the order?",
-        "options": [
-          {
-            "letter": "A",
-            "text": "are / doing"
-          },
-          {
-            "letter": "B",
-            "text": "did / do"
-          },
-          {
-            "letter": "C",
-            "text": "were / doing"
-          },
-          {
-            "letter": "D",
-            "text": "have / done"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Hỏi về hành động đang diễn ra khi sự việc khác xen vào \"when the client called\""
-      },
-      {
-        "num": "5",
-        "text": "The technicians _______ the software system while we were having our lunch break.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "upgraded"
-          },
-          {
-            "letter": "B",
-            "text": "upgrade"
-          },
-          {
-            "letter": "C",
-            "text": "were upgrading"
-          },
-          {
-            "letter": "D",
-            "text": "was upgrading"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Hai hành động diễn ra song song trong quá khứ với chủ ngữ số nhiều \"The technicians\""
-      }
-    ]
-  },
-  "16": {
-    "title": "Quá khứ hoàn thành (Past Perfect)",
-    "questions": [
-      {
-        "num": "1",
-        "text": "By the time the supervisor arrived, we _______ the inventory check.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "finish"
-          },
-          {
-            "letter": "B",
-            "text": "finished"
-          },
-          {
-            "letter": "C",
-            "text": "have finished"
-          },
-          {
-            "letter": "D",
-            "text": "had finished"
-          }
-        ],
-        "answer": "D",
-        "explanation": "Hành động xảy ra và hoàn tất trước một hành động khác trong quá khứ \"arrived\""
-      },
-      {
-        "num": "2",
-        "text": "The flight _______ already _______ by the time Mr. Brown reached the airport.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "has / departed"
-          },
-          {
-            "letter": "B",
-            "text": "had / departed"
-          },
-          {
-            "letter": "C",
-            "text": "is / departing"
-          },
-          {
-            "letter": "D",
-            "text": "did / depart"
-          }
-        ],
-        "answer": "B",
-        "explanation": "Tương tự câu 1, chuyến bay đi trước khi ông Brown tới \"reached\""
-      },
-      {
-        "num": "3",
-        "text": "She realized that she _______ her identification badge at home.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "leaves"
-          },
-          {
-            "letter": "B",
-            "text": "left"
-          },
-          {
-            "letter": "C",
-            "text": "had left"
-          },
-          {
-            "letter": "D",
-            "text": "has left"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Hành động để quên xảy ra trước hành động nhận ra \"realized\""
-      },
-      {
-        "num": "4",
-        "text": "The company _______ rapidly before the economic crisis hit the region.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "grows"
-          },
-          {
-            "letter": "B",
-            "text": "grew"
-          },
-          {
-            "letter": "C",
-            "text": "has grown"
-          },
-          {
-            "letter": "D",
-            "text": "had grown"
-          }
-        ],
-        "answer": "D",
-        "explanation": "Hành động phát triển xảy ra trước khủng hoảng \"hit\""
-      },
-      {
-        "num": "5",
-        "text": "_______ they _______ the software before they launched the product?",
-        "options": [
-          {
-            "letter": "A",
-            "text": "Have / tested"
-          },
-          {
-            "letter": "B",
-            "text": "Had / tested"
-          },
-          {
-            "letter": "C",
-            "text": "Did / test"
-          },
-          {
-            "letter": "D",
-            "text": "Do / test"
-          }
-        ],
-        "answer": "B",
-        "explanation": "Câu hỏi về việc xảy ra trước một mốc quá khứ \"before they launched\""
-      }
-    ]
-  },
-  "17": {
-    "title": "Quá khứ hoàn thành tiếp diễn (Past Perfect Continuous)",
-    "questions": [
-      {
-        "num": "1",
-        "text": "They _______ the new project for two months before it was suddenly canceled.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "plan"
-          },
-          {
-            "letter": "B",
-            "text": "are planning"
-          },
-          {
-            "letter": "C",
-            "text": "had been planning"
-          },
-          {
-            "letter": "D",
-            "text": "have been planning"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Nhấn mạnh quá trình 2 tháng trước khi bị hủy \"was canceled\""
-      },
-      {
-        "num": "2",
-        "text": "Ms. Garcia _______ at the firm for ten years before she decided to start her own business.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "works"
-          },
-          {
-            "letter": "B",
-            "text": "worked"
-          },
-          {
-            "letter": "C",
-            "text": "has been working"
-          },
-          {
-            "letter": "D",
-            "text": "had been working"
-          }
-        ],
-        "answer": "D",
-        "explanation": "Nhấn mạnh quá trình 10 năm trước khi quyết định \"decided\""
-      },
-      {
-        "num": "3",
-        "text": "We _______ for the delivery all morning when they finally called to say it was delayed.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "wait"
-          },
-          {
-            "letter": "B",
-            "text": "have been waiting"
-          },
-          {
-            "letter": "C",
-            "text": "had been waiting"
-          },
-          {
-            "letter": "D",
-            "text": "are waiting"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Nhấn mạnh quá trình chờ đợi cả buổi sáng trước khi họ gọi \"called\""
-      },
-      {
-        "num": "4",
-        "text": "The engine _______ strange noises for several days before it completely broke down.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "made"
-          },
-          {
-            "letter": "B",
-            "text": "makes"
-          },
-          {
-            "letter": "C",
-            "text": "had been making"
-          },
-          {
-            "letter": "D",
-            "text": "has been making"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Nhấn mạnh quá trình liên tục vài ngày trước khi hỏng \"broke down\""
-      },
-      {
-        "num": "5",
-        "text": "How long _______ you _______ Spanish before you moved to Madrid?",
-        "options": [
-          {
-            "letter": "A",
-            "text": "have / been studying"
-          },
-          {
-            "letter": "B",
-            "text": "had / been studying"
-          },
-          {
-            "letter": "C",
-            "text": "did / study"
-          },
-          {
-            "letter": "D",
-            "text": "are / studying"
-          }
-        ],
-        "answer": "B",
-        "explanation": "Hỏi về khoảng thời gian liên tục trước một sự việc quá khứ \"moved\""
-      }
-    ]
-  },
-  "18": {
-    "title": "Tương lai đơn (Future Simple)",
-    "questions": [
-      {
-        "num": "1",
-        "text": "The CEO _______ the merger details at the press conference tomorrow.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "announce"
-          },
-          {
-            "letter": "B",
-            "text": "announced"
-          },
-          {
-            "letter": "C",
-            "text": "will announce"
-          },
-          {
-            "letter": "D",
-            "text": "has announced"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Dấu hiệu \"tomorrow\""
-      },
-      {
-        "num": "2",
-        "text": "If sales continue to rise, we _______ our annual target by November.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "reach"
-          },
-          {
-            "letter": "B",
-            "text": "reached"
-          },
-          {
-            "letter": "C",
-            "text": "will reach"
-          },
-          {
-            "letter": "D",
-            "text": "are reaching"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Câu điều kiện loại 1"
-      },
-      {
-        "num": "3",
-        "text": "I promise I _______ the document to your assistant by the end of the day.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "send"
-          },
-          {
-            "letter": "B",
-            "text": "sent"
-          },
-          {
-            "letter": "C",
-            "text": "will send"
-          },
-          {
-            "letter": "D",
-            "text": "sending"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Lời hứa \"I promise\""
-      },
-      {
-        "num": "4",
-        "text": "_______ the new policy apply to all remote workers next year?",
-        "options": [
-          {
-            "letter": "A",
-            "text": "Do"
-          },
-          {
-            "letter": "B",
-            "text": "Does"
-          },
-          {
-            "letter": "C",
-            "text": "Will"
-          },
-          {
-            "letter": "D",
-            "text": "Did"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Câu hỏi với dấu hiệu \"next year\""
-      },
-      {
-        "num": "5",
-        "text": "The weather forecast says it _______ heavily during the outdoor event.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "rains"
-          },
-          {
-            "letter": "B",
-            "text": "rained"
-          },
-          {
-            "letter": "C",
-            "text": "will rain"
-          },
-          {
-            "letter": "D",
-            "text": "raining"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Dự đoán không có bằng chứng hiện tại, chỉ dựa vào dự báo"
-      }
-    ]
-  },
-  "19": {
-    "title": "Tương lai gần (Near Future - \"be going to\")",
-    "questions": [
-      {
-        "num": "1",
-        "text": "Look at those dark clouds; it _______ heavily very soon.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "will rain"
-          },
-          {
-            "letter": "B",
-            "text": "is going to rain"
-          },
-          {
-            "letter": "C",
-            "text": "rains"
-          },
-          {
-            "letter": "D",
-            "text": "has rained"
-          }
-        ],
-        "answer": "B",
-        "explanation": "Dự đoán có căn cứ ở hiện tại: \"Look at those dark clouds\""
-      },
-      {
-        "num": "2",
-        "text": "The management _______ a new employee wellness program next month.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "is going to launch"
-          },
-          {
-            "letter": "B",
-            "text": "launched"
-          },
-          {
-            "letter": "C",
-            "text": "has launched"
-          },
-          {
-            "letter": "D",
-            "text": "launch"
-          }
-        ],
-        "answer": "A",
-        "explanation": "Kế hoạch đã được định sẵn của ban quản lý"
-      },
-      {
-        "num": "3",
-        "text": "I _______ the marketing conference in Berlin next week. I've already booked the tickets.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "attend"
-          },
-          {
-            "letter": "B",
-            "text": "attended"
-          },
-          {
-            "letter": "C",
-            "text": "am going to attend"
-          },
-          {
-            "letter": "D",
-            "text": "have attended"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Kế hoạch đã sắp xếp, có dẫn chứng \"I've already booked\""
-      },
-      {
-        "num": "4",
-        "text": "_______ they _______ the old office furniture next weekend?",
-        "options": [
-          {
-            "letter": "A",
-            "text": "Are / going to replace"
-          },
-          {
-            "letter": "B",
-            "text": "Will / replaced"
-          },
-          {
-            "letter": "C",
-            "text": "Do / replace"
-          },
-          {
-            "letter": "D",
-            "text": "Have / replaced"
-          }
-        ],
-        "answer": "A",
-        "explanation": "Hỏi về dự định trong tương lai"
-      },
-      {
-        "num": "5",
-        "text": "We _______ more staff to handle the busy holiday season.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "hire"
-          },
-          {
-            "letter": "B",
-            "text": "hired"
-          },
-          {
-            "letter": "C",
-            "text": "have hired"
-          },
-          {
-            "letter": "D",
-            "text": "are going to hire"
-          }
-        ],
-        "answer": "D",
-        "explanation": "Dự định rõ ràng để giải quyết vấn đề mùa cao điểm"
-      }
-    ]
-  },
-  "20": {
-    "title": "Tương lai tiếp diễn (Future Continuous)",
-    "questions": [
-      {
-        "num": "1",
-        "text": "At 10:00 AM tomorrow, I _______ a meeting with the regional directors.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "attend"
-          },
-          {
-            "letter": "B",
-            "text": "will be attending"
-          },
-          {
-            "letter": "C",
-            "text": "have attended"
-          },
-          {
-            "letter": "D",
-            "text": "attended"
-          }
-        ],
-        "answer": "B",
-        "explanation": "Hành động sẽ đang diễn ra tại một thời điểm xác định ở tương lai \"At 10:00 AM tomorrow\""
-      },
-      {
-        "num": "2",
-        "text": "This time next week, we _______ on a beautiful beach in Hawaii.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "relax"
-          },
-          {
-            "letter": "B",
-            "text": "relaxed"
-          },
-          {
-            "letter": "C",
-            "text": "will be relaxing"
-          },
-          {
-            "letter": "D",
-            "text": "are relaxing"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Dấu hiệu \"This time next week\""
-      },
-      {
-        "num": "3",
-        "text": "The maintenance crew _______ the building's exterior all day next Saturday.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "paints"
-          },
-          {
-            "letter": "B",
-            "text": "will be painting"
-          },
-          {
-            "letter": "C",
-            "text": "painted"
-          },
-          {
-            "letter": "D",
-            "text": "has painted"
-          }
-        ],
-        "answer": "B",
-        "explanation": "Hành động kéo dài suốt một khoảng thời gian cụ thể ở tương lai \"all day next Saturday\""
-      },
-      {
-        "num": "4",
-        "text": "_______ the team _______ the software upgrade during the midnight shift?",
-        "options": [
-          {
-            "letter": "A",
-            "text": "Will / be performing"
-          },
-          {
-            "letter": "B",
-            "text": "Do / perform"
-          },
-          {
-            "letter": "C",
-            "text": "Have / performed"
-          },
-          {
-            "letter": "D",
-            "text": "Did / perform"
-          }
-        ],
-        "answer": "A",
-        "explanation": "Hỏi về việc sẽ đang diễn ra trong khoảng thời gian \"midnight shift\""
-      },
-      {
-        "num": "5",
-        "text": "Please don't call me at 8 PM; I _______ dinner with a very important client.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "have"
-          },
-          {
-            "letter": "B",
-            "text": "had"
-          },
-          {
-            "letter": "C",
-            "text": "will be having"
-          },
-          {
-            "letter": "D",
-            "text": "has"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Lý do cho việc không thể làm gì tại một thời điểm tương lai vì lúc đó sẽ đang làm việc khác"
-      }
-    ]
-  },
-  "21": {
-    "title": "Tương lai hoàn thành (Future Perfect)",
-    "questions": [
-      {
-        "num": "1",
-        "text": "By the end of this month, we _______ all the phases of the construction project.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "complete"
-          },
-          {
-            "letter": "B",
-            "text": "completed"
-          },
-          {
-            "letter": "C",
-            "text": "will have completed"
-          },
-          {
-            "letter": "D",
-            "text": "have completed"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Dấu hiệu \"By the end of this month\""
-      },
-      {
-        "num": "2",
-        "text": "By the time you read this email, I _______ for Tokyo.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "will leave"
-          },
-          {
-            "letter": "B",
-            "text": "leave"
-          },
-          {
-            "letter": "C",
-            "text": "will have left"
-          },
-          {
-            "letter": "D",
-            "text": "left"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Hành động hoàn tất trước một thời điểm ở tương lai \"By the time you read\""
-      },
-      {
-        "num": "3",
-        "text": "The mechanic _______ repairing the company vehicle by 5 PM tomorrow.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "finish"
-          },
-          {
-            "letter": "B",
-            "text": "finishes"
-          },
-          {
-            "letter": "C",
-            "text": "will have finished"
-          },
-          {
-            "letter": "D",
-            "text": "finished"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Dấu hiệu \"by 5 PM tomorrow\""
-      },
-      {
-        "num": "4",
-        "text": "Within five years, our brand _______ a household name across the country.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "become"
-          },
-          {
-            "letter": "B",
-            "text": "became"
-          },
-          {
-            "letter": "C",
-            "text": "will have become"
-          },
-          {
-            "letter": "D",
-            "text": "is becoming"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Dấu hiệu khoảng thời gian trước tương lai \"Within five years\""
-      },
-      {
-        "num": "5",
-        "text": "_______ they _______ the new database by the time the auditors arrive?",
-        "options": [
-          {
-            "letter": "A",
-            "text": "Do / install"
-          },
-          {
-            "letter": "B",
-            "text": "Will / have installed"
-          },
-          {
-            "letter": "C",
-            "text": "Did / install"
-          },
-          {
-            "letter": "D",
-            "text": "Are / installing"
-          }
-        ],
-        "answer": "B",
-        "explanation": "Câu hỏi hoàn tất trước sự kiện tương lai \"by the time the auditors arrive\""
-      }
-    ]
-  },
-  "22": {
-    "title": "Tương lai hoàn thành tiếp diễn (Future Perfect Continuous)",
-    "questions": [
-      {
-        "num": "1",
-        "text": "By next December, Mr. Chen _______ for this company for exactly twenty years.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "will work"
-          },
-          {
-            "letter": "B",
-            "text": "works"
-          },
-          {
-            "letter": "C",
-            "text": "will have been working"
-          },
-          {
-            "letter": "D",
-            "text": "has worked"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Nhấn mạnh tính liên tục \"for exactly twenty years\" tính đến mốc \"By next December\""
-      },
-      {
-        "num": "2",
-        "text": "By the time the marathon ends, the athletes _______ for over four hours.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "run"
-          },
-          {
-            "letter": "B",
-            "text": "will run"
-          },
-          {
-            "letter": "C",
-            "text": "ran"
-          },
-          {
-            "letter": "D",
-            "text": "will have been running"
-          }
-        ],
-        "answer": "D",
-        "explanation": "Nhấn mạnh tính liên tục \"for over four hours\" tính đến mốc \"ends\""
-      },
-      {
-        "num": "3",
-        "text": "Before the new CEO takes over, the interim team _______ the department for six months.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "will manage"
-          },
-          {
-            "letter": "B",
-            "text": "will have been managing"
-          },
-          {
-            "letter": "C",
-            "text": "managed"
-          },
-          {
-            "letter": "D",
-            "text": "manages"
-          }
-        ],
-        "answer": "B",
-        "explanation": "Nhấn mạnh tính liên tục \"for six months\" tính đến mốc \"takes over\""
-      },
-      {
-        "num": "4",
-        "text": "At 5 PM, I _______ on this financial report for eight straight hours.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "work"
-          },
-          {
-            "letter": "B",
-            "text": "worked"
-          },
-          {
-            "letter": "C",
-            "text": "will have been working"
-          },
-          {
-            "letter": "D",
-            "text": "will work"
-          }
-        ],
-        "answer": "C",
-        "explanation": "Nhấn mạnh sự liên tục \"for eight straight hours\" tính đến mốc \"At 5 PM\""
-      },
-      {
-        "num": "5",
-        "text": "By the end of the year, we _______ English together for three semesters.",
-        "options": [
-          {
-            "letter": "A",
-            "text": "study"
-          },
-          {
-            "letter": "B",
-            "text": "will have been studying"
-          },
-          {
-            "letter": "C",
-            "text": "studied"
-          },
-          {
-            "letter": "D",
-            "text": "have studied"
-          }
-        ],
-        "answer": "B",
-        "explanation": "Nhấn mạnh sự đồng hành \"for three semesters\" tính đến \"By the end of the year\""
-      }
-    ]
-  }
-});
+    "10": {
+      "title": "Hiện tại đơn (Present Simple)",
+      "questions": [
+        {
+          "num": "1",
+          "text": "The factory _______ its operations at 8:00 AM every morning.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "start"
+            },
+            {
+              "letter": "B",
+              "text": "starts"
+            },
+            {
+              "letter": "C",
+              "text": "is starting"
+            },
+            {
+              "letter": "D",
+              "text": "started"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chủ ngữ \"The factory\" số ít + \"every morning\""
+        },
+        {
+          "num": "2",
+          "text": "Mr. Smith normally _______ public transportation to commute to the office.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "take"
+            },
+            {
+              "letter": "B",
+              "text": "takes"
+            },
+            {
+              "letter": "C",
+              "text": "taking"
+            },
+            {
+              "letter": "D",
+              "text": "is taking"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chủ ngữ \"Mr. Smith\" số ít + trạng từ \"normally\""
+        },
+        {
+          "num": "3",
+          "text": "The quarterly report always _______ a detailed summary of our financial status.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "includes"
+            },
+            {
+              "letter": "B",
+              "text": "include"
+            },
+            {
+              "letter": "C",
+              "text": "included"
+            },
+            {
+              "letter": "D",
+              "text": "including"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Chủ ngữ \"The quarterly report\" số ít + trạng từ \"always\""
+        },
+        {
+          "num": "4",
+          "text": "_______ the new software system require a high-speed internet connection?",
+          "options": [
+            {
+              "letter": "A",
+              "text": "Do"
+            },
+            {
+              "letter": "B",
+              "text": "Does"
+            },
+            {
+              "letter": "C",
+              "text": "Is"
+            },
+            {
+              "letter": "D",
+              "text": "Has"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Câu hỏi với chủ ngữ \"the new software system\" số ít"
+        },
+        {
+          "num": "5",
+          "text": "Our delivery personnel rarely _______ packages on weekends.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "delivers"
+            },
+            {
+              "letter": "B",
+              "text": "deliver"
+            },
+            {
+              "letter": "C",
+              "text": "delivered"
+            },
+            {
+              "letter": "D",
+              "text": "delivering"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Chủ ngữ \"personnel\" là danh từ tập hợp mang nghĩa số nhiều (nhân viên) + \"rarely\""
+        }
+      ]
+    },
+    "11": {
+      "title": "Hiện tại tiếp diễn (Present Continuous)",
+      "questions": [
+        {
+          "num": "1",
+          "text": "The maintenance team _______ the air conditioning units on the third floor right now.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "repair"
+            },
+            {
+              "letter": "B",
+              "text": "repairs"
+            },
+            {
+              "letter": "C",
+              "text": "is repairing"
+            },
+            {
+              "letter": "D",
+              "text": "are repairing"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chủ ngữ \"The maintenance team\" số ít trong TOEIC Mỹ + \"right now\""
+        },
+        {
+          "num": "2",
+          "text": "We _______ a new marketing strategy to attract younger customers this month.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "develop"
+            },
+            {
+              "letter": "B",
+              "text": "develops"
+            },
+            {
+              "letter": "C",
+              "text": "are developing"
+            },
+            {
+              "letter": "D",
+              "text": "developed"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chủ ngữ \"We\" số nhiều + \"this month\" chỉ kế hoạch/hành động tạm thời"
+        },
+        {
+          "num": "3",
+          "text": "Please be quiet; the CEO _______ a video conference with the overseas clients.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "has"
+            },
+            {
+              "letter": "B",
+              "text": "have"
+            },
+            {
+              "letter": "C",
+              "text": "is having"
+            },
+            {
+              "letter": "D",
+              "text": "had"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Hành động đang diễn ra tại thời điểm nói: \"Please be quiet\""
+        },
+        {
+          "num": "4",
+          "text": "Currently, the local government _______ a new bridge to reduce traffic congestion.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "build"
+            },
+            {
+              "letter": "B",
+              "text": "built"
+            },
+            {
+              "letter": "C",
+              "text": "are building"
+            },
+            {
+              "letter": "D",
+              "text": "is building"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Chủ ngữ \"the local government\" số ít + \"Currently\""
+        },
+        {
+          "num": "5",
+          "text": "_______ Ms. Taylor _______ a training session in the main conference room at the moment?",
+          "options": [
+            {
+              "letter": "A",
+              "text": "Is / conducting"
+            },
+            {
+              "letter": "B",
+              "text": "Does / conduct"
+            },
+            {
+              "letter": "C",
+              "text": "Are / conducting"
+            },
+            {
+              "letter": "D",
+              "text": "Has / conducted"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Câu hỏi đang diễn ra với \"Ms. Taylor\" số ít + \"at the moment\""
+        }
+      ]
+    },
+    "12": {
+      "title": "Hiện tại hoàn thành (Present Perfect)",
+      "questions": [
+        {
+          "num": "1",
+          "text": "Our company _______ three new branches in Europe so far this year.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "opened"
+            },
+            {
+              "letter": "B",
+              "text": "opens"
+            },
+            {
+              "letter": "C",
+              "text": "has opened"
+            },
+            {
+              "letter": "D",
+              "text": "have opened"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chủ ngữ \"Our company\" số ít + \"so far this year\""
+        },
+        {
+          "num": "2",
+          "text": "I _______ the final budget report to the board of directors already.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "submit"
+            },
+            {
+              "letter": "B",
+              "text": "submitted"
+            },
+            {
+              "letter": "C",
+              "text": "have submitted"
+            },
+            {
+              "letter": "D",
+              "text": "has submitted"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chủ ngữ \"I\" + \"already\""
+        },
+        {
+          "num": "3",
+          "text": "The marketing manager _______ highly successful in boosting our online sales since last quarter.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "is"
+            },
+            {
+              "letter": "B",
+              "text": "was"
+            },
+            {
+              "letter": "C",
+              "text": "has been"
+            },
+            {
+              "letter": "D",
+              "text": "have been"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chủ ngữ \"The marketing manager\" số ít + \"since last quarter\""
+        },
+        {
+          "num": "4",
+          "text": "We _______ a lot of positive feedback from our customers recently.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "receive"
+            },
+            {
+              "letter": "B",
+              "text": "are receiving"
+            },
+            {
+              "letter": "C",
+              "text": "has received"
+            },
+            {
+              "letter": "D",
+              "text": "have received"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Chủ ngữ \"We\" + \"recently\""
+        },
+        {
+          "num": "5",
+          "text": "_______ you _______ the updated policy handbook yet?",
+          "options": [
+            {
+              "letter": "A",
+              "text": "Did / read"
+            },
+            {
+              "letter": "B",
+              "text": "Have / read"
+            },
+            {
+              "letter": "C",
+              "text": "Are / reading"
+            },
+            {
+              "letter": "D",
+              "text": "Has / read"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Câu hỏi trải nghiệm/hoàn tất với chủ ngữ \"you\" + \"yet\""
+        }
+      ]
+    },
+    "13": {
+      "title": "Hiện tại hoàn thành tiếp diễn (Present Perfect Continuous)",
+      "questions": [
+        {
+          "num": "1",
+          "text": "The IT department _______ the server issues for over three hours.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "fixed"
+            },
+            {
+              "letter": "B",
+              "text": "has fixed"
+            },
+            {
+              "letter": "C",
+              "text": "has been fixing"
+            },
+            {
+              "letter": "D",
+              "text": "have been fixing"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chủ ngữ \"The IT department\" số ít + \"for over three hours\" nhấn mạnh quá trình"
+        },
+        {
+          "num": "2",
+          "text": "We _______ hard on this joint venture since the beginning of the year.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "work"
+            },
+            {
+              "letter": "B",
+              "text": "worked"
+            },
+            {
+              "letter": "C",
+              "text": "have been working"
+            },
+            {
+              "letter": "D",
+              "text": "has been working"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chủ ngữ \"We\" + \"since the beginning...\" nhấn mạnh sự liên tục"
+        },
+        {
+          "num": "3",
+          "text": "Mr. Jenkins _______ about the poor internet connection all morning.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "complains"
+            },
+            {
+              "letter": "B",
+              "text": "complained"
+            },
+            {
+              "letter": "C",
+              "text": "has been complaining"
+            },
+            {
+              "letter": "D",
+              "text": "have been complaining"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Chủ ngữ \"Mr. Jenkins\" số ít + \"all morning\""
+        },
+        {
+          "num": "4",
+          "text": "They _______ for the keynote speaker to arrive for more than an hour.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "wait"
+            },
+            {
+              "letter": "B",
+              "text": "are waiting"
+            },
+            {
+              "letter": "C",
+              "text": "has been waiting"
+            },
+            {
+              "letter": "D",
+              "text": "have been waiting"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Chủ ngữ \"They\" + \"for more than an hour\""
+        },
+        {
+          "num": "5",
+          "text": "How long _______ she _______ as the lead developer for this project?",
+          "options": [
+            {
+              "letter": "A",
+              "text": "did / serve"
+            },
+            {
+              "letter": "B",
+              "text": "is / serving"
+            },
+            {
+              "letter": "C",
+              "text": "has / been serving"
+            },
+            {
+              "letter": "D",
+              "text": "have / been serving"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Câu hỏi \"How long\" với chủ ngữ \"she\""
+        }
+      ]
+    },
+    "14": {
+      "title": "Quá khứ đơn (Past Simple)",
+      "questions": [
+        {
+          "num": "1",
+          "text": "The board of directors _______ the proposed budget during yesterday's meeting.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "approve"
+            },
+            {
+              "letter": "B",
+              "text": "approved"
+            },
+            {
+              "letter": "C",
+              "text": "approves"
+            },
+            {
+              "letter": "D",
+              "text": "has approved"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Dấu hiệu \"yesterday\""
+        },
+        {
+          "num": "2",
+          "text": "Ms. White _______ the company as a junior accountant five years ago.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "joins"
+            },
+            {
+              "letter": "B",
+              "text": "joined"
+            },
+            {
+              "letter": "C",
+              "text": "has joined"
+            },
+            {
+              "letter": "D",
+              "text": "is joining"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Dấu hiệu \"five years ago\""
+        },
+        {
+          "num": "3",
+          "text": "We _______ a significant drop in raw material prices last month.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "notice"
+            },
+            {
+              "letter": "B",
+              "text": "noticed"
+            },
+            {
+              "letter": "C",
+              "text": "have noticed"
+            },
+            {
+              "letter": "D",
+              "text": "notices"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Dấu hiệu \"last month\""
+        },
+        {
+          "num": "4",
+          "text": "_______ the client sign the contract before leaving the office?",
+          "options": [
+            {
+              "letter": "A",
+              "text": "Do"
+            },
+            {
+              "letter": "B",
+              "text": "Does"
+            },
+            {
+              "letter": "C",
+              "text": "Did"
+            },
+            {
+              "letter": "D",
+              "text": "Was"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Câu hỏi ở quá khứ do hành động đã xảy ra \"before leaving\""
+        },
+        {
+          "num": "5",
+          "text": "The delivery truck _______ down on its way to the warehouse on Monday.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "break"
+            },
+            {
+              "letter": "B",
+              "text": "breaks"
+            },
+            {
+              "letter": "C",
+              "text": "broke"
+            },
+            {
+              "letter": "D",
+              "text": "broken"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Dấu hiệu \"on Monday\" trong ngữ cảnh kể lại sự việc đã qua"
+        }
+      ]
+    },
+    "15": {
+      "title": "Quá khứ tiếp diễn (Past Continuous)",
+      "questions": [
+        {
+          "num": "1",
+          "text": "I _______ the monthly report when the power went out unexpectedly.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "type"
+            },
+            {
+              "letter": "B",
+              "text": "typed"
+            },
+            {
+              "letter": "C",
+              "text": "was typing"
+            },
+            {
+              "letter": "D",
+              "text": "am typing"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Hành động đang diễn ra trong quá khứ thì bị hành động khác \"went out\" xen vào"
+        },
+        {
+          "num": "2",
+          "text": "While the manager _______ the presentation, the fire alarm rang.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "gave"
+            },
+            {
+              "letter": "B",
+              "text": "was giving"
+            },
+            {
+              "letter": "C",
+              "text": "is giving"
+            },
+            {
+              "letter": "D",
+              "text": "gives"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Tương tự câu 1, hành động đang diễn ra đi sau \"While\""
+        },
+        {
+          "num": "3",
+          "text": "They _______ the new layout of the office at 10 AM yesterday.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "discuss"
+            },
+            {
+              "letter": "B",
+              "text": "discussed"
+            },
+            {
+              "letter": "C",
+              "text": "was discussing"
+            },
+            {
+              "letter": "D",
+              "text": "were discussing"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Hành động xảy ra tại thời điểm xác định trong quá khứ \"at 10 AM yesterday\" + \"They\""
+        },
+        {
+          "num": "4",
+          "text": "What _______ you _______ when the client called to cancel the order?",
+          "options": [
+            {
+              "letter": "A",
+              "text": "are / doing"
+            },
+            {
+              "letter": "B",
+              "text": "did / do"
+            },
+            {
+              "letter": "C",
+              "text": "were / doing"
+            },
+            {
+              "letter": "D",
+              "text": "have / done"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Hỏi về hành động đang diễn ra khi sự việc khác xen vào \"when the client called\""
+        },
+        {
+          "num": "5",
+          "text": "The technicians _______ the software system while we were having our lunch break.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "upgraded"
+            },
+            {
+              "letter": "B",
+              "text": "upgrade"
+            },
+            {
+              "letter": "C",
+              "text": "were upgrading"
+            },
+            {
+              "letter": "D",
+              "text": "was upgrading"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Hai hành động diễn ra song song trong quá khứ với chủ ngữ số nhiều \"The technicians\""
+        }
+      ]
+    },
+    "16": {
+      "title": "Quá khứ hoàn thành (Past Perfect)",
+      "questions": [
+        {
+          "num": "1",
+          "text": "By the time the supervisor arrived, we _______ the inventory check.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "finish"
+            },
+            {
+              "letter": "B",
+              "text": "finished"
+            },
+            {
+              "letter": "C",
+              "text": "have finished"
+            },
+            {
+              "letter": "D",
+              "text": "had finished"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Hành động xảy ra và hoàn tất trước một hành động khác trong quá khứ \"arrived\""
+        },
+        {
+          "num": "2",
+          "text": "The flight _______ already _______ by the time Mr. Brown reached the airport.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "has / departed"
+            },
+            {
+              "letter": "B",
+              "text": "had / departed"
+            },
+            {
+              "letter": "C",
+              "text": "is / departing"
+            },
+            {
+              "letter": "D",
+              "text": "did / depart"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Tương tự câu 1, chuyến bay đi trước khi ông Brown tới \"reached\""
+        },
+        {
+          "num": "3",
+          "text": "She realized that she _______ her identification badge at home.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "leaves"
+            },
+            {
+              "letter": "B",
+              "text": "left"
+            },
+            {
+              "letter": "C",
+              "text": "had left"
+            },
+            {
+              "letter": "D",
+              "text": "has left"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Hành động để quên xảy ra trước hành động nhận ra \"realized\""
+        },
+        {
+          "num": "4",
+          "text": "The company _______ rapidly before the economic crisis hit the region.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "grows"
+            },
+            {
+              "letter": "B",
+              "text": "grew"
+            },
+            {
+              "letter": "C",
+              "text": "has grown"
+            },
+            {
+              "letter": "D",
+              "text": "had grown"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Hành động phát triển xảy ra trước khủng hoảng \"hit\""
+        },
+        {
+          "num": "5",
+          "text": "_______ they _______ the software before they launched the product?",
+          "options": [
+            {
+              "letter": "A",
+              "text": "Have / tested"
+            },
+            {
+              "letter": "B",
+              "text": "Had / tested"
+            },
+            {
+              "letter": "C",
+              "text": "Did / test"
+            },
+            {
+              "letter": "D",
+              "text": "Do / test"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Câu hỏi về việc xảy ra trước một mốc quá khứ \"before they launched\""
+        }
+      ]
+    },
+    "17": {
+      "title": "Quá khứ hoàn thành tiếp diễn (Past Perfect Continuous)",
+      "questions": [
+        {
+          "num": "1",
+          "text": "They _______ the new project for two months before it was suddenly canceled.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "plan"
+            },
+            {
+              "letter": "B",
+              "text": "are planning"
+            },
+            {
+              "letter": "C",
+              "text": "had been planning"
+            },
+            {
+              "letter": "D",
+              "text": "have been planning"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Nhấn mạnh quá trình 2 tháng trước khi bị hủy \"was canceled\""
+        },
+        {
+          "num": "2",
+          "text": "Ms. Garcia _______ at the firm for ten years before she decided to start her own business.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "works"
+            },
+            {
+              "letter": "B",
+              "text": "worked"
+            },
+            {
+              "letter": "C",
+              "text": "has been working"
+            },
+            {
+              "letter": "D",
+              "text": "had been working"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Nhấn mạnh quá trình 10 năm trước khi quyết định \"decided\""
+        },
+        {
+          "num": "3",
+          "text": "We _______ for the delivery all morning when they finally called to say it was delayed.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "wait"
+            },
+            {
+              "letter": "B",
+              "text": "have been waiting"
+            },
+            {
+              "letter": "C",
+              "text": "had been waiting"
+            },
+            {
+              "letter": "D",
+              "text": "are waiting"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Nhấn mạnh quá trình chờ đợi cả buổi sáng trước khi họ gọi \"called\""
+        },
+        {
+          "num": "4",
+          "text": "The engine _______ strange noises for several days before it completely broke down.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "made"
+            },
+            {
+              "letter": "B",
+              "text": "makes"
+            },
+            {
+              "letter": "C",
+              "text": "had been making"
+            },
+            {
+              "letter": "D",
+              "text": "has been making"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Nhấn mạnh quá trình liên tục vài ngày trước khi hỏng \"broke down\""
+        },
+        {
+          "num": "5",
+          "text": "How long _______ you _______ Spanish before you moved to Madrid?",
+          "options": [
+            {
+              "letter": "A",
+              "text": "have / been studying"
+            },
+            {
+              "letter": "B",
+              "text": "had / been studying"
+            },
+            {
+              "letter": "C",
+              "text": "did / study"
+            },
+            {
+              "letter": "D",
+              "text": "are / studying"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Hỏi về khoảng thời gian liên tục trước một sự việc quá khứ \"moved\""
+        }
+      ]
+    },
+    "18": {
+      "title": "Tương lai đơn (Future Simple)",
+      "questions": [
+        {
+          "num": "1",
+          "text": "The CEO _______ the merger details at the press conference tomorrow.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "announce"
+            },
+            {
+              "letter": "B",
+              "text": "announced"
+            },
+            {
+              "letter": "C",
+              "text": "will announce"
+            },
+            {
+              "letter": "D",
+              "text": "has announced"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Dấu hiệu \"tomorrow\""
+        },
+        {
+          "num": "2",
+          "text": "If sales continue to rise, we _______ our annual target by November.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "reach"
+            },
+            {
+              "letter": "B",
+              "text": "reached"
+            },
+            {
+              "letter": "C",
+              "text": "will reach"
+            },
+            {
+              "letter": "D",
+              "text": "are reaching"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Câu điều kiện loại 1"
+        },
+        {
+          "num": "3",
+          "text": "I promise I _______ the document to your assistant by the end of the day.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "send"
+            },
+            {
+              "letter": "B",
+              "text": "sent"
+            },
+            {
+              "letter": "C",
+              "text": "will send"
+            },
+            {
+              "letter": "D",
+              "text": "sending"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Lời hứa \"I promise\""
+        },
+        {
+          "num": "4",
+          "text": "_______ the new policy apply to all remote workers next year?",
+          "options": [
+            {
+              "letter": "A",
+              "text": "Do"
+            },
+            {
+              "letter": "B",
+              "text": "Does"
+            },
+            {
+              "letter": "C",
+              "text": "Will"
+            },
+            {
+              "letter": "D",
+              "text": "Did"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Câu hỏi với dấu hiệu \"next year\""
+        },
+        {
+          "num": "5",
+          "text": "The weather forecast says it _______ heavily during the outdoor event.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "rains"
+            },
+            {
+              "letter": "B",
+              "text": "rained"
+            },
+            {
+              "letter": "C",
+              "text": "will rain"
+            },
+            {
+              "letter": "D",
+              "text": "raining"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Dự đoán không có bằng chứng hiện tại, chỉ dựa vào dự báo"
+        }
+      ]
+    },
+    "19": {
+      "title": "Tương lai gần (Near Future - \"be going to\")",
+      "questions": [
+        {
+          "num": "1",
+          "text": "Look at those dark clouds; it _______ heavily very soon.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "will rain"
+            },
+            {
+              "letter": "B",
+              "text": "is going to rain"
+            },
+            {
+              "letter": "C",
+              "text": "rains"
+            },
+            {
+              "letter": "D",
+              "text": "has rained"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Dự đoán có căn cứ ở hiện tại: \"Look at those dark clouds\""
+        },
+        {
+          "num": "2",
+          "text": "The management _______ a new employee wellness program next month.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "is going to launch"
+            },
+            {
+              "letter": "B",
+              "text": "launched"
+            },
+            {
+              "letter": "C",
+              "text": "has launched"
+            },
+            {
+              "letter": "D",
+              "text": "launch"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Kế hoạch đã được định sẵn của ban quản lý"
+        },
+        {
+          "num": "3",
+          "text": "I _______ the marketing conference in Berlin next week. I've already booked the tickets.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "attend"
+            },
+            {
+              "letter": "B",
+              "text": "attended"
+            },
+            {
+              "letter": "C",
+              "text": "am going to attend"
+            },
+            {
+              "letter": "D",
+              "text": "have attended"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Kế hoạch đã sắp xếp, có dẫn chứng \"I've already booked\""
+        },
+        {
+          "num": "4",
+          "text": "_______ they _______ the old office furniture next weekend?",
+          "options": [
+            {
+              "letter": "A",
+              "text": "Are / going to replace"
+            },
+            {
+              "letter": "B",
+              "text": "Will / replaced"
+            },
+            {
+              "letter": "C",
+              "text": "Do / replace"
+            },
+            {
+              "letter": "D",
+              "text": "Have / replaced"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Hỏi về dự định trong tương lai"
+        },
+        {
+          "num": "5",
+          "text": "We _______ more staff to handle the busy holiday season.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "hire"
+            },
+            {
+              "letter": "B",
+              "text": "hired"
+            },
+            {
+              "letter": "C",
+              "text": "have hired"
+            },
+            {
+              "letter": "D",
+              "text": "are going to hire"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Dự định rõ ràng để giải quyết vấn đề mùa cao điểm"
+        }
+      ]
+    },
+    "20": {
+      "title": "Tương lai tiếp diễn (Future Continuous)",
+      "questions": [
+        {
+          "num": "1",
+          "text": "At 10:00 AM tomorrow, I _______ a meeting with the regional directors.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "attend"
+            },
+            {
+              "letter": "B",
+              "text": "will be attending"
+            },
+            {
+              "letter": "C",
+              "text": "have attended"
+            },
+            {
+              "letter": "D",
+              "text": "attended"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Hành động sẽ đang diễn ra tại một thời điểm xác định ở tương lai \"At 10:00 AM tomorrow\""
+        },
+        {
+          "num": "2",
+          "text": "This time next week, we _______ on a beautiful beach in Hawaii.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "relax"
+            },
+            {
+              "letter": "B",
+              "text": "relaxed"
+            },
+            {
+              "letter": "C",
+              "text": "will be relaxing"
+            },
+            {
+              "letter": "D",
+              "text": "are relaxing"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Dấu hiệu \"This time next week\""
+        },
+        {
+          "num": "3",
+          "text": "The maintenance crew _______ the building's exterior all day next Saturday.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "paints"
+            },
+            {
+              "letter": "B",
+              "text": "will be painting"
+            },
+            {
+              "letter": "C",
+              "text": "painted"
+            },
+            {
+              "letter": "D",
+              "text": "has painted"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Hành động kéo dài suốt một khoảng thời gian cụ thể ở tương lai \"all day next Saturday\""
+        },
+        {
+          "num": "4",
+          "text": "_______ the team _______ the software upgrade during the midnight shift?",
+          "options": [
+            {
+              "letter": "A",
+              "text": "Will / be performing"
+            },
+            {
+              "letter": "B",
+              "text": "Do / perform"
+            },
+            {
+              "letter": "C",
+              "text": "Have / performed"
+            },
+            {
+              "letter": "D",
+              "text": "Did / perform"
+            }
+          ],
+          "answer": "A",
+          "explanation": "Hỏi về việc sẽ đang diễn ra trong khoảng thời gian \"midnight shift\""
+        },
+        {
+          "num": "5",
+          "text": "Please don't call me at 8 PM; I _______ dinner with a very important client.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "have"
+            },
+            {
+              "letter": "B",
+              "text": "had"
+            },
+            {
+              "letter": "C",
+              "text": "will be having"
+            },
+            {
+              "letter": "D",
+              "text": "has"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Lý do cho việc không thể làm gì tại một thời điểm tương lai vì lúc đó sẽ đang làm việc khác"
+        }
+      ]
+    },
+    "21": {
+      "title": "Tương lai hoàn thành (Future Perfect)",
+      "questions": [
+        {
+          "num": "1",
+          "text": "By the end of this month, we _______ all the phases of the construction project.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "complete"
+            },
+            {
+              "letter": "B",
+              "text": "completed"
+            },
+            {
+              "letter": "C",
+              "text": "will have completed"
+            },
+            {
+              "letter": "D",
+              "text": "have completed"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Dấu hiệu \"By the end of this month\""
+        },
+        {
+          "num": "2",
+          "text": "By the time you read this email, I _______ for Tokyo.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "will leave"
+            },
+            {
+              "letter": "B",
+              "text": "leave"
+            },
+            {
+              "letter": "C",
+              "text": "will have left"
+            },
+            {
+              "letter": "D",
+              "text": "left"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Hành động hoàn tất trước một thời điểm ở tương lai \"By the time you read\""
+        },
+        {
+          "num": "3",
+          "text": "The mechanic _______ repairing the company vehicle by 5 PM tomorrow.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "finish"
+            },
+            {
+              "letter": "B",
+              "text": "finishes"
+            },
+            {
+              "letter": "C",
+              "text": "will have finished"
+            },
+            {
+              "letter": "D",
+              "text": "finished"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Dấu hiệu \"by 5 PM tomorrow\""
+        },
+        {
+          "num": "4",
+          "text": "Within five years, our brand _______ a household name across the country.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "become"
+            },
+            {
+              "letter": "B",
+              "text": "became"
+            },
+            {
+              "letter": "C",
+              "text": "will have become"
+            },
+            {
+              "letter": "D",
+              "text": "is becoming"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Dấu hiệu khoảng thời gian trước tương lai \"Within five years\""
+        },
+        {
+          "num": "5",
+          "text": "_______ they _______ the new database by the time the auditors arrive?",
+          "options": [
+            {
+              "letter": "A",
+              "text": "Do / install"
+            },
+            {
+              "letter": "B",
+              "text": "Will / have installed"
+            },
+            {
+              "letter": "C",
+              "text": "Did / install"
+            },
+            {
+              "letter": "D",
+              "text": "Are / installing"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Câu hỏi hoàn tất trước sự kiện tương lai \"by the time the auditors arrive\""
+        }
+      ]
+    },
+    "22": {
+      "title": "Tương lai hoàn thành tiếp diễn (Future Perfect Continuous)",
+      "questions": [
+        {
+          "num": "1",
+          "text": "By next December, Mr. Chen _______ for this company for exactly twenty years.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "will work"
+            },
+            {
+              "letter": "B",
+              "text": "works"
+            },
+            {
+              "letter": "C",
+              "text": "will have been working"
+            },
+            {
+              "letter": "D",
+              "text": "has worked"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Nhấn mạnh tính liên tục \"for exactly twenty years\" tính đến mốc \"By next December\""
+        },
+        {
+          "num": "2",
+          "text": "By the time the marathon ends, the athletes _______ for over four hours.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "run"
+            },
+            {
+              "letter": "B",
+              "text": "will run"
+            },
+            {
+              "letter": "C",
+              "text": "ran"
+            },
+            {
+              "letter": "D",
+              "text": "will have been running"
+            }
+          ],
+          "answer": "D",
+          "explanation": "Nhấn mạnh tính liên tục \"for over four hours\" tính đến mốc \"ends\""
+        },
+        {
+          "num": "3",
+          "text": "Before the new CEO takes over, the interim team _______ the department for six months.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "will manage"
+            },
+            {
+              "letter": "B",
+              "text": "will have been managing"
+            },
+            {
+              "letter": "C",
+              "text": "managed"
+            },
+            {
+              "letter": "D",
+              "text": "manages"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Nhấn mạnh tính liên tục \"for six months\" tính đến mốc \"takes over\""
+        },
+        {
+          "num": "4",
+          "text": "At 5 PM, I _______ on this financial report for eight straight hours.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "work"
+            },
+            {
+              "letter": "B",
+              "text": "worked"
+            },
+            {
+              "letter": "C",
+              "text": "will have been working"
+            },
+            {
+              "letter": "D",
+              "text": "will work"
+            }
+          ],
+          "answer": "C",
+          "explanation": "Nhấn mạnh sự liên tục \"for eight straight hours\" tính đến mốc \"At 5 PM\""
+        },
+        {
+          "num": "5",
+          "text": "By the end of the year, we _______ English together for three semesters.",
+          "options": [
+            {
+              "letter": "A",
+              "text": "study"
+            },
+            {
+              "letter": "B",
+              "text": "will have been studying"
+            },
+            {
+              "letter": "C",
+              "text": "studied"
+            },
+            {
+              "letter": "D",
+              "text": "have studied"
+            }
+          ],
+          "answer": "B",
+          "explanation": "Nhấn mạnh sự đồng hành \"for three semesters\" tính đến \"By the end of the year\""
+        }
+      ]
+    }
+  });
 
   var savedAnswers = {};
   var currentSecKey = null;
@@ -4730,7 +4730,7 @@
 
   function updatePaginationUI(total) {
     var questions = modalBody.querySelectorAll('.quiz-question');
-    questions.forEach(function(q, i) {
+    questions.forEach(function (q, i) {
       if (i === currentQuestionIndex) {
         q.classList.add('is-active');
       } else {
@@ -4741,7 +4741,7 @@
     var prevBtn = document.getElementById('quizPrevBtn');
     var nextBtn = document.getElementById('quizNextBtn');
     var progress = document.getElementById('quizProgress');
-    
+
     if (progress) {
       progress.textContent = (currentQuestionIndex + 1) + ' / ' + total;
     }
@@ -4771,25 +4771,25 @@
       html += '<div class="quiz-questions-container">';
       data.questions.forEach(function (q, i) {
         var answeredLetter = savedAnswers[secKey][i];
-        
+
         var qClass = i === 0 ? 'quiz-question is-active' : 'quiz-question';
         html += '<div class="' + qClass + '" id="quiz-q-' + i + '">';
         html += '<div class="quiz-qtext">' + q.num + '. ' + q.text + '</div>';
         html += '<div class="quiz-options">';
-        
+
         q.options.forEach(function (opt) {
           var btnClass = 'quiz-option';
           var disabled = answeredLetter ? ' disabled' : '';
-          
+
           if (answeredLetter) {
             if (opt.letter === q.answer) {
-               if (answeredLetter === opt.letter) {
-                 btnClass += ' is-selected is-correct';
-               } else {
-                 btnClass += ' is-correct-reveal';
-               }
+              if (answeredLetter === opt.letter) {
+                btnClass += ' is-selected is-correct';
+              } else {
+                btnClass += ' is-correct-reveal';
+              }
             } else if (answeredLetter === opt.letter) {
-               btnClass += ' is-selected is-wrong';
+              btnClass += ' is-selected is-wrong';
             }
           }
 
@@ -4818,9 +4818,9 @@
 
       // Add navigation
       html += '<div class="quiz-nav">';
-      html += '<button id="quizPrevBtn" class="btn btn--ghost" disabled>Quay lại</button>';
+      html += '<button id="quizPrevBtn" class="btn btn--primary" aria-label="Quay lại"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/></svg></button>';
       html += '<span id="quizProgress">1 / ' + data.questions.length + '</span>';
-      html += '<button id="quizNextBtn" class="btn btn--primary">Tiếp theo</button>';
+      html += '<button id="quizNextBtn" class="btn btn--primary" aria-label="Tiếp theo"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg></button>';
       html += '</div>';
 
       modalBody.innerHTML = html;
@@ -4869,16 +4869,16 @@
       var nextBtn = document.getElementById('quizNextBtn');
 
       if (prevBtn) {
-        prevBtn.addEventListener('click', function() {
+        prevBtn.addEventListener('click', function () {
           if (currentQuestionIndex > 0) {
             currentQuestionIndex--;
             updatePaginationUI(data.questions.length);
           }
         });
       }
-      
+
       if (nextBtn) {
-        nextBtn.addEventListener('click', function() {
+        nextBtn.addEventListener('click', function () {
           if (currentQuestionIndex < data.questions.length - 1) {
             currentQuestionIndex++;
             updatePaginationUI(data.questions.length);
